@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="album" namespace="/album" extends="json-default">
+	
+		<action name="album" class="albumShowAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		<action name="article" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique</result>
+		</action>
+		<action name="critique" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/album.jsp</result>
+		</action>
+		
+		<action name="album_detail" class="albumDetailAction">
+			<result name="success" type="chain">article1</result>
+		</action>
+		<action name="article1" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique1</result>
+		</action>
+		<action name="critique1" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/album_detail.jsp</result>
+		</action>
+	</package>
+
+</struts>

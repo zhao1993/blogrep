@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="critique" namespace="/critique" extends="json-default">
+		<action name="critique" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">article</result>
+		</action>
+		<action name="article" class="messageShowAction">
+			<result name="success">/WEB-INF/jsp/critique.jsp</result>
+		</action>
+		
+		<action name="critique_add" class="critiqueAddAction">
+			<result name="success" type="chain">critique</result>
+		</action>
+	</package>
+
+</struts>

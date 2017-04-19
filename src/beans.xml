@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	 <context:annotation-config/>
+	 
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+      <property name="driverClass" value="org.gjt.mm.mysql.Driver"/>
+      <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=UTF-8"/>
+      <property name="user" value="root"/>
+      <property name="password" value="123"/>
+      <property name="initialPoolSize"><value>10</value></property>
+      <property name="minPoolSize"><value>5</value></property>
+      <property name="maxPoolSize"><value>500</value></property>
+      <property name="acquireIncrement"><value>5</value></property>
+      <property name="maxIdleTime"><value>10</value></property>
+      <property name="maxStatements"><value>0</value></property>
+      <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->    
+        <property name="idleConnectionTestPeriod">    
+            <value>60</value>    
+        </property>    
+     
+ <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->    
+        <property name="acquireRetryAttempts">    
+            <value>30</value>    
+        </property> 
+    </bean>
+	  
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	     <property name="dataSource" ref="dataSource"/>
+		 <property name="mappingResources">
+		    <list>
+		      <value>com/blog/mapping/Article.hbm.xml</value>
+		      <value>com/blog/mapping/Critique.hbm.xml</value>
+		      <value>com/blog/mapping/Photo.hbm.xml</value>
+		      <value>com/blog/mapping/Me.hbm.xml</value>
+		      <value>com/blog/mapping/Album.hbm.xml</value>
+		      <value>com/blog/mapping/Manager.hbm.xml</value>
+		      <value>com/blog/mapping/Connect.hbm.xml</value>
+		    </list>
+		 </property>
+	     <property name="hibernateProperties">
+		    <value>
+		        hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+		        hibernate.hbm2ddl.auto=update
+		        hibernate.show_sql=false
+		        hibernate.format_sql=false
+		        hibernate.cache.use_second_level_cache=false
+       	        hibernate.cache.use_query_cache=true
+        	    hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+		      </value>
+	     </property>
+	</bean>
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	  	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager"/>
+	<context:component-scan  base-package="com.blog"></context:component-scan>
+</beans>

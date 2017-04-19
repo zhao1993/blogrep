@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="article" namespace="/article" extends="json-default">
+	<!-- 收到文章请求后,输出文章然后转发给留言action输出留言,处理完后跳转到article.jsp -->
+		<action name="article" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique</result>
+		</action>
+		<action name="critique" class="articleShowAction">
+			<result name="success">/WEB-INF/jsp/article.jsp</result>
+		</action>
+		
+		<!-- 收到详细文章请求后,输出(详细文章)
+		然后转发给文章action处理输出(文章),
+		最后转发给留言action处理输出(留言),
+		处理完后跳转到article_detail.jsp -->
+		<action name="article_detail" class="articleDetailAction">
+			<result name="success" type="chain">article1</result>
+		</action>
+		<action name="article1" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique1</result>
+		</action>
+		<action name="critique1" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success">/WEB-INF/jsp/article_detail.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

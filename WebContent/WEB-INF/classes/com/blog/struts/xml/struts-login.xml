@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="login" namespace="/manage" extends="json-default">
+	<!-- ******************************登录*********************************** -->
+		<action name="login" class="loginAction">
+			<result name="fail">/WEB-INF/jsp/manage/login.jsp</result>
+		</action>
+		<action name="toLogin" class="loginAction">
+			<result name="success" type="chain">article</result>
+			<result name="fail" type="chain">login</result>
+		</action>
+		<action name="imageCode" class="imageCodeAction">
+			 <result name="success" type="stream">
+			 	<param name="inputName">imageStream</param>
+			 </result>
+		</action>
+		<action name="article" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique</result>
+		</action>
+		<action name="critique" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/article_manage.jsp</result>
+		</action>
+		<action name="json_*" class="loginAction" method="{1}">
+			<result name="{1}" type="json">
+			<param name="root">account</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

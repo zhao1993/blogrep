@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blog.entity">
+    <class name="Album" table="album">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="title"/>
+        <property name="image"/>
+        <property name="content"/>
+        <property name="notice" />
+        <property name="time" />
+        <set name="photos" cascade="all">
+	       	<key column="album_id"></key>
+	       	<one-to-many class="Photo"/>
+       </set>
+    </class>
+</hibernate-mapping>

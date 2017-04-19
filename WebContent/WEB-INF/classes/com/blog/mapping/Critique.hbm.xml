@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blog.entity">
+    <class name="Critique" table="critique">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="articleId" column="article_id"/>
+        <property name="content"  length="2000"/>
+        <property name="name" />
+        <property name="time" />
+        <property name="photo" />
+        <property name="type" />
+        <property name="notice" />
+    </class>
+</hibernate-mapping>

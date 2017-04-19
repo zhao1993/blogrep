@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.blog.entity">
+    <class name="Article" table="article">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="title" />
+        <property name="content"  length="5535"/>
+        <property name="image" />
+        <property name="time"  />
+        <property name="editer" />
+        <property name="count"  />
+         <property name="count1" />
+        <property name="type"  />
+        <property name="notice" />
+        <property name="keywords"  />
+    </class>
+</hibernate-mapping>

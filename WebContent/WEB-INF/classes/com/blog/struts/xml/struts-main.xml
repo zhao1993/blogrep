@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="main" extends="json-default">
+		<interceptors>
+			<!-- 注册登录检查拦截器 -->
+			<interceptor name="loginInter" class="loginInterceptor"></interceptor>
+			<!-- 注册登录检查拦截器栈，包含了默认的拦截器 -->
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInter"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+		<!-- 定义全局的Result -->
+		<global-results>
+			<!-- 重定向到登录页面 -->
+			<result name="login" type="redirectAction">
+				<param name="namespace">/manage</param>
+				<param name="actionName">login</param>
+			</result>
+			<result name="fail" type="redirectAction">
+				<param name="namespace">/login</param>
+				<param name="actionName">toIndex</param>
+			</result>
+			<!-- 定义全局的错误页面 -->
+			<result name="error">/WEB-INF/main/error.jsp</result>
+		</global-results>
+	</package>
+	
+</struts>
