@@ -130,7 +130,7 @@
 		</div>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
-		<script type="text/javascript" src="../plugin/diyAlert/js/zqalert.js"></script>
+		<script type="text/javascript" src="../plugin/diy/js/zqalert.js"></script>
 		<script>
 		function editMode(){
 			$.Alert({

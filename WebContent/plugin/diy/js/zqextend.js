@@ -1,7 +1,33 @@
-/**依赖Jquery 测试使用jQuery v2.0.3 不兼容IE 2017-4-18 */
+/**依赖Jquery 测试使用jQuery v1.7 不兼容IE 2017-4-18 */
 var DEBUG = true;//开启打印信息
 (function($){
 	   $.extend({
+		   FilList:function(){
+				if($(".zqlist").length==0){	$.println("没有找到默认选择器:停止填充!",1) ; return ; } 
+				var lists= $(".zqlist > li");
+				/*对每个li元素进行填充*/
+				for(var i=0;i<lists.length;i+=1){
+					/*得到li元素*/
+					var li = lists[i];
+					/*得到time*/
+					var timed = $(".zqlist > li:eq("+i+") > time:eq(0)");
+					var timer = $(timed).text();
+					$.println(timer,1)
+					/*移除time元素*/
+					timed.remove();
+					/*得到文本内容*/
+					var content = $(li).text();
+					$.println(content,1)
+					/*创建节点文本div*/
+					var fText = $("<div class='zqfText'></div>");
+					/*三角形div*/
+					var fTriangle = $("<div class='zqfTriangle'></div>");
+					/*圆圈*/
+					var fCircle = $("<div class='zqfTriangle'></div>");
+					/*时间面板*/
+					var fTimePanel = $("<div class='zqfTimePanel'></div>");
+				}
+			},
 			Alert:function (param){
 					/*初始化参数*/
 				if(!param){
@@ -164,13 +190,14 @@ var DEBUG = true;//开启打印信息
 				}
 				 this.show();
 			},
-			println:function(msg){
+			println:function(msg,module){
 				if(!DEBUG) return ;
 				var date = new Date();
 				var time = "["+(date.getMonth()+1)+"月"+ date.getDate()+"日  "+date.getHours()+":"+date.getMinutes() +":"+date.getSeconds()+"] ：";
 				try{
+						module = module==null?"[来自Alert]": module==1?"[来自FilList]":"[来自Unknow]";
 					if(window.console){
-						console.info("%c"+time+"%c"+'提示:'+msg ,"color:blue","color:red");
+						console.info("%c"+time+"%c"+module+'提示:'+msg  ,"color:blue","color:red");
 					}
 				}catch(e){
 					alert(e);
