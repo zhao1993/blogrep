@@ -19,6 +19,7 @@
 		<li>2017-4-18 20:23:132017-4-18 20:23:13\n2017-4-18 20:23:13\n2017-4-18 20:23:13\n2017-4-18 20:23:13</li>
 	</ol>
 </div>
+
 </body>
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
 <script type="text/javascript" src="plugin/diyAlert/js/zqalert.js"></script>
@@ -29,8 +30,6 @@ $(document).ready(function(e) {
 	$(".zqline").css("top",toph);
 	$(".zqline").height($(".zqtimeline").height()-heighth-toph);
 });
-
-
 function clicks(){
 	$.Alert({
 			'title':'提示',
