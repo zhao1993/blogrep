@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="manage" namespace="/manage" extends="main">
+	<!-- ******************************文章*********************************** -->
+		<action name="article" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique0</result>
+		</action>
+		<action name="critique0" class="articleShowAction">
+			<result name="success">/WEB-INF/jsp/manage/article_manage.jsp</result>
+		</action>
+		
+		<action name="article_delete" class="articleDeleteAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		
+		<action name="to_article_update" class="articleDetailAction">
+			<result name="success" type="chain">article1</result>
+		</action>
+		<action name="article1" class="articleShowAction">
+			<result name="success" type="chain">critique1</result>
+		</action>
+		<action name="critique1" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success">/WEB-INF/jsp/manage/article_update.jsp</result>
+		</action>
+		
+		<action name="article_update" class="imageUpload">
+		<interceptor-ref name="fileUpload"/>
+		<interceptor-ref name="basicStack"/>
+			<result name="success" type="chain">update</result>
+		</action>
+		<action name="update" class="articleUpdateAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		
+		<action name="to_article_add" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique2</result>
+		</action>
+		<action name="critique2" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/article_add.jsp</result>
+		</action>
+		
+		<action name="article_add" class="imageUpload">
+		<interceptor-ref name="fileUpload"/>
+		<interceptor-ref name="basicStack"/>
+			<result name="success" type="chain">add</result>
+		</action>
+		<action name="add" class="articleAddAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		
+		<action name="article_recommend" class="articleRecommendAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		
+		<action name="article_unrecommend" class="articleDisRecommendAction">
+			<result name="success" type="chain">article</result>
+		</action>
+		
+		<!-- ******************************相册*********************************** -->
+		<action name="album" class="albumShowAction">
+			<result name="success" type="chain">article3</result>
+		</action>
+		<action name="article3" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique3</result>
+		</action>
+		<action name="critique3" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/album_manage.jsp</result>
+		</action>
+		
+		<action name="album_delete" class="albumDeleteAction">
+			<result name="success" type="chain">album</result>
+		</action>
+		
+		<action name="to_album_add" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique4</result>
+		</action>
+		<action name="critique4" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/album_add.jsp</result>
+		</action>
+		
+		<action name="album_add" class="imageUpload">
+		<interceptor-ref name="fileUpload"/>
+		<interceptor-ref name="basicStack"/>
+			<result name="success" type="chain">add4</result>
+		</action>
+		<action name="add4" class="albumAddAction">
+			<result name="success" type="chain">album</result>
+		</action>
+		
+		<!-- ******************************照片*********************************** -->
+		<action name="album_detail" class="albumDetailAction">
+			<result name="success" type="chain">article5</result>
+		</action>
+		<action name="article5" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique5</result>
+		</action>
+		<action name="critique5" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/album_detail.jsp</result>
+		</action>
+		
+		<action name="album_photo_delete" class="photoDeleteAction">
+			<result name="success" type="chain">album</result>
+		</action>
+		
+		<action name="to_album_photo_add" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique6</result>
+		</action>
+		<action name="critique6" class="critiqueShowAction">
+			<result name="success">/WEB-INF/jsp/manage/album_photo_add.jsp</result>
+		</action>
+		
+		<action name="album_photo_add" class="imageUpload">
+		<interceptor-ref name="fileUpload"/>
+		<interceptor-ref name="basicStack"/>
+			<result name="success" type="chain">add7</result>
+		</action>
+		<action name="add7" class="photoAddAction">
+			<result name="success" type="chain">album_detail</result>
+		</action>
+		
+		<!-- ******************************关于我*********************************** -->
+		<action name="about" class="meShowAction">
+			<result name="success">/WEB-INF/jsp/manage/about.jsp</result>
+		</action>
+		<action name="about_update" class="meUpdateAction">
+			<result name="success">/WEB-INF/jsp/manage/about.jsp</result>
+		</action>
+		
+		<!-- ******************************留言*********************************** -->
+		<action name="critique" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">article8</result>
+		</action>
+		<action name="article8" class="messageShowAction">
+			<param name="page">1</param>
+			<result name="success">/WEB-INF/jsp/manage/critique.jsp</result>
+		</action>
+		
+		<action name="critique_delete" class="critiqueDeleteAction">
+			<result name="success" type="chain">critique</result>
+		</action>
+		
+		<action name="critique_add" class="critiqueAddAction">
+			<result name="success" type="chain">critique</result>
+		</action>
+	</package>
+
+</struts>
