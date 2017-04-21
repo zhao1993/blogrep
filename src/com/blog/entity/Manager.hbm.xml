@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-21 20:11:15 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="com.blog.entity.Manager" table="manager" catalog="blog">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="account" type="string">
+            <column name="account" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" />
+        </property>
+        <property name="notice" type="string">
+            <column name="notice" />
+        </property>
+    </class>
+</hibernate-mapping>

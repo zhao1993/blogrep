@@ -85,5 +85,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/tiles-jsp-2.0.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis-1.0.b2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-alter-2.3.16.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="WebContent/classes"/>
 </classpath>

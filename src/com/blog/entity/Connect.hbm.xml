@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-4-7 20:34:55 by Hibernate Tools 3.5.0.Final -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-21 20:11:15 by Hibernate Tools 4.0.0.Final -->
 <hibernate-mapping>
     <class name="com.blog.entity.Connect" table="connect" catalog="blog">
         <id name="id" type="java.lang.Integer">

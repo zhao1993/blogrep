@@ -37,13 +37,14 @@
 	     <property name="dataSource" ref="dataSource"/>
 		 <property name="mappingResources">
 		    <list>
-		      <value>com/blog/mapping/Article.hbm.xml</value>
-		      <value>com/blog/mapping/Critique.hbm.xml</value>
-		      <value>com/blog/mapping/Photo.hbm.xml</value>
-		      <value>com/blog/mapping/Me.hbm.xml</value>
-		      <value>com/blog/mapping/Album.hbm.xml</value>
-		      <value>com/blog/mapping/Manager.hbm.xml</value>
-		      <value>com/blog/mapping/Connect.hbm.xml</value>
+		      <value>com/blog/entity/Article.hbm.xml</value>
+		      <value>com/blog/entity/Critique.hbm.xml</value>
+		      <value>com/blog/entity/Photo.hbm.xml</value>
+		      <value>com/blog/entity/Daily.hbm.xml</value>
+		      <value>com/blog/entity/Me.hbm.xml</value>
+		      <value>com/blog/entity/Album.hbm.xml</value>
+		      <value>com/blog/entity/Manager.hbm.xml</value>
+		      <value>com/blog/entity/Connect.hbm.xml</value>
 		    </list>
 		 </property>
 	     <property name="hibernateProperties">
