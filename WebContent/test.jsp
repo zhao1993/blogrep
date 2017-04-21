@@ -4,19 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="plugin/diy/css/zqtimel.css" rel="stylesheet">
-<title>JavaScript Test</title>
+<!-- <link href="plugin/diy/css/zqtimel.css" rel="stylesheet">
+ --><title>JavaScript Test</title>
 </head>
 <body>
 <button onclick="clicks()">警告框</button>
 <div class="zqtimeline">
-<!-- 	<ol class="zqlist">	
-		<li><time>000000</time><div class="sanjiaox"></div>现在时间2017年4月18日20:22:29列表一</li>
-		<li><time>000001</time><div class="sanjiaox"></div>now Time 2017年4月18日20:22:47 列表二</li>
-		<li><time>000002</time><div class="sanjiaox"></div>2017年4月18日20:23:04</li>
-		<li><time>000003</time><div class="sanjiaox"></div>2017-4-18 20:23:132017-4-18 20:23:13\n2017-4-18 20:23:13\n2017-4-18 20:23:13\n2017-4-18 20:23:13</li>
-	</ol> -->
 	<ol class="zqlist">	
+		<li><time>2017年4月21日</time>现在时间2017年4月18日20:22:29列表一</li>
+		<li><time>2017年4月22日</time>现在时间2017年4月18日20:22:29列表一</li>
+		<li><time>2017年4月23日</time>现在时间2017年4月18日20:22:29列表一</li>
+		<li><time>2017年4月24日</time>现在时间2017年4月18日20:22:29列表一</li>
+	</ol>
+	<!-- <ol class="zqlist">	
 		<li>
 		<time>000000</time>
 		<div class="text">现在时间2017年4月18日20:22:29列表一</div>
@@ -28,14 +28,14 @@
 		 <div class="sjp"></div>
 		 </div>
 		 </li>
-	</ol>
+	</ol> -->
 </div>
 </body>
 
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
 <script type="text/javascript" src="plugin/diy/js/zqextend.js"></script>
 <script type="text/javascript">
-$.FilList();
+ $.FilList(); 
 function clicks(){
 	$.Alert({
 			'title':'提示',
