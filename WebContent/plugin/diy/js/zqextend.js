@@ -32,8 +32,8 @@ var DEBUG = true;// 开启打印信息
 						timed.remove();
 						/* 得到文本内容 */
 						var content = $(li).text();
-						/*添加元素*/
-						$(li).text(content);
+						$(li).text("");
+						/* 添加元素 */
 						fText.appendTo(li);
 						fText.text(content);
 						fTriangle.appendTo(li);
@@ -76,6 +76,7 @@ var DEBUG = true;// 开启打印信息
 						'background-color' : 'rgba(245,245,245,.6)',
 						'float' : 'left',
 						'margin' : '20px 0px',
+						'font-size':'0px',
 						'-moz-transition': 'all .5s',
 						'-webkit-transition': 'all .5s', 
 						'-o-transition': 'all .5s',
@@ -93,26 +94,23 @@ var DEBUG = true;// 开启打印信息
 						'text-align':'center',
 						'font-size':'0px',
 							});
+					/* 标记 */
+					var animateSign = true;
 					/*事件样式*/
 					$(".zqfText,.zqfTriangle").hover(
 						function(){
 							fText.css({'background-color':'rgba(162,162,162,.1)','box-shadow':'0px 0px 2px #EEEEEE'});
 							fTriangle.css({'border-left':'50px solid rgba(162,162,162,.1)'});
-							fCircle.css({'background-color':'rgba(162,162,162,.1)','box-shadow':'0px 0px 2px #EEEEEE','transform':'rotate(1080deg)'});
-							fHorizontal.animate({'padding':'15px'},100,function(){
-									fHorizontal.animate({'width':'200px','font-size':'15px'},150);
-							});
+							fCircle.css({'font-size':'25px','transform':'rotate(1080deg)'});
+							fHorizontal.animate({'width':'200px','height':'80px','font-size':'15px'},150);
 						},
 						function(){
 							$(".zqfText,.zqfCircle").css({'background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE'})
 							$(".zqfTriangle").css({'border-left':'50px solid rgba(245,245,245,.6)'});
-							$(".zqfCircle").css({'background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
-							fHorizontal.animate({'width':'30px','font-size':'0px'},200,function(){
-								fHorizontal.animate({'padding':'0px'},150,function(){
-									fHorizontal.stop();
-								});
-							});
-						});
+							$(".zqfCircle").css({'font-size':'0px','background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
+							fHorizontal.animate({'width':'0px','height':'30px','font-size':'0px'},150);
+						}
+					);
 				},
 				Alert : function(param) {
 					/* 初始化参数 */
