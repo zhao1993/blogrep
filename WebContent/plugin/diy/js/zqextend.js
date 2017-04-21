@@ -9,18 +9,6 @@ var DEBUG = true;// 开启打印信息
 						return;
 					}
 					var lists = $(".zqlist > li");
-					/* 创建节点文本div */
-					var fText = $("<div class='zqfText'></div>");
-					/* 三角形div */
-					var fTriangle = $("<div class='zqfTriangle'></div>");
-					/* 圆圈 */
-					var fCircle = $("<div class='zqfCircle'>.</div>");
-					/* 时间面板 */
-					var fTimePanel = $("<div class='zqfTimePanel'></div>");
-					/* 横轴 */
-					var fHorizontal = $("<div class='zqfHorizontal'></div>");
-					/* 面板 */
-					var fPanel = $("<div class='zqfPanel'></div>");
 					/* 对每个li元素进行填充 */
 					for (var i = 0; i < lists.length; i+=1) {
 						/* 得到li元素 */
@@ -32,14 +20,25 @@ var DEBUG = true;// 开启打印信息
 						timed.remove();
 						/* 得到文本内容 */
 						var content = $(li).text();
+						
 						$(li).text("");
+						
+						/* 创建节点文本div */
+						var fText = $("<div class='zqfText'></div>");
+						/* 三角形div */
+						var fTriangle = $("<div class='zqfTriangle'></div>");
+						/* 圆圈 */
+						var fCircle = $("<div class='zqfCircle'>.</div>");
+						/* 横轴 */
+						var fHorizontal = $("<div class='zqfHorizontal'></div>");
 						/* 添加元素 */
-						fText.appendTo(li);
-						fText.text(content);
-						fTriangle.appendTo(li);
-						fCircle.appendTo(li);
-						fHorizontal.appendTo(li);
-						fHorizontal.text(timer);
+						fText.clone().appendTo(li);
+						$('.zqfText').text(content);
+						fTriangle.clone().appendTo(li);
+						fCircle.clone().appendTo(li);
+						fHorizontal.clone().appendTo(li);
+						$('.zqfHorizontal').text(timer);
+						
 					}
 					/* 样式填充 */
 					$(".zqlist").css({
@@ -47,7 +46,7 @@ var DEBUG = true;// 开启打印信息
 						'list-style':'none'
 					});
 					/*文本div*/
-					fText.css({
+					$('.zqfText').css({
 						'border' : 'rgba(0,0,0,0) solid 1px',
 						'background-color' : 'rgba(245,245,245,.6)',
 						'box-shadow' : '0px 0px 1px #EEEEEE',
@@ -60,7 +59,7 @@ var DEBUG = true;// 开启打印信息
 						'margin' : '20px 0px'
 					});
 					/*三角形div*/
-					fTriangle.css({
+					$('.zqfTriangle').css({
 						'border-left' : '50px solid rgba(245,245,245,.6)',
 						'border-bottom' : '60px solid transparent',
 						'border-top' : '15px solid transparent',
@@ -69,7 +68,7 @@ var DEBUG = true;// 开启打印信息
 						'margin' : '20px 0px'
 					});
 					/*圆圈div*/
-					fCircle.css({
+					$('.zqfCircle').css({
 						'width' : '30px',
 						'height' : '30px',
 						'border-radius' : '50%',
@@ -83,7 +82,7 @@ var DEBUG = true;// 开启打印信息
 						'transition': 'all .5s'
 					});
 					/*横轴面板div*/
-					fHorizontal.css({
+					$('.zqfHorizontal').css({
 						'height' : '30px',
 						'width' : '0px',
 						'background-color' : 'rgba(245,245,245,.6)',
@@ -94,21 +93,19 @@ var DEBUG = true;// 开启打印信息
 						'text-align':'center',
 						'font-size':'0px',
 							});
-					/* 标记 */
-					var animateSign = true;
 					/*事件样式*/
-					$(".zqfText,.zqfTriangle").hover(
+					$(".zqfText").hover(
 						function(){
-							fText.css({'background-color':'rgba(162,162,162,.1)','box-shadow':'0px 0px 2px #EEEEEE'});
-							fTriangle.css({'border-left':'50px solid rgba(162,162,162,.1)'});
-							fCircle.css({'font-size':'25px','transform':'rotate(1080deg)'});
-							fHorizontal.animate({'width':'200px','height':'80px','font-size':'15px'},150);
+							$(this).css({'background-color':'rgba(162,162,162,.1)'});
+							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(162,162,162,.1)'});
+							$(this).parent().find(".zqfCircle").css({'font-size':'25px','transform':'rotate(1080deg)'});
+							$(this).parent().find(".zqfHorizontal").animate({'width':'200px','height':'80px','font-size':'15px'},150);
 						},
 						function(){
-							$(".zqfText,.zqfCircle").css({'background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE'})
-							$(".zqfTriangle").css({'border-left':'50px solid rgba(245,245,245,.6)'});
-							$(".zqfCircle").css({'font-size':'0px','background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
-							fHorizontal.animate({'width':'0px','height':'30px','font-size':'0px'},150);
+							$(this).css({'background-color':'rgba(245,245,245,.6)'})
+							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(245,245,245,.6)'});
+							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
+							$(this).parent().find(".zqfHorizontal").animate({'width':'0px','height':'30px','font-size':'0px'},150);
 						}
 					);
 				},
