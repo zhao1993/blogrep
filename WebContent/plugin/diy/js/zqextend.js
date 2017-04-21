@@ -20,25 +20,20 @@ var DEBUG = true;// 开启打印信息
 						timed.remove();
 						/* 得到文本内容 */
 						var content = $(li).text();
-						
 						$(li).text("");
-						
 						/* 创建节点文本div */
-						var fText = $("<div class='zqfText'></div>");
+						var fText = $("<div class='zqfText'>"+content+"</div>");
 						/* 三角形div */
 						var fTriangle = $("<div class='zqfTriangle'></div>");
 						/* 圆圈 */
 						var fCircle = $("<div class='zqfCircle'>.</div>");
 						/* 横轴 */
-						var fHorizontal = $("<div class='zqfHorizontal'></div>");
+						var fHorizontal = $("<div class='zqfHorizontal'>"+timer+"</div>");
 						/* 添加元素 */
 						fText.clone().appendTo(li);
-						$('.zqfText').text(content);
 						fTriangle.clone().appendTo(li);
 						fCircle.clone().appendTo(li);
 						fHorizontal.clone().appendTo(li);
-						$('.zqfHorizontal').text(timer);
-						
 					}
 					/* 样式填充 */
 					$(".zqlist").css({
@@ -92,6 +87,7 @@ var DEBUG = true;// 开启打印信息
 						'border-radius' : '15px',
 						'text-align':'center',
 						'font-size':'0px',
+						'padding-top':'2em'
 							});
 					/*事件样式*/
 					$(".zqfText").hover(
@@ -99,13 +95,13 @@ var DEBUG = true;// 开启打印信息
 							$(this).css({'background-color':'rgba(162,162,162,.1)'});
 							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(162,162,162,.1)'});
 							$(this).parent().find(".zqfCircle").css({'font-size':'25px','transform':'rotate(1080deg)'});
-							$(this).parent().find(".zqfHorizontal").animate({'width':'200px','height':'80px','font-size':'15px'},150);
+							$(this).parent().find(".zqfHorizontal").animate({'width':'200px','height':'80px','font-size':'15px'},100);
 						},
 						function(){
 							$(this).css({'background-color':'rgba(245,245,245,.6)'})
 							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(245,245,245,.6)'});
 							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
-							$(this).parent().find(".zqfHorizontal").animate({'width':'0px','height':'30px','font-size':'0px'},150);
+							$(this).parent().find(".zqfHorizontal").animate({'width':'30px','height':'0px','font-size':'0px'},100);
 						}
 					);
 				},
