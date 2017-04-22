@@ -5,9 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-
 import org.springframework.stereotype.Controller;
-
 import com.blog.BaseAction;
 import com.blog.util.IOUtils;
 
@@ -16,16 +14,14 @@ public class ImageUpload extends BaseAction{
 	private File some;
 	private String someFileName;
 	private String someContentType;
-	
 	private String imagePath;
-	
 	public String execute() throws Exception{
 		if(some.getTotalSpace()==0||some==null){
 			return "success";
 		}
 		String imageName = "file_"+System.currentTimeMillis()+someFileName.substring(someFileName.lastIndexOf("."));
 		imagePath = "image_upload/"+imageName;
-		String realImagePath = servletContext.getRealPath(imagePath);
+		String realImagePath = servletContext.getRealPath("/")+imagePath;
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(some));
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(realImagePath));
 		IOUtils.cp(bis, bos);

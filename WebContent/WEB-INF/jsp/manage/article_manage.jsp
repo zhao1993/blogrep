@@ -73,7 +73,6 @@
           </s:else>
       </div>           
   </article>
-  <s:debug/>
   <aside>
     <%@ include file="../rnav.jsp" %> 
     <div class="ph_news">
