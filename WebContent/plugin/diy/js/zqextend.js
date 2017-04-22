@@ -4,6 +4,8 @@ var DEBUG = true;// 开启打印信息
 	$
 			.extend({
 				FilList : function() {
+					var bgColor = 'rgba(122,122,122,.8)';//统一背静颜色
+					var min_H = "60"; 
 					if ($(".zqlist").length == 0) {
 						$.println("没有找到默认选择器:停止填充!", 1);
 						return;
@@ -35,27 +37,29 @@ var DEBUG = true;// 开启打印信息
 						fCircle.clone().appendTo(li);
 						fHorizontal.clone().appendTo(li);
 					}
+					/*增加可设参数前的调整*/
+					 
 					/* 样式填充 */
 					$(".zqlist").css({
-						'width': '1000px',
+						'width': '730px',
 						'list-style':'none'
 					});
 					/*文本div*/
 					$('.zqfText').css({
 						'border' : 'rgba(0,0,0,0) solid 1px',
-						'background-color' : 'rgba(245,245,245,.6)',
+						'background-color' : bgColor,
 						'box-shadow' : '0px 0px 1px #EEEEEE',
 						'border-radius' : '5px',
 						'border-top-right-radius' : '0px',
-						'min-height' : '100px',
+						'min-height' : min_H+'px',
 						'padding' : '1em 2em',
-						'width' : '588px',
+						'width' : '388px',
 						'float' : 'left',
 						'margin' : '20px 0px'
 					});
 					/*三角形div*/
 					$('.zqfTriangle').css({
-						'border-left' : '50px solid rgba(245,245,245,.6)',
+						'border-left' : '50px solid '+bgColor,
 						'border-bottom' : '60px solid transparent',
 						'border-top' : '15px solid transparent',
 						'margin' : '20px 0px',
@@ -67,7 +71,7 @@ var DEBUG = true;// 开启打印信息
 						'width' : '30px',
 						'height' : '30px',
 						'border-radius' : '50%',
-						'background-color' : 'rgba(245,245,245,.6)',
+						'background-color' : bgColor,
 						'float' : 'left',
 						'margin' : '20px 0px',
 						'font-size':'0px',
@@ -80,7 +84,7 @@ var DEBUG = true;// 开启打印信息
 					$('.zqfHorizontal').css({
 						'height' : '30px',
 						'width' : '0px',
-						'background-color' : 'rgba(245,245,245,.6)',
+						'background-color' : bgColor,
 						'float' : 'left',
 						'margin-top' : '20px',
 						'margin-left' : '-30px',
@@ -92,16 +96,16 @@ var DEBUG = true;// 开启打印信息
 					/*事件样式*/
 					$(".zqfText").hover(
 						function(){
-							$(this).css({'background-color':'rgba(162,162,162,.1)'});
-							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(162,162,162,.1)'});
-							$(this).parent().find(".zqfCircle").css({'font-size':'25px','transform':'rotate(1080deg)'});
-							$(this).parent().find(".zqfHorizontal").animate({'width':'200px','height':'80px','font-size':'15px'},100);
+							$(this).css({'background-color':bgColor});
+							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+bgColor});
+							$(this).parent().find(".zqfCircle").css({'font-size':'30px','transform':'rotate(1080deg)'});
+							$(this).parent().find(".zqfHorizontal").animate({'width':'150px','height':min_H/2+'px','font-size':'15px'},100);
 						},
 						function(){
-							$(this).css({'background-color':'rgba(245,245,245,.6)'})
-							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid rgba(245,245,245,.6)'});
-							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':'rgba(245,245,245,.6)','box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
-							$(this).parent().find(".zqfHorizontal").animate({'width':'30px','height':'0px','font-size':'0px'},100);
+							$(this).css({'background-color':bgColor})
+							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+bgColor});
+							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':bgColor,'box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
+							$(this).parent().find(".zqfHorizontal").animate({'width':'30px','height':'30px','font-size':'0px'},100);
 						}
 					);
 				},

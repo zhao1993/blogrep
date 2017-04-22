@@ -41,6 +41,7 @@
 		      <value>com/blog/mapping/Critique.hbm.xml</value>
 		      <value>com/blog/mapping/Photo.hbm.xml</value>
 		      <value>com/blog/mapping/Me.hbm.xml</value>
+		      <value>com/blog/mapping/Daily.hbm.xml</value>
 		      <value>com/blog/mapping/Album.hbm.xml</value>
 		      <value>com/blog/mapping/Manager.hbm.xml</value>
 		      <value>com/blog/mapping/Connect.hbm.xml</value>
