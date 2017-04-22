@@ -12,7 +12,7 @@ public class DailyShowAction {
 	private List<Daily> dailys;
 	private int totalPage;
 	private int page=1;
-	private int pageSize = 5; 
+	private int pageSize = 10; 
 	private int size=5;
 	
 	public String execute(){

@@ -4,7 +4,8 @@ var DEBUG = true;// 开启打印信息
 	$
 			.extend({
 				FilList : function() {
-					var bgColor = 'rgba(122,122,122,.8)';//统一背静颜色
+					var bgColor = 'rgba(195,195,195,.6)';//统一背静颜色
+					var hoverBgColor = 'rgba(185,185,185,.9)';
 					var min_H = "60"; 
 					if ($(".zqlist").length == 0) {
 						$.println("没有找到默认选择器:停止填充!", 1);
@@ -48,7 +49,6 @@ var DEBUG = true;// 开启打印信息
 					$('.zqfText').css({
 						'border' : 'rgba(0,0,0,0) solid 1px',
 						'background-color' : bgColor,
-						'box-shadow' : '0px 0px 1px #EEEEEE',
 						'border-radius' : '5px',
 						'border-top-right-radius' : '0px',
 						'min-height' : min_H+'px',
@@ -60,11 +60,10 @@ var DEBUG = true;// 开启打印信息
 					/*三角形div*/
 					$('.zqfTriangle').css({
 						'border-left' : '50px solid '+bgColor,
-						'border-bottom' : '60px solid transparent',
+						'border-bottom' : '40px solid transparent',
 						'border-top' : '15px solid transparent',
 						'margin' : '20px 0px',
-						'float' : 'left',
-						'margin' : '20px 0px'
+						'float' : 'left'
 					});
 					/*圆圈div*/
 					$('.zqfCircle').css({
@@ -96,15 +95,15 @@ var DEBUG = true;// 开启打印信息
 					/*事件样式*/
 					$(".zqfText").hover(
 						function(){
-							$(this).css({'background-color':bgColor});
-							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+bgColor});
+							$(this).css({'background-color':hoverBgColor});
+							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+hoverBgColor});
 							$(this).parent().find(".zqfCircle").css({'font-size':'30px','transform':'rotate(1080deg)'});
 							$(this).parent().find(".zqfHorizontal").animate({'width':'150px','height':min_H/2+'px','font-size':'15px'},100);
 						},
 						function(){
 							$(this).css({'background-color':bgColor})
 							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+bgColor});
-							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':bgColor,'box-shadow':'0px 0px 1px #EEEEEE','transform':'rotate(0deg)'});
+							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':bgColor,'transform':'rotate(0deg)'});
 							$(this).parent().find(".zqfHorizontal").animate({'width':'30px','height':'30px','font-size':'0px'},100);
 						}
 					);
@@ -168,7 +167,6 @@ var DEBUG = true;// 开启打印信息
 						// 头部右方关闭按钮
 						var times = $("<span class='zqdbyc zqalert-bgdiv-times'>×</span>");
 						// 提示内容
-						var _body = $("<div class='zqdbyc zqalert-bgdiv-body'></div>");
 						// 提示输入框
 						var inputs = $("<input class='zqdbyc zqalert-bgdiv-body-input'></input>");
 						// 底部按钮div
