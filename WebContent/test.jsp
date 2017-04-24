@@ -33,10 +33,11 @@
 </body>
 
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
-<script type="text/javascript" src="plugin/diy/js/zqextend.js"></script>
+<script type="text/javascript" src="plugin/diy/js/jquery.zqextend.js"></script>
 <script type="text/javascript">
 //列表填充（类似于时间轴）
 //$.FilList(); 默认使用 class为 zqlist 的列表
+$.AutoPager();
 $.FilList();
 function clicks(){
 	//弹框使用，使用空的参数 控制台会打印可用的参数

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-21 20:11:15 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="com.blog.entity.Photo" table="photo" catalog="blog">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="album" class="com.blog.entity.Album" fetch="select">
+            <column name="album_id" />
+        </many-to-one>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" />
+        </property>
+        <property name="notice" type="string">
+            <column name="notice" />
+        </property>
+        <property name="time" type="string">
+            <column name="time" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,8 +1,59 @@
-/** 依赖Jquery 测试使用jQuery v1.7 不兼容IE 2017-4-18 */
+/** 依赖Jquery 测试使用jQuery v1.7 不兼容IE 2017-4-18 
+ * Css文件已经整合只需要导入JS文件即可使用
+ * 拥有如下小功能:
+ *  1简易弹框功能 2仿时间轴列表填充功能 3分页按钮生成功能
+ *  暂时没有可设参数 所以更多需要只有对源码进行调试修改*/
 var DEBUG = true;// 开启打印信息
 (function($) {
 	$
 			.extend({
+				AutoPager:function(options){
+				options = $.extend({
+				allCount:170,//内容总个数:非总页数
+				pageCount:5,//显示按钮个数:加上默认的上下末首是9
+				showCount:5,//每页显示内容个数
+				containerId:'autoPager',//将分页按钮追加到指定id的节点元素中
+				nowPage:1//当前页
+				},options);	
+				$.println(options.allCount,2);	
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				},
 				FilList : function() {
 					var bgColor = 'rgba(195,195,195,.6)';//统一背静颜色
 					var hoverBgColor = 'rgba(185,185,185,.9)';
@@ -108,9 +159,9 @@ var DEBUG = true;// 开启打印信息
 						}
 					);
 				},
-				Alert : function(param) {
+				Alert : function(params) {
 					/* 初始化参数 */
-					if (!param) {
+					if (!params) {
 						$.println("没有定义任何参数!提示框不能启动:可定义的参数:");
 						$.println("title（String）:提示框标题文字");
 						$.println("content（String）:提示框显示内容");
@@ -119,43 +170,24 @@ var DEBUG = true;// 开启打印信息
 						$.println("canclebtn（function）:取消按钮执行的函数");
 						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]");
 						$.println("可以通过 '$.inputval' 获取输入框的值 ")
-						$
-								.println("示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval)};})")
+						$.println("示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval)};})")
 						return false;
 					}
-					this.title = "zqalert-提示:";
-					this.content = 'zqalert-内容';
-					this.inputb;
-					this.confirmbtn;
-					this.canclebtn;
-					this.canmove;
-					if (param) {
-						if (param.title) {
-							this.title = param.title;
-						}
-						if (param.content) {
-							this.content = param.content;
-						}
-						if (param.inputb) {
-							this.inputb = param.inputb;
-						}
-						if (param.canclebtn) {
-							this.canclebtn = param.canclebtn;
-						}
-						if (param.confirmbtn) {
-							this.confirmbtn = param.confirmbtn;
-						}
-						if (param.canmove) {
-							this.canmove = param.canmove;
-						}
-					}
+					params = $.extend({
+						title :"zqalert-提示:",
+						content : "zqalert-内容",
+						inputb : false,
+						confirmbtn : null,
+						canclebtn : null,
+						canmove : false
+					},params);
 					this.show = function() {
 						$.println("弹框正常显示!");
-						$.println("\n标题:" + this.title + "\n内容:" + this.content
-								+ "\n输入框使用:" + (this.inputb == true)
-								+ "\n可移动(测试功能不建议开启):" + this.canmove + "\n左按钮:"
-								+ typeof this.confirmbtn + "\n右按钮:"
-								+ typeof this.canclebtn);
+						$.println("\n标题:" + params.title + "\n内容:" + params.content
+								+ "\n输入框使用:" + (params.inputb == true)
+								+ "\n可移动(测试功能不建议开启):" + params.canmove + "\n左按钮:"
+								+ typeof params.confirmbtn + "\n右按钮:"
+								+ typeof params.canclebtn);
 						/** *************************创建获取文档节点**************************** */
 						var body = $("body")[0];
 						// 提示框背景
@@ -167,6 +199,7 @@ var DEBUG = true;// 开启打印信息
 						// 头部右方关闭按钮
 						var times = $("<span class='zqdbyc zqalert-bgdiv-times'>×</span>");
 						// 提示内容
+						var _body = $("<div class='zqdbyc zqalert-bgdiv-body'></div>");
 						// 提示输入框
 						var inputs = $("<input class='zqdbyc zqalert-bgdiv-body-input'></input>");
 						// 底部按钮div
@@ -175,7 +208,7 @@ var DEBUG = true;// 开启打印信息
 						var footer_confirm = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_confirm'>确定</div>");
 						var footer_cancle = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_cancle'>取消</div>");
 						header_title.appendTo(header);
-						header_title.text(this.title);
+						header_title.text(params.title);
 						// 添加右上角的关闭按钮
 						times.appendTo(header);
 						header.appendTo(bg);
@@ -185,7 +218,7 @@ var DEBUG = true;// 开启打印信息
 						// 完成布置
 						shadow.appendTo(body);
 						// 拖动事件
-						if (this.canmove == true) {
+						if (params.canmove == true) {
 							$.println('开启拖动提示框功能[测试階段]...');
 							$(header)
 									.bind(
@@ -264,8 +297,8 @@ var DEBUG = true;// 开启打印信息
 						});
 						// 添加提示内容部分(展示内容不能与输入框同时存在，并且输入框优先)
 						_body.appendTo(bg);
-						_body.text(this.content);
-						if (this.inputb == true) {
+						_body.text(params.content);
+						if (params.inputb == true) {
 							_body.append(inputs);
 							$(inputs).bind('keyup', function() {
 								var text = $(inputs).val();
@@ -276,26 +309,26 @@ var DEBUG = true;// 开启打印信息
 						}
 						// 添加底部按钮部分
 						footer.appendTo(bg);
-						if (this.canclebtn) {
+						if (params.canclebtn) {
 							footer_cancle.appendTo(footer);
 							// 添加事件取消按钮
 							footer_cancle.click(function() {
 								destroy();
-								if (typeof $.canclebtn == 'function') {
-									$.canclebtn();
+								if (typeof canclebtn.canclebtn == 'function') {
+									params.canclebtn();
 									$.println('执行自定义取消按钮事件');
 								} else {
 									$.println('取消按钮不是合法函数!');
 								}
 							});
 						}
-						if (this.confirmbtn) {
+						if (params.confirmbtn) {
 							footer_confirm.appendTo(footer);
 							// 添加事件确定按钮
 							footer_confirm.click(function() {
 								destroy();
-								if (typeof $.confirmbtn == 'function') {
-									$.confirmbtn();
+								if (typeof params.confirmbtn == 'function') {
+									params.confirmbtn();
 									$.println('执行自定义确定按钮事件');
 								} else {
 									$.println('确定按钮不是合法函数!');
@@ -450,7 +483,7 @@ var DEBUG = true;// 开启打印信息
 					try {
 						module = module == null ? "[来自Alert]"
 								: module == 1 ? "[来自FilList]"
-										: module == 2 ? "[来自Doc:]"
+										: module == 2 ? "[来自AutoPager:]"
 												: "[来自Unknow]";
 						if (window.console) {
 							console.info("%c" + time + "%c" + module + '提示:'

@@ -55,7 +55,7 @@
       </div> 
   	<script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
-  <script src="../plugin/diy/js/zqextend.js"></script>
+  <script src="../plugin/diy/js/jquery.zqextend.js"></script>
   <div class="clear"></div>
 </div>
 <script>
