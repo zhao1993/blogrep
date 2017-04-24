@@ -6,11 +6,11 @@ import com.blog.entity.Daily;
 
 
 public interface DailyService {
-	public void save(Daily photo);
+	public void save(Daily daily);
 
 	public void delete(Integer id);
 
-	public void update(Daily photo);
+	public void update(Daily daily);
 
 	public Daily query(Integer id);
 	

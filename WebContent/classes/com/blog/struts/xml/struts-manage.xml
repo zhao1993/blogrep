@@ -94,6 +94,23 @@
 		<action name="add4" class="albumAddAction">
 			<result name="success" type="chain">album</result>
 		</action>
+		<!-- ******************************日志*********************************** -->
+		<action name="daily" class="articleShowAction">
+			<result name="success" type="chain">articleForDaily0</result>
+		</action>
+		<action name="articleForDaily0" class="dailyShowAction">
+			<result name="success">/WEB-INF/jsp/manage/daily.jsp</result>
+		</action>
+
+		<action name="toDailyAdd" class="articleShowAction">
+			<result name="success">/WEB-INF/jsp/manage/daily_add.jsp</result>
+		</action>
+		
+		<action name="dailyAdd" class="dailyAddAction">
+			<result name="success" type="chain">daily</result>
+		</action>
+		
+		
 		
 		<!-- ******************************照片*********************************** -->
 		<action name="album_detail" class="albumDetailAction">
@@ -101,9 +118,6 @@
 		</action>
 		<action name="article5" class="articleShowAction">
 			<param name="pageSize">5</param>
-			<result name="success" type="chain">critique5</result>
-		</action>
-		<action name="critique5" class="critiqueShowAction">
 			<result name="success">/WEB-INF/jsp/manage/album_detail.jsp</result>
 		</action>
 		
@@ -145,11 +159,9 @@
 			<param name="page">1</param>
 			<result name="success">/WEB-INF/jsp/manage/critique.jsp</result>
 		</action>
-		
 		<action name="critique_delete" class="critiqueDeleteAction">
 			<result name="success" type="chain">critique</result>
 		</action>
-		
 		<action name="critique_add" class="critiqueAddAction">
 			<result name="success" type="chain">critique</result>
 		</action>

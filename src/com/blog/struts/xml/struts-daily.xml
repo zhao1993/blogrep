@@ -4,7 +4,11 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
 	<package name="daily" namespace="/daily" extends="json-default">
-		<action name="daily" class="dailyShowAction">
+		<action name="daily" class="articleShowAction" >
+			<result name="success" type="chain">articleForDaily</result>
+		</action>
+		<action name="articleForDaily" class="dailyShowAction">
+			<param name="pageSize">5</param>
 			<result name="success">/WEB-INF/jsp/daily.jsp</result>
 		</action>
 	</package>

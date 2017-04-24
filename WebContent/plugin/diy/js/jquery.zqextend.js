@@ -1,59 +1,12 @@
 /** 依赖Jquery 测试使用jQuery v1.7 不兼容IE 2017-4-18 
  * Css文件已经整合只需要导入JS文件即可使用
  * 拥有如下小功能:
- *  1简易弹框功能 2仿时间轴列表填充功能 3分页按钮生成功能
+ *  1简易弹框功能 2仿时间轴列表填充功能
  *  暂时没有可设参数 所以更多需要只有对源码进行调试修改*/
 var DEBUG = true;// 开启打印信息
 (function($) {
 	$
 			.extend({
-				AutoPager:function(options){
-				options = $.extend({
-				allCount:170,//内容总个数:非总页数
-				pageCount:5,//显示按钮个数:加上默认的上下末首是9
-				showCount:5,//每页显示内容个数
-				containerId:'autoPager',//将分页按钮追加到指定id的节点元素中
-				nowPage:1//当前页
-				},options);	
-				$.println(options.allCount,2);	
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-				},
 				FilList : function() {
 					var bgColor = 'rgba(195,195,195,.6)';//统一背静颜色
 					var hoverBgColor = 'rgba(185,185,185,.9)';
@@ -141,7 +94,7 @@ var DEBUG = true;// 开启打印信息
 						'border-radius' : '15px',
 						'text-align':'center',
 						'font-size':'0px',
-						'padding-top':'2em'
+						'padding-top':'1em'
 							});
 					/*事件样式*/
 					$(".zqfText").hover(
