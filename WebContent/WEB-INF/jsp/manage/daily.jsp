@@ -8,7 +8,6 @@
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/index.css" rel="stylesheet" />
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>

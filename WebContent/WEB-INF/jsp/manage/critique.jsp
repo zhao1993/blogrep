@@ -9,7 +9,6 @@
 		<title>博客-管理留言板</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>

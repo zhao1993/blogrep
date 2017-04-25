@@ -10,7 +10,6 @@
 		
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
@@ -38,7 +37,6 @@
       <ul class="pl_n">
        <s:iterator value="critiques" >
         <dl>
-                 		<!-- 小头像 -->  
         <dt>
          <s:if test="photo != null">
           <img src="<s:property value="photo"/>"/> 
@@ -51,7 +49,7 @@
           <dd><s:property value="name"/>
             <time><s:property value="time"/></time>&nbsp;&nbsp;&nbsp;<span>联系方式:<span id="contact"><s:property value="notice"/></span></span>
           </dd>
-          <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
+          <dd><s:property value="content" escape="false"/></dd>
         </dl>
         </s:iterator>
       </ul>
@@ -117,7 +115,7 @@
     <div class="rnav">
     <%@ include file="rnav.jsp" %> 
     </div>
-    <div class="ph_news">
+    <div class="ph_news"/>
       <h2>
         <p>最热文章</p>
       </h2>

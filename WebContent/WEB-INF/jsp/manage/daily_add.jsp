@@ -8,7 +8,6 @@
 		<title>管理-发表日志</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<style type="text/css">

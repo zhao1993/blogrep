@@ -267,7 +267,7 @@ var DEBUG = true;// 开启打印信息
 							// 添加事件取消按钮
 							footer_cancle.click(function() {
 								destroy();
-								if (typeof canclebtn.canclebtn == 'function') {
+								if (typeof params.canclebtn == 'function') {
 									params.canclebtn();
 									$.println('执行自定义取消按钮事件');
 								} else {

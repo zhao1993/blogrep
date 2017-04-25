@@ -8,7 +8,6 @@
 <link href="../include/css/base.css" rel="stylesheet" />
 <link href="../include/css/index.css" rel="stylesheet" />
 <link href="../include/css/style.css" rel="stylesheet" />
-<link href="../include/css/media.css" rel="stylesheet" />
 <style type="text/css">
 </style>
 <meta name="viewport"
