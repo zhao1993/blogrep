@@ -66,6 +66,8 @@ var DEBUG = true;// 开启打印信息
 						fCircle.clone().appendTo(li);
 						fHorizontal.clone().appendTo(li);
 					}
+					/*增加可设参数前的调整*/
+					 
 					/* 样式填充 */
 					$(".zqlist").css({
 						'width': '730px',
@@ -140,26 +142,25 @@ var DEBUG = true;// 开启打印信息
 						$.println("没有定义任何参数!提示框不能启动:可定义的参数:");
 						$.println("title（String）:提示框标题文字");
 						$.println("content（String）:提示框显示内容");
-						$.println("custom（Document）:自定义文档元素");
 						$.println("inputb（boolean）:是否显示一个输入框");
 						$.println("confirmbtn（function）:确定按钮执行的函数");
 						$.println("canclebtn（function）:取消按钮执行的函数");
 						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]");
 						$.println("可以通过 '$.inputval' 获取输入框的值 ")
-						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})")
+						$.println("示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval)};})")
 						return false;
 					}
 					params = $.extend({
 						title :"zqalert-提示:",
 						content : "zqalert-内容",
-						custom : null,
 						inputb : false,
 						confirmbtn : null,
 						canclebtn : null,
 						canmove : false
 					},params);
 					this.show = function() {
-						$.println("参数列表:\n标题:" + params.title + "\n内容:" + params.content +"\n是否定制文档:"+(null!=params.custom)
+						$.println("弹框正常显示!");
+						$.println("\n标题:" + params.title + "\n内容:" + params.content
 								+ "\n输入框使用:" + (params.inputb == true)
 								+ "\n可移动(测试功能不建议开启):" + params.canmove + "\n左按钮:"
 								+ typeof params.confirmbtn + "\n右按钮:"
@@ -193,7 +194,6 @@ var DEBUG = true;// 开启打印信息
 						bg.appendTo(shadow);
 						// 完成布置
 						shadow.appendTo(body);
-						$.println("弹框正常显示!");
 						// 拖动事件
 						if (params.canmove == true) {
 							$.println('开启拖动提示框功能[测试階段]...');
@@ -272,6 +272,7 @@ var DEBUG = true;// 开启打印信息
 							$(times).css('color', 'rgba(155,155,155,1)');
 							destroy();
 						});
+						// 添加提示内容部分(展示内容不能与输入框同时存在，并且输入框优先)
 						_body.appendTo(bg);
 						_body.text(params.content);
 						if (params.inputb == true) {
@@ -282,11 +283,6 @@ var DEBUG = true;// 开启打印信息
 									$.inputval = text;
 								}
 							});
-						}
-						if(null!=params.custom){
-							_body.append('<br/>');
-							_body.append(params.custom);
-							_body.append('<br/>');
 						}
 						// 添加底部按钮部分
 						footer.appendTo(bg);

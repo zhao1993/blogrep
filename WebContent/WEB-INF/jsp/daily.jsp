@@ -77,15 +77,6 @@
 				</s:iterator>
 			</ul>
 		</div>
-		<div class="links">
-			<h2>
-				<p class="tj_t3">友情链接</p>
-			</h2>
-			<ul>
-				<li><a href="http://blog_hao.jd-app.com/index/index">个人博客</a></li>
-				<li><a href="http://user.qzone.qq.com/657682618">QQ空间</a></li>
-			</ul>
-		</div>
 		<%@ include file="copyright.jsp"%> </aside>
   	<script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>

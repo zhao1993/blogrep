@@ -8,32 +8,22 @@
  --><title>JavaScript Test</title>
 </head>
 <body>
-<div class="waterfallview1" style="width:300px;background-color: blue">
-<div style="float:left;margin-left:1em"><a href="ss">sadasdsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sdsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadasdsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadasa</a></div>
-<div style="float:left;margin-left:1em"><a>sadsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadasdsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadaadsa</a></div>
-<div style="float:left;margin-left:1em"><a>saddsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadasdsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadaadsa</a></div>
-<div style="float:left;margin-left:1em"><a>saddsadsa</a></div>
-<div style="float:left;margin-left:1em"><a>sadsadsa</a></div>
-</div>
+<button onclick="test()">按钮</button>
 </body>
 
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
 <script type="text/javascript" src="plugin/diy/js/jquery.zqextend.js"></script>
 <script type="text/javascript">
 $.LableWaterFall({'width':'300px'});
+function test(){
+	$.Alert({
+		'title':'提示',
+		'custom':'<a href="....">定制超链接？</a><span>奇葩内容</span><input type="text" /><button>按钮</button>',
+		'confirmbtn':function(){
+			alert($.inputval);
+			}
+		}
+	)
+}
 </script>
 </html>

@@ -11,9 +11,11 @@
 		<action name="critique" class="critiqueShowAction">
 			<result name="success">/WEB-INF/jsp/index.jsp</result>
 		</action>
-		
 		<action name="index" class="critiqueShowAction">
 			<param name="pageSize">5</param>
+			<result name="success" type="chain">conForIndex</result>
+		</action>
+		<action name="conForIndex" class="conShowAction">
 			<result name="success" type="chain">article</result>
 		</action>
 		<action name="article" class="articleShowAction">
