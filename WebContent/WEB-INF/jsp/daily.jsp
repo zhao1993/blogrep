@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>关于我</title>
+		<title>我的日志</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/index.css" rel="stylesheet" />
 		<link href="../include/css/style.css" rel="stylesheet"/>

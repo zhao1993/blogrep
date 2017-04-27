@@ -18,7 +18,7 @@ public class ArticleShowAction {
 	private List<Article> recommendArticles;
 	private int totalPage;
 	private int page=1;
-	private int pageSize=5; 
+	private int pageSize; 
 	private int size;
 	private Integer albumId;
 	

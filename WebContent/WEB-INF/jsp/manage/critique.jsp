@@ -27,7 +27,7 @@
     <%@ include file="../manage_nav.jsp" %>
     </header>
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">管理留言板</a> <a style="float:right" href="../manage/dailyAdd">发表日志</a></h2>
+    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">管理留言板</a></h2>
     <div class="template">
       
       <h3>

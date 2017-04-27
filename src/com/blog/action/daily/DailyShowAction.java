@@ -1,4 +1,4 @@
-package com.blog.daily;
+package com.blog.action.daily;
 
 import java.util.List;
 import javax.annotation.Resource;

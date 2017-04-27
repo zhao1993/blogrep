@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>日志管理</title>
+		<title>我的日志</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/index.css" rel="stylesheet" />
 		<link href="../include/css/style.css" rel="stylesheet"/>
@@ -16,13 +16,13 @@
 <body>
 <div class="ibody">
   <header>
-      <h1>扯你妈的蛋</h1>
+    <h1>扯你妈的蛋</h1>
     <h2>这世界唯一不变的就是变化...</h2>
     <div class="logo"><a href="../index/index"></a></div>
-  <%@ include file="../manage_nav.jsp" %> 
+  <%@ include file="../nav.jsp" %> 
    </header>
   <article>
-    <h3 class="about_h">您现在的位置是：<a href="../index/index">首页</a>><a href="../daily/daily">日志管理</a><a style="float:right" href="../manage/toDailyAdd"><strong>发表日志</strong></a></h3>
+    <h3 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="../daily/daily">日志管理</a>><a class ="editem" style="float:right" href="../manage/toDailyAdd"><strong>发表日志</strong></a></h3>
     <div class="dailylist" style="margin-left:50px">
     <ol class="zqlist">
     	<s:iterator value="dailys">
@@ -62,8 +62,8 @@
 			<ul>
 				<s:iterator value="newArticles">
 					<li><a
-						href="../article/article_detail?id=<s:property value="id"/>">
-						<s:property value="title" /></a></li>
+						href="../article/article_detail?id=<s:property value="id"/>"><s:property
+								value="title" /></a></li>
 				</s:iterator>
 			</ul>
 			<h2>
@@ -86,8 +86,7 @@
 				<li><a href="http://user.qzone.qq.com/657682618">QQ空间</a></li>
 			</ul>
 		</div>
-		 <%@ include file="../copyright.jsp" %> 
-		<div class="clear"> 
+		<%@ include file="../copyright.jsp"%> </aside>
   	<script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
   <script src="../plugin/diy/js/jquery.zqextend.js"></script>

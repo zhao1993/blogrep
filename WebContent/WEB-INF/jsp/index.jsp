@@ -118,10 +118,11 @@
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
-			<ul>
-				<li><a href="http://blog_hao.jd-app.com/index/index">个人博客</a></li>
-				<li><a href="http://user.qzone.qq.com/657682618">QQ空间</a></li>
-			</ul>
+			<div style="width:300px">
+				<s:iterator value="connects">
+					<div style="margin-left:1em;float:left"><a href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></div>
+				</s:iterator>
+			</div>
 		</div>
 		<%@ include file="copyright.jsp"%> </aside>
 		<div class="clear">
@@ -144,6 +145,8 @@
 					     		window.location="../manage/article";
 					     	};
 					 });
+				},
+				'canclebtn':function(){
 				}
 			});
 		}

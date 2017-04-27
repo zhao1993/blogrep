@@ -30,14 +30,14 @@
         <li>
           <h3><a href="../article/article_detail?id=<s:property value="id"/>"><s:property value="title" /></a></h3>
           <div class="autor"><span>作者：<s:property value="editer"/></span><span>分类：[<a href="#"><s:property value="type"/></a>]</span><span>浏览（<a href="#"><s:property value="count"/></a>）</span><span>评论（<a href="#"><s:property value="count1"/></a>）</span>
-			&nbsp;<a title="编辑文章" href="../manage/to_article_update?id=<s:property value="id"/>">编辑</a> 
+			&nbsp;<a class ="editem" title="编辑文章" href="../manage/to_article_update?id=<s:property value="id"/>">编辑</a> 
 			<s:if test="notice!=null">
-			&nbsp;<a title="取消推荐" href="../manage/article_unrecommend?id=<s:property value="id"/>">取消推荐</a> 
+			&nbsp;<a class ="editem" title="取消推荐" href="../manage/article_unrecommend?id=<s:property value="id"/>">取消推荐</a> 
 			</s:if>
 			<s:if test="notice==null">
-			&nbsp;<a title="推荐文章" href="../manage/article_recommend?id=<s:property value="id"/>">推荐文章</a> 
+			&nbsp;<a class ="editem" title="推荐文章" href="../manage/article_recommend?id=<s:property value="id"/>">推荐文章</a> 
 			</s:if>
-			&nbsp;<a title="删除文章" onclick="return confirm('确定删除文章:\n?')==true" href="../manage/article_delete?id=<s:property value="id"/>">删除</a>
+			&nbsp;<a class ="editem" title="删除文章" onclick="return confirm('确定删除文章?')==true" href="../manage/article_delete?id=<s:property value="id"/>">删除</a>
           </div>
           <div class="content" ><s:property value="content" escape="false"/></div><a href="../article/article_detail?id=<s:property value="id" />"  class="readmore" style="display:inline-block;">阅读全文>></a>
         </li>

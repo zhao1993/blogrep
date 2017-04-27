@@ -14,5 +14,5 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 </head>
-<body onload="window.location='index/article.action'"></body>
+<body onload="window.location='index/index'"></body>
 </html>

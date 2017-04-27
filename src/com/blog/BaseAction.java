@@ -3,10 +3,8 @@ package com.blog;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
-
 import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.util.ServletContextAware;
-
 import com.blog.entity.Connect;
 
 public class BaseAction implements SessionAware,ServletContextAware{

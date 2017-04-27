@@ -1,14 +1,38 @@
-/** 依赖Jquery 测试使用jQuery v1.7 不兼容IE 2017-4-18 
- * Css文件已经整合只需要导入JS文件即可使用
- * 拥有如下小功能:
- *  1简易弹框功能 2仿时间轴列表填充功能
- *  暂时没有可设参数 所以更多需要只有对源码进行调试修改*/
+
 var DEBUG = true;// 开启打印信息
 (function($) {
-	$
-			.extend({
+	$.extend({
+			LableWaterFall:function(options){
+				options = $.extend({
+					"width":"200px",
+					"margin":"10px"
+				},options);
+				var wfDiv = $(".waterfallview");
+				wfDiv.width(options.width);
+				var totalwidth = 0;
+				for(var i = 0;i<wfDiv.length;i+=1){
+					//得到所有的子元素
+					links = $(wfDiv[i]).find("a");
+					var j = 0;
+					for(;j<links.length;){
+						var doc = $(links[j]);
+						//生成新的元素
+						var a = $("<a class='waterfallviewlink "+doc.attr('class')+"' title='"+doc.attr('title')+"' href='"+doc.attr('href')+"'>"+doc.text()+"</a>");
+						//元素追加到指定的Div
+						var aDiv = $("<div></div>");
+						aDiv.append(a);
+						wfDiv.append(aDiv);
+						$.println($(a).width()+1);
+						j+=1;
+					}
+			}
+				$(wfDiv).find("div").css({'margin-left':'1em','float':'left'});
+				$(".waterfallviewlink").css({'color':'rgba(216,216,216,1)'});
+				$(".waterfallviewlink").hover(function(){$(this).css('color','rgba(255,255,255,1)');},
+						function(){$(this).css('color','rgba(216,216,216,1)');})
+			},
 				FilList : function() {
-					var bgColor = 'rgba(195,195,195,.6)';//统一背静颜色
+					var bgColor = 'rgba(195,195,195,.6)';
 					var hoverBgColor = 'rgba(185,185,185,.9)';
 					var min_H = "60"; 
 					if ($(".zqlist").length == 0) {
@@ -101,7 +125,7 @@ var DEBUG = true;// 开启打印信息
 						function(){
 							$(this).css({'background-color':hoverBgColor});
 							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+hoverBgColor});
-							$(this).parent().find(".zqfCircle").css({'font-size':'30px','transform':'rotate(1080deg)'});
+							$(this).parent().find(".zqfCircle").css({'font-size':'15px','transform':'rotate(1080deg)'});
 							$(this).parent().find(".zqfHorizontal").animate({'width':'150px','height':min_H/2+'px','font-size':'15px'},100);
 						},
 						function(){
@@ -437,6 +461,7 @@ var DEBUG = true;// 开启打印信息
 						module = module == null ? "[来自Alert]"
 								: module == 1 ? "[来自FilList]"
 										: module == 2 ? "[来自AutoPager:]"
+												: module == 3 ? "[来自LableWaterFall:]"
 												: "[来自Unknow]";
 						if (window.console) {
 							console.info("%c" + time + "%c" + module + '提示:'
@@ -445,6 +470,30 @@ var DEBUG = true;// 开启打印信息
 					} catch (e) {
 						alert(e);
 					}
+				},
+				/**未考虑的BUG 如果例外的数字刚好是随机数的数字如随机产生1-10 而例外也是1-10 则会陷入死循环
+				 * 参数类型不符合等
+				 * 一个参数 返回0-min（不含min）之间的 整数
+				 * 两个参数 返回min-max之间（包含max）的随机整数。
+				 * 三个参数 返回min-max之间（包含max）的随机整数 但不包含excepts内(可以是数字和数字数组)的数字
+				 * */
+				Random : function(min,max,excepts){
+					if(typeof max !='number'){
+						return parseInt(Math.random()*min);
+					}
+					if(min>max){var omax = max;max = min;min = omax;}
+					var val = parseInt(Math.random()*(max-min+1))+min;
+					if(typeof excepts == 'number' && excepts==val){
+						return $.Random(min,max,excepts);
+					}
+					if(null!=excepts && excepts.length>0){
+						for(var i=0;i<excepts.length;i+=1){
+							if(excepts[i]==val){
+								return $.Random(min,max,excepts);
+							}
+						}
+					}
+					return val;
 				},
 				inputval : null,
 			});
