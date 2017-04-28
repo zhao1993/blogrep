@@ -8,6 +8,7 @@
 		<link rel="SHORTCUT ICON" href="../include/images/s8.jpg"/>
 		<link href="../include/css/base.css" rel="stylesheet"/> 
 		<link href="../include/css/style.css" rel="stylesheet"/>
+		<link href="../include/css/index.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>
@@ -112,21 +113,42 @@
         </s:iterator>
       </ul>
     </div>
-    		<div class="links">
+    	<div class="links">
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
 			<div style="width:300px">
+				<a href="javascript:void(0)" onclick="linkadd()" style="color:red" >新增友链</a>
 				<s:iterator value="connects">
-					<div style="margin-left:1em;float:left"><a href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></div>
+					<div style="margin-left:1em;float:left"><a href="javascript:void(0)" title="<s:property value="title" />" onclick="teste(<s:property value="id"/>)" > <s:property value="name"/></a></div>
 				</s:iterator>
 			</div>
 		</div>
    <%@ include file="../copyright.jsp" %> 
+   
   </aside>
+  <div class="clear"></div>
+  <!-- 操作弹框 -->
+  <div class="zqmodal linkoption">
+  <div class="zqalert-footer_btn zqalert-footer_confirm " onclick="linkgoto()" >跳转</div>
+  <div class="zqalert-footer_btn zqalert-footer_confirm " onclick="linkedit()" >编辑</div>
+  <div class="zqalert-footer_btn zqalert-footer_confirm " onclick="linkdelete()">删除</div>
+  </div>
+  <!-- 添加和编辑弹框 -->
+  <div class="zqmodal linkform">
+  <form class="dynamicform" action="../con/update" method="post">
+  <input class="linkId" type="hidden" value="" name="connect.id"/><br />
+  站&nbsp;&nbsp;名:<input class="linkName zqalert-bgdiv-body-input" name="connect.name" value=""/><br />
+  地&nbsp;&nbsp;址:<input class="linkAddress zqalert-bgdiv-body-input" name="connect.target" value=""/><br />
+  备&nbsp;&nbsp;注:<input class="linkDescription zqalert-bgdiv-body-input" name="connect.title" value=""/><br /><br />
+  <input type="submit" class="formsubmit zqalert-footer_btn zqalert-footer_cancle" value="提交"/>
+  </form>
+  </div>
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
-  <div class="clear"></div>
-</div>
+  <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
+  <script src="../include/js/links.js"></script>
+  
+  </div>
 </body>
 </html>

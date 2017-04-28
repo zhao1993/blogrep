@@ -151,15 +151,16 @@ var DEBUG = true;// 开启打印信息
 					}
 					params = $.extend({
 						title :"zqalert-提示:",
-						content : "zqalert-内容",
+						content : null,
 						custom : null,
 						inputb : false,
 						confirmbtn : null,
 						canclebtn : null,
+						contextmenu:true,
 						canmove : false
 					},params);
 					this.show = function() {
-						$.println("参数列表:\n标题:" + params.title + "\n内容:" + params.content +"\n是否定制文档:"+(null!=params.custom)
+						$.println("参数列表:\n标题:" + params.title + "\n内容:" + params.content +"\n上下文菜单禁用："+params.contextmenu+"\n是否定制文档:"+(null!=params.custom)
 								+ "\n输入框使用:" + (params.inputb == true)
 								+ "\n可移动(测试功能不建议开启):" + params.canmove + "\n左按钮:"
 								+ typeof params.confirmbtn + "\n右按钮:"
@@ -189,7 +190,7 @@ var DEBUG = true;// 开启打印信息
 						times.appendTo(header);
 						header.appendTo(bg);
 						// 创建遮罩层
-						var shadow = $("<div class='zqalert-shadow'></div>");
+						var shadow = $("<div class='zqdbyc zqalert-shadow'></div>");
 						bg.appendTo(shadow);
 						// 完成布置
 						shadow.appendTo(body);
@@ -273,7 +274,10 @@ var DEBUG = true;// 开启打印信息
 							destroy();
 						});
 						_body.appendTo(bg);
-						_body.text(params.content);
+						if(null!=params.content){
+							_body.text(params.content);
+							_body.append('<br/>');
+						}
 						if (params.inputb == true) {
 							_body.append(inputs);
 							$(inputs).bind('keyup', function() {
@@ -284,12 +288,19 @@ var DEBUG = true;// 开启打印信息
 							});
 						}
 						if(null!=params.custom){
-							_body.append('<br/>');
-							_body.append(params.custom);
+							if($(params.custom)){
+								$(params.custom).hide();
+								_body.append($(params.custom).html());
+							}else{
+								_body.append(params.custom);
+							}
 							_body.append('<br/>');
 						}
 						// 添加底部按钮部分
-						footer.appendTo(bg);
+						//如果存在任意一個按鈕就添加footer
+						if(params.confirmbtn || params.canclebtn){
+							footer.appendTo(bg);
+						}
 						if (params.canclebtn) {
 							footer_cancle.appendTo(footer);
 							// 添加事件取消按钮
@@ -321,10 +332,8 @@ var DEBUG = true;// 开启打印信息
 								'scroll resize',
 								function() {
 									shadow.css({
-										'height' : $(document.body)
-												.outerHeight(true),
-										'width' : $(window).width()
-												+ document.body.scrollLeft
+										'height' : $(document.body).outerHeight(true),
+										'width' : $(window).width()+ document.body.scrollLeft
 									});
 								})
 						// 弹框无敌
@@ -337,8 +346,11 @@ var DEBUG = true;// 开启打印信息
 											}
 										});
 						$(document).bind("contextmenu", function(e) {
-							$.println("右键菜单已经被禁用");
-							return false;
+							if(params.contextmenu){
+								$.println("右键菜单已经被禁用");
+								return false;
+							}
+							return true;
 						});
 						/** *************************样式文件合并************************************* */
 						$(shadow).css({
@@ -392,10 +404,9 @@ var DEBUG = true;// 开启打印信息
 							'color' : 'rgba(235,235,235,1)',
 							'line-height' : '22px'
 						});
-						$(inputs).css({
+						$('.zqalert-bgdiv-body-input').css({
 							'width' : '320px',
-							'height' : '18px',
-							'margin-top' : '1em'
+							'height' : '18px'
 						});
 						$(footer).css({
 							'background-color' : 'rgba(255,255,255,.8)',
@@ -409,9 +420,9 @@ var DEBUG = true;// 开启打印信息
 							'cursor' : 'pointer',
 							'border-radius' : '3px'
 						});
-						$(footer_confirm).css('background-color',
+						$('.zqalert-footer_confirm').css('background-color',
 								'rgba(186,106,196,1)');
-						$(footer_cancle).css('background-color',
+						$('.zqalert-footer_cancle').css('background-color',
 								'rgba(166,166,166,1)');
 						$(inputs).hover(function() {
 							$(inputs).css('box-shadow', '0px 0px 6px #033')
@@ -426,25 +437,41 @@ var DEBUG = true;// 开启打印信息
 						}, function() {
 							$(times).css('color', 'rgba(235,235,235,1)')
 						});
-						$(footer_confirm).hover(
+						$('.zqalert-footer_confirm').hover(
 								function() {
-									$(footer_confirm).css('background-color',
+									$(this).css('background-color',
 											'rgba(186,106,196,.6)')
 								},
 								function() {
-									$(footer_confirm).css('background-color',
+									$(this).css('background-color',
 											'rgba(186,106,196,1)')
 								});
-						$(footer_cancle).hover(
+						$('.zqalert-footer_cancle').hover(
 								function() {
-									$(footer_cancle).css('background-color',
+									$(this).css('background-color',
 											'rgba(166,166,166,.6)')
 								},
 								function() {
-									$(footer_cancle).css('background-color',
+									$(this).css('background-color',
 											'rgba(166,166,166,1)')
 								});
 					};
+					//弹框的绝对居中
+					function center(){
+			                var h = $(window).height();  
+			                var w = $(window).width();
+			                var st = $(window).scrollTop();
+			                var sl = $(window).scrollLeft();  
+			                $(".zqalert-bgdiv").css("top", ((h- $(".zqalert-bgdiv").height())/2)+st);  
+			                $(".zqalert-bgdiv").css("left", w/2+sl);  
+					}
+					//阴影完全覆盖
+					function shadowfull(){
+						$('.zqalert-shadow').css({
+							'height' : $(document.body).outerHeight(true)+$(window).scrollTop(),
+							'width' : $(window).width()+ document.body.scrollLeft
+						});
+					}
 					function destroy() {
 						$(".zqalert-bgdiv").remove();
 						$(".zqalert-shadow").remove();
@@ -452,6 +479,20 @@ var DEBUG = true;// 开启打印信息
 						$.println("窗口被关闭!");
 					}
 					this.show();
+					shadowfull();
+					center();
+					 //滚动条滚动  
+                    $(window).scroll(  
+                        function(){  
+                        	center();  
+                        }  
+                    );  
+                    //拖动浏览器窗口  
+                    $(window).resize(  
+                        function(){  
+                        	center();  
+                        }  
+                    );  
 				},
 				println : function(msg, module) {
 					if (!DEBUG)
@@ -502,3 +543,4 @@ var DEBUG = true;// 开启打印信息
 				inputval : null,
 			});
 })(jQuery);
+$('.zqmodal,#zqmodal,zqmodal').hide();

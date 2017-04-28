@@ -8,10 +8,19 @@ import com.blog.service.ConService;
 public class ConUpdateAction {
 	@Resource ConService conServiceImpl;
 	private Connect connect;
+	private boolean result;
 	public String execute() throws Exception{
 		if(null!=connect)
+		{
+			if(!connect.getTarget().startsWith("http://") || !connect.getTarget().startsWith("https://"))
+				connect.setTarget("http://"+connect.getTarget());
 		conServiceImpl.update(connect);
-		connect = null;
+		result = true;
+		connect = null;}
+		return "success";
+	}
+	public String updateBefore() throws Exception{
+		connect = conServiceImpl.query(connect.getId());
 		return "success";
 	}
 	public Connect getConnect() {
@@ -19,6 +28,12 @@ public class ConUpdateAction {
 	}
 	public void setConnect(Connect connect) {
 		this.connect = connect;
+	}
+	public boolean isResult() {
+		return result;
+	}
+	public void setResult(boolean result) {
+		this.result = result;
 	}
 	
 }

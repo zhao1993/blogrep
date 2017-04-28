@@ -120,7 +120,7 @@
 			</h2>
 			<div style="width:300px">
 				<s:iterator value="connects">
-					<div style="margin-left:1em;float:left"><a href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></div>
+					<div style="margin-left:1em;float:left"><a target="_blank" href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></div>
 				</s:iterator>
 			</div>
 		</div>

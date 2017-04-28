@@ -20,7 +20,7 @@ function test(){
 		'title':'提示',
 		'custom':'<a href="....">定制超链接？</a><span>奇葩内容</span><input type="text" /><button>按钮</button>',
 		'confirmbtn':function(){
-			alert($.inputval);
+			alert($.inputval);  
 			}
 		}
 	)

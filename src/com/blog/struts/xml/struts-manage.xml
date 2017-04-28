@@ -7,6 +7,9 @@
 	<!-- ******************************文章*********************************** -->
 		<action name="article" class="critiqueShowAction">
 			<param name="pageSize">5</param>
+			<result name="success" type="chain">linksForManage</result>
+		</action>
+		<action name="linksForManage" class="conShowAction">
 			<result name="success" type="chain">critique0</result>
 		</action>
 		<action name="critique0" class="articleShowAction">

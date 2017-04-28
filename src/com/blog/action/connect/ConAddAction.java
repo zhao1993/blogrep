@@ -9,8 +9,11 @@ public class ConAddAction {
 	@Resource ConService conServiceImpl;
 	private Connect connect;
 	public String execute() throws Exception{
-		if(null!=connect)
-		conServiceImpl.save(connect);
+		if(null!=connect){
+			connect.setId(null);
+			if(!connect.getTarget().startsWith("http://") || !connect.getTarget().startsWith("https://"))
+				connect.setTarget("http://"+connect.getTarget());
+		conServiceImpl.save(connect);}
 		connect = null;
 		return "success";
 	}
