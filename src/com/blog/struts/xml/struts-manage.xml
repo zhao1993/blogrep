@@ -99,6 +99,7 @@
 		</action>
 		<!-- ******************************日志*********************************** -->
 		<action name="daily" class="articleShowAction">
+		<param name="pageSize">5</param>
 			<result name="success" type="chain">articleForDaily0</result>
 		</action>
 		<action name="articleForDaily0" class="dailyShowAction">
@@ -106,6 +107,7 @@
 		</action>
 
 		<action name="toDailyAdd" class="articleShowAction">
+		<param name="pageSize">5</param>
 			<result name="success">/WEB-INF/jsp/manage/daily_add.jsp</result>
 		</action>
 		

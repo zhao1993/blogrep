@@ -59,8 +59,8 @@
 					<div class="autor">
 						<span>作者：<a><s:property value="editer" /></a></span><span>分类：[<a
 							href="/"><s:property value="type" /></a>]
-						</span><span>浏览（<a href="/"><s:property value="count" /></a>）
-						</span><span>评论（<a href="/"><s:property value="count1" /></a>）
+						</span><span>浏览（<a href="javascript:void(0)"><s:property value="count" /></a>）
+						</span><span>评论（<a href="javascript:void(0)"><s:property value="count1" /></a>）
 						</span>
 						<span>时间：<s:property value="time" /></span>
 					</div>

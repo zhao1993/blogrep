@@ -5,10 +5,10 @@
 <struts>
 	<package name="daily" namespace="/daily" extends="json-default">
 		<action name="daily" class="articleShowAction" >
+			<param name="pageSize">5</param>
 			<result name="success" type="chain">articleForDaily</result>
 		</action>
 		<action name="articleForDaily" class="dailyShowAction">
-			<param name="pageSize">5</param>
 			<result name="success">/WEB-INF/jsp/daily.jsp</result>
 		</action>
 	</package>
