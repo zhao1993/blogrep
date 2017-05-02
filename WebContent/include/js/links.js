@@ -26,7 +26,13 @@ function teste(id){
 				title : '注意',
 				content : '确定删除这条信息？',
 				confirmbtn : function() {
-					window.location = '../con/delete?connect.id='+$.inputval;
+					$.post('../con/delete', {
+						'connect.id' : $.inputval
+					},function(flag){
+						if(flag){
+							window.location = '../manage/article';
+						}
+					});
 				},
 				canclebtn : function() {
 				}

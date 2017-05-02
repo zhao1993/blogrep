@@ -16,9 +16,8 @@
 			</result>
 		</action>
 		<action name="delete" class="conDeleteAction">
-			<result name="success" type="chain">
-				<param name="namespace">/manage</param>
-				<param name="actionName">article</param>
+			<result name="success" type="json">
+				<param name="root">result</param>
 			</result>
 		</action>
 		<action name="add" class="conAddAction">

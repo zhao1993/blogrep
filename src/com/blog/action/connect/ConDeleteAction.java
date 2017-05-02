@@ -8,10 +8,17 @@ import com.blog.service.ConService;
 public class ConDeleteAction {
 	@Resource ConService conServiceImpl;
 	private Connect connect;
+	private boolean result;
 	public String execute() throws Exception{
 		if(null!=connect && connect.getId()!=null)
+			try{
 		conServiceImpl.delete(connect.getId());
 		connect = null;
+		result = true;
+		}
+		catch(Exception e){
+			result =false;
+		}
 		return "success";
 	}
 	public Connect getConnect() {
@@ -19,6 +26,12 @@ public class ConDeleteAction {
 	}
 	public void setConnect(Connect connect) {
 		this.connect = connect;
+	}
+	public boolean isResult() {
+		return result;
+	}
+	public void setResult(boolean result) {
+		this.result = result;
 	}
 	
 }

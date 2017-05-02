@@ -24,7 +24,7 @@
       <property name="maxStatements"><value>0</value></property>
       <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->    
         <property name="idleConnectionTestPeriod">    
-            <value>60</value>    
+            <value>30</value>    
         </property>    
      
  <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->    
@@ -41,10 +41,10 @@
 		      <value>com/blog/entity/Critique.hbm.xml</value>
 		      <value>com/blog/entity/Photo.hbm.xml</value>
 		      <value>com/blog/entity/Daily.hbm.xml</value>
+		      <value>com/blog/entity/Connect.hbm.xml</value>
 		      <value>com/blog/entity/Me.hbm.xml</value>
 		      <value>com/blog/entity/Album.hbm.xml</value>
 		      <value>com/blog/entity/Manager.hbm.xml</value>
-		      <value>com/blog/entity/Connect.hbm.xml</value>
 		    </list>
 		 </property>
 	     <property name="hibernateProperties">
