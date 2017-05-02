@@ -37,8 +37,8 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 /* ×îÐÂÆÀÂÛ */
 .pl_n dl { display: block; overflow: hidden; margin-bottom: 12px; color: #cdcbcb; }
 .pl_n dd { line-height: 22px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden }
-.pl_n dd a { color: #555454 }
-.pl_n time { color: #066; margin-left: 10px }
+.pl_n dd a { color: #cdb }
+.pl_n time {  margin-left: 10px }
 .pl_n dt { float: left; }
 .pl_n dt img { width: 50px; height: 50px; margin-right: 10px; border-radius: 50%; transition: all 1s }
 .pl_n dt img:hover { -webkit-transform: rotate(360deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -o-transform: rotate(30deg); transform: rotate(30deg); }
@@ -46,7 +46,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .c_titile { font-size: 22px; margin: 20px 0; text-align: center; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; }
 .box_c { color: #999; text-align: center }
 .box_c span { margin: 0 10px; }
-.box_c span a { color: #099; }
+.box_c span a { color: #e2e2e2; }
 ul.infos { overflow: hidden; margin: 20px 0; line-height: 28px; font-size: 14px; text-indent: 2em; color: #525554 }
 ul.infos p { margin-bottom: 10px }
 ul.infos p img { display: block; margin: auto }

@@ -11,3 +11,22 @@ $(function(){
 	$(".rnav ul > li:even").css("background","#e41637")
 	$(".rnav ul > li:odd").css("background","#46ce14")
 })
+function editMode(){
+			$.Alert({
+				'title':'进入编辑模式',
+				'content':'请输入进入模式的指令:',
+				'inputb':true,
+				'confirmbtn':function(){
+					$.post("../manage/json_account", {
+						'account':$.inputval
+						},
+						function(data){
+					     	if(data=="true"){
+					     		window.location="../manage/article";
+					     	};
+					 });
+				},
+				'canclebtn':function(){
+				}
+			});
+		}

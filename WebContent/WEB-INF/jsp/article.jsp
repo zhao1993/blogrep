@@ -111,7 +111,6 @@
           <img src="../include/images/s8.jpg"/>
           </s:if>
           </dt>
-          <dt>
           <dt> </dt>
           <dd><s:property value="name"/>
             <time><s:property value="time"/></time>

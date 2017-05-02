@@ -130,29 +130,8 @@
 		<div class="clear">
 </div>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
-		<script>
-		function editMode(){
-			$.Alert({
-				'title':'进入编辑模式',
-				'content':'请输入进入模式的指令:',
-				'inputb':true,
-				'confirmbtn':function(){
-					$.post("../manage/json_account", {
-						'account':$.inputval
-						},
-						function(data){
-					     	if(data=="true"){
-					     		window.location="../manage/article";
-					     	};
-					 });
-				},
-				'canclebtn':function(){
-				}
-			});
-		}
-		</script>
+		<script type="text/javascript" src="../include/js/silder.js"></script>
 	</div>
 </body>
 </html>
