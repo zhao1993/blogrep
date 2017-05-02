@@ -120,7 +120,7 @@
 			<div style="width:300px">
 				<a href="javascript:void(0)" onclick="linkadd()" style="color:red" >新增友链</a>
 				<s:iterator value="connects">
-					<div style="margin-left:1em;float:left"><a href="javascript:void(0)" title="<s:property value="title" />" onclick="teste(<s:property value="id"/>)" > <s:property value="name"/></a></div>
+					<div style="margin-left:1em;float:left"><a href="javascript:void(0)" title="<s:property value="title" />" onclick="dolinks(<s:property value="id"/>)" > <s:property value="name"/></a></div>
 				</s:iterator>
 			</div>
 		</div>
@@ -142,6 +142,7 @@
   地&nbsp;&nbsp;址:<input class="linkAddress zqalert-bgdiv-body-input" name="connect.target" value=""/><br />
   备&nbsp;&nbsp;注:<input class="linkDescription zqalert-bgdiv-body-input" name="connect.title" value=""/><br /><br />
   <input type="submit" class="formsubmit zqalert-footer_btn zqalert-footer_cancle" value="提交"/>
+  <s:token/>
   </form>
   </div>
   <script src="../include/js/jquery.min.js"></script>

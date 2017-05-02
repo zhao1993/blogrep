@@ -21,10 +21,16 @@
 			</result>
 		</action>
 		<action name="add" class="conAddAction">
+			<result name="invalid.token" type="chain">
+				<param name="namespace">/manage</param>
+				<param name="actionName">article</param>
+			</result>
 			<result name="success" type="chain">
 				<param name="namespace">/manage</param>
 				<param name="actionName">article</param>
 			</result>
+			<interceptor-ref name="token"/>  
+            <interceptor-ref name="defaultStack"/>  
 		</action>
 	</package>
 </struts>

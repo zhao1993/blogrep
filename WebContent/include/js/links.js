@@ -1,4 +1,4 @@
-function teste(id){
+function dolinks(id){
 			$.inputval = id;
 			$.Alert({
 				title:'请选择操作',
@@ -50,7 +50,6 @@ function teste(id){
 		function linkadd() {
 			$.Alert({
 				title : '添加新的链接',
-				contextmenu : false,
 				custom : $('.linkform')
 			});
 			$('.dynamicform').attr('action','../con/add');

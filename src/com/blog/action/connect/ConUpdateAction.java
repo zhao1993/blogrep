@@ -3,9 +3,10 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.blog.entity.Connect;
 import com.blog.service.ConService;
+import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
-public class ConUpdateAction {
+public class ConUpdateAction extends ActionSupport{
 	@Resource ConService conServiceImpl;
 	private Connect connect;
 	private boolean result;
