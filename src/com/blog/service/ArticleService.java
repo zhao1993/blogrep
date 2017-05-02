@@ -19,11 +19,11 @@ public interface ArticleService {
 	public Article queryAfter(Integer id);
 
 	public Integer getSize();
-
+	
 	public List<Article> getArticles(Integer page, Integer pageSize);
 	
 	public List<Article> getArticlesByNotice(String notice);
-
+	
 	public List<Article> getNewArticles();
 
 	public List<Article> getHotArticles();

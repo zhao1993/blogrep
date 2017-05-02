@@ -29,8 +29,14 @@
         <!-- 添加li 2017年4月10日20:51:32 -->
         <li>
           <h3><a href="../article/article_detail?id=<s:property value="id"/>"><s:property value="title"/></a></h3>
-          <div class="autor"><span>作者：<a><s:property value="editer"/></a></span><span>分类：[<a href="/"><s:property value="type"/></a>]</span><span>浏览（<a href="/"><s:property value="count"/></a>）</span><span>评论（<a href="/"><s:property value="count1"/></a>）</span><span>时间:<s:property value="time"/></span>
-          <span></span></div>
+          <div class="autor">
+						<span>作者：<a><s:property value="editer" /></a></span>
+						<span>分类：[<a href="../article/byType?size=<s:property value='id'/>"><s:property value="type" /></a>]
+						</span><span>浏览（<a href="javascript:void(0)"><s:property value="count" /></a>）
+						</span><span>评论（<a href="javascript:void(0)"><s:property value="count1" /></a>）
+						</span>
+						<span>时间：<s:property value="time" /></span>
+					</div>
           <div class="content" style="width:100%"><s:property value="content" escape="false"/></div>
           <a href="../article/article_detail?id=<s:property value="id" />"  class="readmore" style="display:inline-block;">阅读全文&gt;&gt;</a>
         </li>

@@ -19,7 +19,7 @@
     <h1>扯你妈的蛋</h1>
     <h2>这世界唯一不变的就是变化...</h2>
     <div class="logo"><a href="../index/index"></a></div>
-  <%@ include file="../nav.jsp" %> 
+  <%@ include file="../manage_nav.jsp" %> 
    </header>
   <article>
     <h3 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="../daily/daily">日志管理</a>><a class ="editem" style="float:right" href="../manage/toDailyAdd"><strong>发表日志</strong></a></h3>

@@ -15,6 +15,21 @@
 		<action name="critique0" class="articleShowAction">
 			<result name="success">/WEB-INF/jsp/manage/article_manage.jsp</result>
 		</action>
+		<!-- byType -->
+		<action name="byType" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">linksForManage0</result>
+		</action>
+		<action name="linksForManage0" class="conShowAction">
+			<result name="success" type="chain">critique00</result>
+		</action>
+		<action name="critique00" class="articleShowAction" method="byType">
+			<result name="success">/WEB-INF/jsp/manage/article_manage.jsp</result>
+		</action>
+		
+		
+		
+		
 		
 		<action name="article_delete" class="articleDeleteAction">
 			<result name="success" type="chain">article</result>

@@ -57,8 +57,8 @@
 						</li>
 					</ul>
 					<div class="autor">
-						<span>作者：<a><s:property value="editer" /></a></span><span>分类：[<a
-							href="/"><s:property value="type" /></a>]
+						<span>作者：<a><s:property value="editer" /></a></span>
+						<span>分类：[<a href="../article/byType?size=<s:property value='id'/>"><s:property value="type" /></a>]
 						</span><span>浏览（<a href="javascript:void(0)"><s:property value="count" /></a>）
 						</span><span>评论（<a href="javascript:void(0)"><s:property value="count1" /></a>）
 						</span>
@@ -118,7 +118,7 @@
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
-			<div style="width:255px">
+			<div>
 			<ul>
 				<s:iterator value="connects">
 					<li><a target="_blank" href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></li>	

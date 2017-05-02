@@ -23,14 +23,20 @@
    <%@ include file="../manage_nav.jsp" %>
      </header>
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">博客管理</a><a style="float:right" href="../manage/to_article_add"><strong>发表文章</strong></a></h2>
+    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="../manage/article">文章管理</a><a style="float:right" href="../manage/to_article_add"><strong>发表文章</strong></a></h2>
     <div class="bloglist">
     <s:iterator value="articles">
       <div class="newblog">
         <ul>
         <li>
           <h3><a href="../article/article_detail?id=<s:property value="id"/>"><s:property value="title" /></a></h3>
-          <div class="autor"><span>作者：<s:property value="editer"/></span><span>分类：[<a href="#"><s:property value="type"/></a>]</span><span>浏览（<a href="#"><s:property value="count"/></a>）</span><span>评论（<a href="#"><s:property value="count1"/></a>）</span>
+          <div class="autor">
+         <%--  <span>作者：<a><s:property value="editer" /></a></span> --%>
+						<span>分类：[<a href="../manage/byType?size=<s:property value='id'/>"><s:property value="type" /></a>]
+						</span><span>浏览（<a href="javascript:void(0)"><s:property value="count" /></a>）
+						</span><span>评论（<a href="javascript:void(0)"><s:property value="count1" /></a>）
+						</span>
+						<%-- <span>时间：<s:property value="time" /></span> --%>
 			&nbsp;<a class ="editem" title="编辑文章" href="../manage/to_article_update?id=<s:property value="id"/>">编辑</a> 
 			<s:if test="notice!=null">
 			&nbsp;<a class ="editem" title="取消推荐" href="../manage/article_unrecommend?id=<s:property value="id"/>">取消推荐</a> 
@@ -40,7 +46,9 @@
 			</s:if>
 			&nbsp;<a class ="editem" title="删除文章" onclick="return confirm('确定删除文章?')==true" href="../manage/article_delete?id=<s:property value="id"/>">删除</a>
           </div>
-          <div class="content" ><s:property value="content" escape="false"/></div><a href="../article/article_detail?id=<s:property value="id" />"  class="readmore" style="display:inline-block;">阅读全文>></a>
+          <div class="content" >
+          <s:property value="content" escape="false"/></div>
+          <a href="../article/article_detail?id=<s:property value="id" />"  class="readmore" style="display:inline-block;">阅读全文>></a>
         </li>
         </ul>
         <!-- <span>时间：<s:property value="time" /></span> -->
@@ -117,7 +125,7 @@
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
-			<div style="width:255px">
+			<div>
 			<ul>
 				<li><a href="javascript:void(0)" onclick="linkadd()" style="color:red" >新增友链</a></li>
 				<s:iterator value="connects">

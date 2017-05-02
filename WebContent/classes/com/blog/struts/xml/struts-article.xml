@@ -12,11 +12,6 @@
 		<action name="critique" class="articleShowAction">
 			<result name="success">/WEB-INF/jsp/article.jsp</result>
 		</action>
-		
-		<!-- 收到详细文章请求后,输出(详细文章)
-		然后转发给文章action处理输出(文章),
-		最后转发给留言action处理输出(留言),
-		处理完后跳转到article_detail.jsp -->
 		<action name="article_detail" class="articleDetailAction">
 			<result name="success" type="chain">article1</result>
 		</action>
@@ -27,6 +22,27 @@
 		<action name="critique1" class="critiqueShowAction">
 			<param name="pageSize">5</param>
 			<result name="success">/WEB-INF/jsp/article_detail.jsp</result>
+		</action>
+		<!-- 分类查询 -->
+		<action name="byType" class="critiqueShowAction" method="byType">
+			<param name="pageSize">5</param>
+			<result name="success">/WEB-INF/jsp/article_detail.jsp</result>
+		</action>
+		
+		<action name="byType" class="critiqueShowAction" >
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critiqueForQType</result>
+		</action>
+		<action name="critiqueForQType" class="articleShowAction" method="byType">
+			<result name="success">/WEB-INF/jsp/article.jsp</result>
+		</action>
+		
+		<action name="article" class="critiqueShowAction">
+			<param name="pageSize">5</param>
+			<result name="success" type="chain">critique</result>
+		</action>
+		<action name="critique" class="articleShowAction">
+			<result name="success">/WEB-INF/jsp/article.jsp</result>
 		</action>
 		
 	</package>

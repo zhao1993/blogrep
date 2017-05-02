@@ -18,7 +18,7 @@ public class ArticleShowAction {
 	private List<Article> recommendArticles;
 	private int totalPage;
 	private int page=1;
-	private int pageSize; 
+	private int pageSize;
 	private int size;
 	private Integer albumId;
 	
@@ -29,10 +29,19 @@ public class ArticleShowAction {
 		hotArticles = articleServiceImpl.getHotArticles();
 		newArticles = articleServiceImpl.getNewArticles();
 		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");
-		//友链添加
 		return "success";
 	}
-
+	
+	public String byType(){
+		Article article = articleServiceImpl.query(size);
+		size = articleServiceImpl.getSize(article.getType());
+		totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+		articles = articleServiceImpl.getArticles(article.getType(),(page-1)*pageSize, pageSize);
+		hotArticles = articleServiceImpl.getHotArticles();
+		newArticles = articleServiceImpl.getNewArticles();
+		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");
+		return "success";
+	}
 	public List<Article> getArticles() {
 		return articles;
 	}
