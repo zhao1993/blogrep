@@ -275,7 +275,7 @@ var DEBUG = true;// 开启打印信息
 						});
 						_body.appendTo(bg);
 						if(null!=params.content){
-							_body.text(params.content);
+							_body.html(params.content);
 							_body.append('<br/>');
 						}
 						if (params.inputb == true) {

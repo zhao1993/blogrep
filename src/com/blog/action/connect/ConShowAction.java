@@ -6,9 +6,11 @@ import javax.annotation.Resource;
 
 import com.blog.entity.Connect;
 import com.blog.service.ConService;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Controller@Scope("prototype")
 public class ConShowAction {
 	@Resource ConService conServiceImpl;
 	private List<Connect> connects;

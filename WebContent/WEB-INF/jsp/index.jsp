@@ -118,15 +118,17 @@
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
-			<div style="width:300px">
+			<div style="width:255px">
+			<ul>
 				<s:iterator value="connects">
-					<div style="margin-left:1em;float:left"><a target="_blank" href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></div>
-				</s:iterator>
+					<li><a target="_blank" href="<s:property value="target"/>" title="<s:property value="title" />" > <s:property value="name"/></a></li>	
+					</s:iterator>
+			</ul>
 			</div>
 		</div>
 		<%@ include file="copyright.jsp"%> </aside>
 		<div class="clear">
-		</div>
+</div>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>

@@ -11,10 +11,11 @@ public class ConAddAction extends ActionSupport{
 	private Connect connect;
 	public String execute() throws Exception{
 		if(null!=connect){
-			connect.setId(null);
-			if(!connect.getTarget().startsWith("http://") || !connect.getTarget().startsWith("https://"))
-				connect.setTarget("http://"+connect.getTarget());
-		conServiceImpl.save(connect);}
+		connect.setId(null);
+		if(-1==connect.getTarget().indexOf("http://") && -1==connect.getTarget().indexOf("https://"))
+			connect.setTarget("http://"+connect.getTarget());
+		conServiceImpl.save(connect);
+		}
 		connect = null;
 		return "success";
 	}

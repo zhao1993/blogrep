@@ -16,15 +16,12 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .autor { color: #8c8d8d; line-height: 26px; padding-left: 15px }	
 .autor a { color: #0f9c7c; font-weight: bold }
 .autor span { margin: 0 5px 0 0; }
-
-
 .page { margin: 20px 0; text-align: center; width: 100%; overflow: hidden; }
 .page a b { color: #999; }
 .page>b, .page a { margin: 0 2px; height: 26px; line-height: 26px; border-radius: 50%; width: 26px; text-align: center; display: inline-block }
 .page a { margin: 0 2px; height: 26px; line-height: 26px; border-radius: 50%; width: 26px; text-align: center; display: inline-block }/* Õë¶ÔIE6 */
 .page>b, .page a:hover { background: #333; color: #FFF; }
 .page a { color: #F33; border: #999 1px solid; }
-
 .rnav { width: 240px; margin: 20px auto; overflow: hidden; }
 .rnav li {float:left; margin:10px;border-radius: 50%; width: 60px; text-align: center; display: inline-block; margin-bottom: 2px; height: 60px; line-height: 60px }
 .rnav li a {border-radius: 50%; color: #FFF; display: block; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s }

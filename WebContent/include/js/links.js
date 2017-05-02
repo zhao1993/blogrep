@@ -50,6 +50,7 @@ function dolinks(id){
 		function linkadd() {
 			$.Alert({
 				title : '添加新的链接',
+				content : '请录入带协议的网址如 <font color="red">https://</font>www.baidu.com',
 				custom : $('.linkform')
 			});
 			$('.dynamicform').attr('action','../con/add');

@@ -13,7 +13,7 @@ public class ConUpdateAction extends ActionSupport{
 	public String execute() throws Exception{
 		if(null!=connect)
 		{
-			if(!connect.getTarget().startsWith("http://") || !connect.getTarget().startsWith("https://"))
+			if(-1==connect.getTarget().indexOf("http://") && -1==connect.getTarget().indexOf("https://"))
 				connect.setTarget("http://"+connect.getTarget());
 		conServiceImpl.update(connect);
 		result = true;

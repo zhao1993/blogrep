@@ -117,13 +117,24 @@
 			<h2>
 				<p class="tj_t3">友情链接</p>
 			</h2>
-			<div style="width:300px">
-				<a href="javascript:void(0)" onclick="linkadd()" style="color:red" >新增友链</a>
+			<div style="width:255px">
+			<ul>
+				<li><a href="javascript:void(0)" onclick="linkadd()" style="color:red" >新增友链</a></li>
 				<s:iterator value="connects">
-					<div style="margin-left:1em;float:left"><a href="javascript:void(0)" title="<s:property value="title" />" onclick="dolinks(<s:property value="id"/>)" > <s:property value="name"/></a></div>
+					<li><a href="javascript:void(0)" title="<s:property value="title" />" onclick="dolinks(<s:property value="id"/>)" > <s:property value="name"/></a></li>	
 				</s:iterator>
+				</ul>
+		
 			</div>
 		</div>
+		
+		
+		
+		
+		
+		
+		
+		
    <%@ include file="../copyright.jsp" %> 
    
   </aside>

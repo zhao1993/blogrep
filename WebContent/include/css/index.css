@@ -56,5 +56,5 @@
 .tj_news ul li a, .links ul li a { color: #bbbbbb; }
 /* 友情链接 */
 .links h2 p { background: #222 }
-.links ul { margin: 20px 0 }
-.links ul li { height: 30px; line-height: 30px; text-align: center; border-bottom: #333 1px dashed; margin: 0 40px; }
+.links div {background:#111}
+.links div li {margin-left:1em;float:left; height: 30px; line-height: 30px; text-align: center; border-bottom: #333 -1px dashed}
