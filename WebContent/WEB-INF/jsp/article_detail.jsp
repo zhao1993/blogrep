@@ -39,6 +39,8 @@
         <p>下一篇：<a href="../article/article_detail?id=<s:property value="id+1"/>"><s:property value="articleAfter.title"/></a></p>
       </s:if>
       </div>
+      <!-- pinglunq -->
+      <div></div>
     </div>
   </article>
   <aside>

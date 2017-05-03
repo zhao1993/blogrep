@@ -10,11 +10,15 @@
 <body>
 <button onclick="test()">按钮</button>
 </body>
+<div id="comment" >
 
+<div id="uyan_frame"></div>
+</div>
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
 <script type="text/javascript" src="plugin/diy/js/jquery.zqextend.js"></script>
+<script type="text/javascript" src="plugin/diy/js/jquery.comment.js"></script>
 <script type="text/javascript">
-$.LableWaterFall({'width':'300px'});
+/* $.LableWaterFall({'width':'300px'});
 function test(){
 	$.Alert({
 		'title':'提示',
@@ -24,6 +28,9 @@ function test(){
 			}
 		}
 	)
-}
+} */
+</script>
+
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2132502">
 </script>
 </html>

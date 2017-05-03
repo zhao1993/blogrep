@@ -1,6 +1,9 @@
 
 var DEBUG = true;// 开启打印信息
 (function($) {
+	$.fn.comment = function(){
+		var mt = 'CommentsPlugin';
+	}
 	$.extend({
 			LableWaterFall:function(options){
 				options = $.extend({
@@ -36,7 +39,7 @@ var DEBUG = true;// 开启打印信息
 					var hoverBgColor = 'rgba(185,185,185,.9)';
 					var min_H = "60"; 
 					if ($(".zqlist").length == 0) {
-						$.println("没有找到默认选择器:停止填充!", 1);
+						$.println("没有找到默认选择器:停止填充!", 2);
 						return;
 					}
 					var lists = $(".zqlist > li");
@@ -65,6 +68,7 @@ var DEBUG = true;// 开启打印信息
 						fTriangle.clone().appendTo(li);
 						fCircle.clone().appendTo(li);
 						fHorizontal.clone().appendTo(li);
+						$.println("填充完成",2)
 					}
 					/* 样式填充 */
 					$(".zqlist").css({
@@ -137,16 +141,16 @@ var DEBUG = true;// 开启打印信息
 				Alert : function(params) {
 					/* 初始化参数 */
 					if (!params) {
-						$.println("没有定义任何参数!提示框不能启动:可定义的参数:");
-						$.println("title（String）:提示框标题文字");
-						$.println("content（String）:提示框显示内容");
-						$.println("custom（Document）:自定义文档元素");
-						$.println("inputb（boolean）:是否显示一个输入框");
-						$.println("confirmbtn（function）:确定按钮执行的函数");
-						$.println("canclebtn（function）:取消按钮执行的函数");
-						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]");
-						$.println("可以通过 '$.inputval' 获取输入框的值 ")
-						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})")
+						$.println("没有定义任何参数!提示框不能启动:可定义的参数:",1);
+						$.println("title（String）:提示框标题文字",1);
+						$.println("content（String）:提示框显示内容",1);
+						$.println("custom（Document）:自定义文档元素",1);
+						$.println("inputb（boolean）:是否显示一个输入框",1);
+						$.println("confirmbtn（function）:确定按钮执行的函数",1);
+						$.println("canclebtn（function）:取消按钮执行的函数",1);
+						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]",1);
+						$.println("可以通过 '$.inputval' 获取输入框的值 ",1)
+						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})",1)
 						return false;
 					}
 					params = $.extend({
@@ -164,7 +168,7 @@ var DEBUG = true;// 开启打印信息
 								+ "\n输入框使用:" + (params.inputb == true)
 								+ "\n可移动(测试功能不建议开启):" + params.canmove + "\n左按钮:"
 								+ typeof params.confirmbtn + "\n右按钮:"
-								+ typeof params.canclebtn);
+								+ typeof params.canclebtn,1);
 						/** *************************创建获取文档节点**************************** */
 						var body = $("body")[0];
 						// 提示框背景
@@ -194,10 +198,10 @@ var DEBUG = true;// 开启打印信息
 						bg.appendTo(shadow);
 						// 完成布置
 						shadow.appendTo(body);
-						$.println("弹框正常显示!");
+						$.println("弹框正常显示!",1);
 						// 拖动事件
 						if (params.canmove == true) {
-							$.println('开启拖动提示框功能[测试階段]...');
+							$.println('开启拖动提示框功能[测试階段]...',1);
 							$(header)
 									.bind(
 											{
@@ -308,9 +312,9 @@ var DEBUG = true;// 开启打印信息
 								destroy();
 								if (typeof params.canclebtn == 'function') {
 									params.canclebtn();
-									$.println('执行自定义取消按钮事件');
+									$.println('执行自定义取消按钮事件',1);
 								} else {
-									$.println('取消按钮不是合法函数!');
+									$.println('取消按钮不是合法函数!',1);
 								}
 							});
 						}
@@ -321,9 +325,9 @@ var DEBUG = true;// 开启打印信息
 								destroy();
 								if (typeof params.confirmbtn == 'function') {
 									params.confirmbtn();
-									$.println('执行自定义确定按钮事件');
+									$.println('执行自定义确定按钮事件',1);
 								} else {
-									$.println('确定按钮不是合法函数!');
+									$.println('确定按钮不是合法函数!',1);
 								}
 							});
 						}
@@ -347,7 +351,7 @@ var DEBUG = true;// 开启打印信息
 										});
 						$(document).bind("contextmenu", function(e) {
 							if(params.contextmenu){
-								$.println("右键菜单已经被禁用");
+								$.println("右键菜单已经被禁用",1);
 								return false;
 							}
 							return true;
@@ -476,7 +480,7 @@ var DEBUG = true;// 开启打印信息
 						$(".zqalert-bgdiv").remove();
 						$(".zqalert-shadow").remove();
 						$(document).off('keydown contextmenu');
-						$.println("窗口被关闭!");
+						$.println("窗口被关闭!",1);
 					}
 					this.show();
 					shadowfull();
@@ -503,10 +507,10 @@ var DEBUG = true;// 开启打印信息
 							+ date.getMinutes() + ":" + date.getSeconds()
 							+ "] ：";
 					try {
-						module = module == null ? "[来自Alert]"
-								: module == 1 ? "[来自FilList]"
-										: module == 2 ? "[来自AutoPager:]"
+						module =  module == 1 ? "[来自Alert]"
+										: module == 2 ? "[来自FilList:]"
 												: module == 3 ? "[来自LableWaterFall:]"
+														: module != null ? "[来自'"+module+"':]"
 												: "[来自Unknow]";
 						if (window.console) {
 							console.info("%c" + time + "%c" + module + '提示:'

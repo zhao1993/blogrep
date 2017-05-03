@@ -30,7 +30,6 @@
   <article>
     <h2 class="about_h">您现在的位置是：<a href="../index/index">首页</a>><a href="../critique/critique">留言板</a></h2>
     <div class="template">
-      
       <h3>
         <p><span>最新留言</span></p>
       </h3>
