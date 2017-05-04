@@ -8,6 +8,7 @@
 		<title>管理-个人信息</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/about.css" rel="stylesheet"/>
+		
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -17,7 +18,7 @@
 <body>
 <div class="ibody">
   <header>
-    < <h1>扯你妈的蛋</h1>
+     <h1>扯你妈的蛋</h1>
     <h2>这世界唯一不变的就是变化...</h2>
     <div class="logo"><a href="../manage/article"></a></div>
     <%@ include file="../manage_nav.jsp" %>

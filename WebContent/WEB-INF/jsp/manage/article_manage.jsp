@@ -44,7 +44,7 @@
 			<s:if test="notice==null">
 			&nbsp;<a class ="editem" title="推荐文章" href="../manage/article_recommend?id=<s:property value="id"/>">推荐文章</a> 
 			</s:if>
-			&nbsp;<a class ="editem" title="删除文章" onclick="return confirm('确定删除文章?')==true" href="../manage/article_delete?id=<s:property value="id"/>">删除</a>
+			&nbsp;<a class ="editem" title="删除文章" onclick="deleteArticle('<s:property value="title" />',<s:property value="id"/>)" href="javascript:;">删除</a>
           </div>
           <div class="content" >
           <s:property value="content" escape="false"/></div>
@@ -168,7 +168,13 @@
   <script src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
   <script src="../include/js/links.js"></script>
-  
+  <script>
+  function deleteArticle(title,id){
+ 	 $.Alert({'title':'提示','content':'是否删除文章:'+title+'?','confirmbtn':function(){
+ 		 window.location='../manage/article_delete?id='+id;
+ 	 },'canclebtn':function(){return false}});
+  }
+  </script>
   </div>
 </body>
 </html>
