@@ -44,7 +44,7 @@
 .about_c p:last-child { background-position: 15px -97px }
 .about_c p { display: block; padding-left: 40px; }
 .about_c p:hover { background: #222 }
-.bdsharebuttonbox { margin: 20px; clear: both; }
+.jiathis_sharebox { margin: 25px; clear: both; height:30px}
 /* 右侧推荐信息列表 */
 .tj_news h2, .links h2 { font-size: 16px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; color: #FFF; }
 .tj_news h2 p, .links h2 p { height: 40px; line-height: 40px; width: 100px; padding: 0 0 0 30px; border-radius: 0 20px 20px 0; text-shadow: rgba(0,0,0,.65) 1px 1px; }
