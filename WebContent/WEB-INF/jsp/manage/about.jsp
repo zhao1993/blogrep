@@ -28,7 +28,9 @@
       <h2>About Me</h2>
       <ul>
       <form action="../manage/about_update" method="post" theme="xhtml" enctype="multipart/form-data">
-      <textarea name="me.content" ><s:property value="me.content"/></textarea>
+      <textarea name="me.content" >
+      <s:property value="me.content"/>
+      </textarea>
 	  <ckeditor:replace  replace="me.content" basePath="../ckeditor/" />
 	  </form>
        </ul>

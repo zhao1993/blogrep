@@ -39,9 +39,9 @@
     		</tr>
     		<tr>
     			<td><textarea name="article.content" >
-    				<ckeditor:replace  replace="article.content" basePath="../ckeditor/" />
     				</textarea>
     			</td>
+    				<ckeditor:replace  replace="article.content" basePath="../ckeditor/" />
     		</tr>
     		<tr>
 	    		<td>

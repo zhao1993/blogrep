@@ -39,6 +39,7 @@
 			<result name="success" type="chain">article1</result>
 		</action>
 		<action name="article1" class="articleShowAction">
+		<param name="pageSize">5</param>
 			<result name="success" type="chain">critique1</result>
 		</action>
 		<action name="critique1" class="critiqueShowAction">
