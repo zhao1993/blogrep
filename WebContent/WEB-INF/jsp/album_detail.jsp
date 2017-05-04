@@ -19,8 +19,7 @@
 <body>
 <div class="ibody">
   <header>
-    <h1>扯你妈的蛋</h1>
-    <h2>这世界唯一不变的就是变化...</h2>
+   <h1>&nbsp;</h1><h2>&nbsp;</h2>
     <div class="logo"><a href="../index/index"></a></div>
     <%@ include file="nav.jsp" %> 
      </header>

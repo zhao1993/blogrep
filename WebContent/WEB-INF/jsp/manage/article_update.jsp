@@ -23,8 +23,7 @@
 <body>
 <div class="ibody">
   <header>
-    <h1>大标题</h1>
-    <h2>小标题</h2>
+   <h1>&nbsp;</h1><h2>&nbsp;</h2>
     <div class="logo"><a href="../manage/article"></a></div>
    <%@ include file="../manage_nav.jsp" %>
     </header>

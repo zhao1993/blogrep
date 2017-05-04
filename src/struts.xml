@@ -25,6 +25,7 @@
     <include file="com/blog/struts/xml/struts-about.xml"></include>
     <include file="com/blog/struts/xml/struts-album.xml"></include>
     <include file="com/blog/struts/xml/struts-manage.xml"></include>
+    <include file="com/blog/struts/xml/struts-bases.xml"></include>
     <include file="com/blog/struts/xml/struts-daily.xml"></include>
     <include file="com/blog/struts/xml/struts-con.xml"></include>
     <include file="com/blog/struts/xml/struts-critique.xml"></include>

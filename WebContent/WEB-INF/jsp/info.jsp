@@ -20,7 +20,7 @@
 	<a class="jiathis_button_renren"></a>
 	<a href="http://www.jiathis.com/share?uid=2132502" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 </div>
-<script type="text/javascript" src="jiathis_config.js">
+<script type="text/javascript">
 var jiathis_config = {data_track_clickback:'true',url:'this is share URL ',title:'分享标题写在这里',summary:'分享内容'};
 </script>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2132502" charset="utf-8"></script>

@@ -7,8 +7,18 @@ obj=As[i];
 	}
 obj.id='topnav_current'
 $(function(){
-	$(".rnav ul > li:even").css("background","#e41637")
-	$(".rnav ul > li:odd").css("background","#46ce14")
+	$(".rnav ul > li:even").css("background","#e41637");
+	$(".rnav ul > li:odd").css("background","#46ce14");
+	//获取主副标题 
+	$(document).ready(function(){
+		$.post(
+				'../base/select',
+				function(base){
+					$(".ibody > header > h1").text(base.title);
+					$(".ibody > header > h2").text(base.stitle);}
+				)
+		});
+	//修改主副标题
 })
 function editMode(){
 			$.Alert({

@@ -43,6 +43,7 @@
 		      <value>com/blog/entity/Daily.hbm.xml</value>
 		      <value>com/blog/entity/Connect.hbm.xml</value>
 		      <value>com/blog/entity/Me.hbm.xml</value>
+		      <value>com/blog/entity/Base.hbm.xml</value>
 		      <value>com/blog/entity/Album.hbm.xml</value>
 		      <value>com/blog/entity/Manager.hbm.xml</value>
 		    </list>
