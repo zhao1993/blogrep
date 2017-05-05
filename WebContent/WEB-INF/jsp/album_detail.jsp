@@ -9,12 +9,23 @@
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			*{margin:0;padding:0;list-style-type:none;}
+			a,img{border:0;}
+			/* index_pic */
+			#index_pic{background:url(..include/images/loadsmall.gif) no-repeat center;overflow:hidden;width:600px;position:relative;height:300px;overflow:hidden;margin:0 auto 20px auto;}
+			#index_pic ul{z-index:999;right:3px;bottom:0px;position:absolute;text-align:left}
+			#index_pic ul li{display:block;font-weight:900;font-size:12px;float:left;width:70px;color:#aaa;position:relative;height:50px;}
+			#index_pic li div{margin-top:5px;display:none;padding-left:10px;margin-left:70px}
+			#index_pic li img{border-right:#fff 1px solid;border-top:#fff 1px solid;filter:alpha(opacity=60);left:10px;float:left;border-left:#fff 1px solid;width:52px;cursor:pointer;margin-right:4px;border-bottom:#fff 1px solid;position:absolute;top:5px;height:35px;moz-opacity:0.6}
+			#back{width:990px;height:300px;overflow:hidden;}
+			#back .gray{filter:Gray();}
+</style>
 	</head>
 <body>
 <div class="ibody">
@@ -29,29 +40,15 @@
       <h3>
         <p><span>个人相册</span></p>
       </h3>
-      <ul>
-       <div class="container" >
-			<!-- Codrops top bar -->
-			<section id="dg-container" class="dg-container">
-				<div class="dg-wrapper">
-				<s:iterator value="photos" >
-					<a href="#"><img src="<s:property value="image" />"  width="480px" height="260"/><div><s:property value="note" escape="false"/></div></a>
-				</s:iterator>
-				</div>
-				<nav >	
-					<span class="dg-prev">&lt;</span>
-					<span class="dg-next">&gt;</span>
-				</nav>
-			</section>
-        </div>
-       
-		<script type="text/javascript">
-			$(function() {
-				$('#dg-container').gallery();
-			});
-		</script>
-      </ul>
-      <h3>
+	<div id="index_pic" class="index_pic">
+	<ul class="pic_lists">
+	<s:iterator value="photos" >
+	<li><img class="small_pic_unique" src="<s:property value="image" />" text="http://sc.chinaz.com/|_self"/></li>
+	</s:iterator>
+ 	</ul>
+	<div id="back"><img width="580px" height="300px" src="" /> </div>
+</div><!--index_pic end-->         
+        <h3>
         <p><span>最新评论</span></p>
       </h3>
       <ul class="pl_n">
@@ -96,7 +93,8 @@
                <s:else>
                	<a href="album_detail?page=<s:property value="page+1"/>&id=<s:property value="id"/>">&gt;</a>
                </s:else>
-           </div>           
+           </div>   
+           </div>        
     </article>
   <aside>
     <div class="rnav">
@@ -127,6 +125,7 @@
    <%@ include file="copyright.jsp" %> 
   </aside>
   <script src="../include/js/silder.js"></script>
+  <script type="text/javascript" src="../include/js/zzsc.js"></script>
   <div class="clear"></div>
 </div>
 </body>
