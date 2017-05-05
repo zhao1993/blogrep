@@ -154,7 +154,7 @@
   </div>
   <!-- 添加和编辑弹框 -->
   <div class="zqmodal linkform">
-  <form class="dynamicform" action="../con/update" method="post">
+  <form  action="../con/update" method="post">
   <input class="linkId" type="hidden" value="" name="connect.id"/><br />
   站&nbsp;&nbsp;名:<input class="linkName zqalert-bgdiv-body-input" name="connect.name" value=""/><br />
   地&nbsp;&nbsp;址:<input class="linkAddress zqalert-bgdiv-body-input" name="connect.target" value=""/><br />
@@ -163,17 +163,18 @@
   <s:token/>
   </form>
   </div>
+  <!-- 标题 -->
+ <div class="zqmodal titleform">
+ <form  action="../base/update" method="post">
+  <p>主标题</p><input name="base.title" class="baseTitle zqalert-bgdiv-body-input" value=""/>
+  <p>副标题</p><input name="base.stitle" class="baseSTitle zqalert-bgdiv-body-input" value=""/>
+ </form> 
+</div>
+  
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
-  <script src="../include/js/links.js"></script>
-  <script>
-  function deleteArticle(title,id){
- 	 $.Alert({'title':'提示','content':'是否删除文章:'+title+'?','confirmbtn':function(){
- 		 window.location='../manage/article_delete?id='+id;
- 	 },'canclebtn':function(){return false}});
-  }
-  </script>
+  <script src="../include/js/manageindex.js"></script>
   </div>
 </body>
 </html>

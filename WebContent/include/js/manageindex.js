@@ -12,7 +12,7 @@ function dolinks(id){
 				{'connect.id':$.inputval},
 				function(connect){
 					$.Alert({title:'编辑友链',contextmenu:false,custom:$('.linkform')});
-					$('.dynamicform').attr('action','../con/update');
+					$('.linkform > form:first-child').attr('action','../con/update');
 					$('.linkName').val(connect.name);
 					$('.linkAddress').val(connect.target);
 					$('.linkDescription').val(connect.title);
@@ -55,3 +55,24 @@ function dolinks(id){
 			});
 			$('.dynamicform').attr('action','../con/add');
 		}
+		function deleteArticle(title,id){
+		 	 $.Alert({'title':'提示','content':'是否删除文章:'+title+'?','confirmbtn':function(){
+		 		 window.location='../manage/article_delete?id='+id;
+		 	 },'canclebtn':function(){return false}});
+		  }
+$(function(){
+	$(".ibody > header > h1,.ibody > header > h2").click(function(){
+		$.post(
+				'../base/select',
+				function(base){
+					$.Alert({title:'编辑标题',custom:$('.titleform'),confirmbtn:function(){$('.titleform > form:first-child').submit();}});
+					$('.baseTitle').val(base.title);
+					$('.baseSTitle').val(base.stitle);
+				}
+			)
+		});
+})
+		
+		
+		
+		

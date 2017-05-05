@@ -309,26 +309,26 @@ var DEBUG = true;// 开启打印信息
 							footer_cancle.appendTo(footer);
 							// 添加事件取消按钮
 							footer_cancle.click(function() {
-								destroy();
 								if (typeof params.canclebtn == 'function') {
 									params.canclebtn();
 									$.println('执行自定义取消按钮事件',1);
 								} else {
 									$.println('取消按钮不是合法函数!',1);
 								}
+								destroy();
 							});
 						}
 						if (params.confirmbtn) {
 							footer_confirm.appendTo(footer);
 							// 添加事件确定按钮
 							footer_confirm.click(function() {
-								destroy();
 								if (typeof params.confirmbtn == 'function') {
 									params.confirmbtn();
 									$.println('执行自定义确定按钮事件',1);
 								} else {
 									$.println('确定按钮不是合法函数!',1);
 								}
+								destroy();
 							});
 						}
 						// 遮罩层无敌状态

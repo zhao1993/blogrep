@@ -14,11 +14,17 @@ $(function(){
 		$.post(
 				'../base/select',
 				function(base){
-					$(".ibody > header > h1").text(base.title);
-					$(".ibody > header > h2").text(base.stitle);}
-				)
-		});
-	//修改主副标题
+					$(".ibody > header > h1").fadeOut('fast',function(){
+						$(this).text(base.title);
+						$(this).fadeIn(2000);
+					});
+					$(".ibody > header > h2").fadeOut('fast',function(){
+						$(this).text(base.stitle);
+						$(this).fadeIn(2000);
+					});
+				}
+			)
+	})
 })
 function editMode(){
 			$.Alert({

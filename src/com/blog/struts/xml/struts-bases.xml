@@ -8,10 +8,13 @@
 		<result name="select" type="json">
 			<param name="root">base</param>
 		</result>
-		<result name="selectAll"></result>
+		<result name="update" type="redirectAction">
+				<param name="namespace">/manage</param>
+				<param name="actionName">article</param>
+			</result>
+		<!-- <result name="selectAll"></result>
 		<result name="delete"></result>
-		<result name="update"></result>
-		<result name="add"></result>
+		<result name="add"></result> -->
 		</action>
 	</package>
 </struts>

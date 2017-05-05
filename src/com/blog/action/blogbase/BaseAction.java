@@ -2,20 +2,21 @@ package com.blog.action.blogbase;
 
 import java.util.List;
 import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.blog.entity.Base;
 import com.blog.service.BaseService;
-import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
-public class BaseAction extends ActionSupport{
+public class BaseAction{
 	@Resource BaseService baseServiceImpl;
 	private List<Base> bases;
 	
 	private Base base;
+	
 	public String select() throws Exception{ 
 		bases = baseServiceImpl.getBases();
-		System.out.println("BaseAction.select()"+bases.size());
 		base = bases.get((int) (Math.random()*bases.size()));
 		return "select";
 	}
@@ -26,6 +27,9 @@ public class BaseAction extends ActionSupport{
 	}
 	
 	public String update() throws Exception{
+		bases = baseServiceImpl.getBases();
+		Base base1 = bases.get((int) (Math.random()*bases.size()));
+		base.setId(base1.getId());
 		baseServiceImpl.update(base);
 		return "update";
 	}
