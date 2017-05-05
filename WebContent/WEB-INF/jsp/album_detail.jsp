@@ -18,7 +18,7 @@
 			*{margin:0;padding:0;list-style-type:none;}
 			a,img{border:0;}
 			/* index_pic */
-			#index_pic{background:url(..include/images/loadsmall.gif) no-repeat center;overflow:hidden;width:600px;position:relative;height:300px;overflow:hidden;margin:0 auto 20px auto;}
+			#index_pic{overflow:hidden;width:600px;position:relative;height:300px;overflow:hidden;margin:0 auto 20px auto;}
 			#index_pic ul{z-index:999;right:3px;bottom:0px;position:absolute;text-align:left}
 			#index_pic ul li{display:block;font-weight:900;font-size:12px;float:left;width:70px;color:#aaa;position:relative;height:50px;}
 			#index_pic li div{margin-top:5px;display:none;padding-left:10px;margin-left:70px}
@@ -41,13 +41,13 @@
         <p><span>个人相册</span></p>
       </h3>
 	<div id="index_pic" class="index_pic">
-	<ul class="pic_lists">
+	<ul>
 	<s:iterator value="photos" >
 	<li><img class="small_pic_unique" src="<s:property value="image" />" text="http://sc.chinaz.com/|_self"/></li>
 	</s:iterator>
  	</ul>
-	<div id="back"><img width="580px" height="300px" src="" /> </div>
-</div><!--index_pic end-->         
+		<div id="back"><img width="580px" height="300px" src="" /></div>
+	</div><!--index_pic end-->         
         <h3>
         <p><span>最新评论</span></p>
       </h3>

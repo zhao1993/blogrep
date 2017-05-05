@@ -32,7 +32,9 @@ $("#back").children().addClass("gray").end().fadeTo(500,0.1,
 		});
 	})
 });
-
+//略缩图的显示与隐藏
+$("#index_pic").mousedown(function(){$("#index_pic ul").toggle('slow')});
+$(".small_pic_unique").mousedown(function(){return false;});
 //初始第一张图片
 var i =0;
 
@@ -43,7 +45,7 @@ function show(){
 	i = 0
 	$("li img").eq(i).click();
 	i++;
-	setTimeout("show()",10000);
+	setTimeout("show()",5000);
 }
 
 if (self.location.search!=""){
