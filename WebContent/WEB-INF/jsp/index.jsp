@@ -8,8 +8,6 @@
 <link href="../include/css/base.css" rel="stylesheet" />
 <link href="../include/css/index.css" rel="stylesheet" />
 <link href="../include/css/style.css" rel="stylesheet" />
-<style type="text/css">
-</style>
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 <!--[if IE 8]>
@@ -127,8 +125,8 @@
 			</div>
 		</div>
 		<%@ include file="copyright.jsp"%> </aside>
-		<div class="clear">
-</div>
+		<div class="clear"></div>
+		<%@ include file="search_box.jsp"%> 
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 		<script type="text/javascript" src="../include/js/silder.js"></script>

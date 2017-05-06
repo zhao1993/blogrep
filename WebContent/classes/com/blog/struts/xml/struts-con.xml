@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="con" namespace="/con" extends="json-default">
+		<action name="update" class="conUpdateAction" >
+			<result name="success" type="chain">
+				<param name="namespace">/manage</param>
+				<param name="actionName">article</param>
+			</result>
+		</action>
+		<action name="updateBefore" class="conUpdateAction" method="updateBefore" >
+			<result name="success" type="json">
+				<param name="root">connect</param>
+			</result>
+		</action>
+		<action name="delete" class="conDeleteAction">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="add" class="conAddAction">
+			<result name="invalid.token" type="chain">
+				<param name="namespace">/manage</param>
+				<param name="actionName">article</param>
+			</result>
+			<result name="success" type="chain">
+				<param name="namespace">/manage</param>
+				<param name="actionName">article</param>
+			</result>
+			<interceptor-ref name="token"/>  
+            <interceptor-ref name="defaultStack"/>  
+		</action>
+	</package>
+</struts>

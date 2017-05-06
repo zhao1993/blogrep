@@ -138,6 +138,7 @@
     <%@ include file="copyright.jsp" %> 
   </aside>
   <script src="../include/js/silder.js"></script>
+  <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
   <div class="clear"></div>
 	</div>
 	<script>
@@ -170,7 +171,7 @@
 			}
 				return true;
 			} else {
-				alert("存在不能为空的选项")
+				$.Alert({title:"提示",content:"存在不能为空的选项",confirmbtn:function(){}})
 				return false;
 			}
 		}

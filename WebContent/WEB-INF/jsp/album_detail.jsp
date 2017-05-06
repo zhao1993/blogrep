@@ -49,7 +49,7 @@
 		<div id="back"><img width="580px" height="300px" src="" /></div>
 	</div><!--index_pic end-->         
         <h3>
-        <p><span>最新评论</span></p>
+        <p><span>图片评论</span></p>
       </h3>
       <ul class="pl_n">
        <s:iterator value="critiques" >

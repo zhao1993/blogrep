@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 14:29:04 by Hibernate Tools 4.0.0.Final -->
+<hibernate-mapping>
+    <class name="com.blog.entity.Base" table="base" catalog="blog">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="string">
+            <column name="title" not-null="true" />
+        </property>
+        <property name="stitle" type="string">
+            <column name="stitle" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
