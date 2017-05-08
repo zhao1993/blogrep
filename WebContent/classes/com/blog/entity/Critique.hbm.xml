@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-4-21 20:11:15 by Hibernate Tools 4.0.0.Final -->
+<!-- Generated 2017-5-6 14:44:04 by Hibernate Tools 4.0.0.Final -->
 <hibernate-mapping>
     <class name="com.blog.entity.Critique" table="critique" catalog="blog">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="select">
+            <column name="critique_id" />
+        </many-to-one>
         <property name="articleId" type="java.lang.Integer">
             <column name="article_id" />
         </property>
@@ -29,5 +32,11 @@
         <property name="notice" type="string">
             <column name="notice" />
         </property>
+        <set name="critiques" table="critique" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="critique_id" />
+            </key>
+            <one-to-many class="com.blog.entity.Critique" />
+        </set>
     </class>
 </hibernate-mapping>

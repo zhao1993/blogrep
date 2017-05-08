@@ -32,26 +32,9 @@
       <h3>
         <p><span>最新留言</span></p>
       </h3>
-       <ul class="pl_n">
-       <s:iterator value="critiques" var="critique">
-       <s:if test="#critique.critique == null">
-        <dl style="border-top-style:double;border-bottom-style: dotted;border-width: 2px;">
-        <dt>
-         <s:if test="photo != null">
-          <img src="<s:property value="#critique.photo"/>"/> 
-          </s:if>
-          <s:if test="photo == null">
-          <img src="../include/images/s8.jpg"/>
-          </s:if>
-          </dt>
-          <dt> </dt>
-          <dd><s:property value="#critique.name"/>
-            <time><s:property value="#critique.time"/></time>&nbsp;&nbsp;&nbsp;<span>联系方式:<span id="contact"><s:property value="#critique.notice"/></span></span>
-          </dd>
-          <dd><s:property value="#critique.content" escape="false"/></dd>
-        </dl>
-      <s:iterator value="#critique.critiques" >
-        <dl style="background-color: red ;width:85% ;float:right;margin-right:5em" >
+      <ul class="pl_n">
+       <s:iterator value="critiques" >
+        <dl>
         <dt>
          <s:if test="photo != null">
           <img src="<s:property value="photo"/>"/> 
@@ -67,59 +50,7 @@
           <dd><s:property value="content" escape="false"/></dd>
         </dl>
         </s:iterator>
-        </s:if>
-        </s:iterator>
-       
-       
-
-        <s:debug/>
-      </ul> 
-     <%--  <!-- 测试 -->
-       <s:iterator value="critiques" >
-       <div class="critiuqeDiv pl_n">
-       			<div>
-      				 <s:if test="photo != null">
-         			 <img src="<s:property value="photo"/>"/> 
-         		 </s:if>
-        		  <s:if test="photo == null">
-         				 <img src="../include/images/s8.jpg"/>
-       		 		  </s:if>
-      			 	</div>
-       <div><s:property value="name"/></div>
-       <div><time><s:property value="time"/></time></div>
-       <div><s:property value="content" escape="false"/></div>
-       </div>
-       </s:iterator> --%>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      </ul>
       
     <div class="page">
       	<s:if test="page==1">
