@@ -165,12 +165,14 @@
   </div>
   <!-- 标题 -->
  <div class="zqmodal titleform">
- <form  action="../base/update" method="post">
+ <form action="../base/update" method="post">
   <p>主标题</p><input name="base.title" class="baseTitle zqalert-bgdiv-body-input" value=""/>
   <p>副标题</p><input name="base.stitle" class="baseSTitle zqalert-bgdiv-body-input" value=""/>
+  <br />
+  <input style="margin-top:20px;" type="submit" class="formsubmit zqalert-footer_btn zqalert-footer_cancle" value="提交"/>
+  <br />
  </form> 
 </div>
-  
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>

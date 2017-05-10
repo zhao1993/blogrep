@@ -58,14 +58,19 @@ function dolinks(id){
 		function deleteArticle(title,id){
 		 	 $.Alert({'title':'提示','content':'是否删除文章:'+title+'?','confirmbtn':function(){
 		 		 window.location='../manage/article_delete?id='+id;
-		 	 },'canclebtn':function(){return false}});
+		 	 },'canclebtn':function(){return false;}});
 		  }
 $(function(){
 	$(".ibody > header > h1,.ibody > header > h2").click(function(){
 		$.post(
 				'../base/select',
 				function(base){
-					$.Alert({title:'编辑标题',custom:$('.titleform'),confirmbtn:function(){$('.titleform > form:first-child').submit();}});
+					$.Alert(
+							{title:'编辑标题',custom:$('.titleform')/*,
+					confirmbtn:function(){
+						$('.titleform > form:first-child').submit();
+					},
+					canclebtn:function(){}*/});
 					$('.baseTitle').val(base.title);
 					$('.baseSTitle').val(base.stitle);
 				}

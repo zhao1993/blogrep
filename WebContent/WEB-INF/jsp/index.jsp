@@ -126,7 +126,6 @@
 		</div>
 		<%@ include file="copyright.jsp"%> </aside>
 		<div class="clear"></div>
-		<%@ include file="search_box.jsp"%> 
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
