@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2132502"></script>
+<script type="text/javascript" src="include/js/jquery.min.js"></script>
+<script type="text/javascript" src="include/js/critique.js"></script>
 <!-- UY END --></body>
 </html>
