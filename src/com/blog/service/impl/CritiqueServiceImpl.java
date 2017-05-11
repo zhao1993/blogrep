@@ -88,6 +88,22 @@ public class CritiqueServiceImpl implements CritiqueService {
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
-	
-	
+
+	@Override
+	public List<Critique> getCritiquesForMain(String type, Integer page,
+			Integer pageSize) {
+		String hql = "from Critique as critique where critique.type=:type and critique.critique=null order by critique.id desc" ;
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("type", type);
+		query.setFirstResult(page);
+		query.setMaxResults(pageSize);
+		return query.list();
+	}
+	@Override
+	public List<Critique> getCritiquesByParentId(Integer id) {
+		String hql = "from Critique as critique where critique.critique=:id" ;
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("id", id);
+		return query.list();
+	}
 }

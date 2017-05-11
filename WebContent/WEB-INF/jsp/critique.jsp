@@ -11,7 +11,6 @@
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
@@ -32,7 +31,11 @@
       <h3>
         <p><span>最新留言</span></p>
       </h3>
-       <ul class="pl_n">
+      <ul id="critiqueList" class="pl_n">
+      
+      
+      </ul>
+       <%-- <ul class="pl_n">
        <s:iterator value="critiques" var="critique">
        <s:if test="#critique.critique == null">
         <dl style="border-top-style:double;border-bottom-style: dotted;border-width: 2px;">
@@ -48,10 +51,10 @@
           <dd><s:property value="#critique.name"/>
             <time><s:property value="#critique.time"/></time>&nbsp;&nbsp;&nbsp;<span>联系方式:<span id="contact"><s:property value="#critique.notice"/></span></span>
           </dd>
-          <dd><s:property value="#critique.content" escape="false"/></dd>
-        </dl>
-      <s:iterator value="#critique.critiques" >
-        <dl style="background-color: red ;width:85% ;float:right;margin-right:5em" >
+          <dd><s:property value="#critique.content" escape="false"/>
+          <ul>
+ <s:iterator value="#critique.critiques" >
+        <dl style="background-color: red ;width:90% ;float:right;margin-right:5em" >
         <dt>
          <s:if test="photo != null">
           <img src="<s:property value="photo"/>"/> 
@@ -66,14 +69,16 @@
           </dd>
           <dd><s:property value="content" escape="false"/></dd>
         </dl>
-        </s:iterator>
+        </s:iterator>          
+          
+          </ul>
+          </dd>
+        </dl>
+     
         </s:if>
         </s:iterator>
-       
-       
-
         <s:debug/>
-      </ul> 
+      </ul>  --%>
      <%--  <!-- 测试 -->
        <s:iterator value="critiques" >
        <div class="critiuqeDiv pl_n">
@@ -208,6 +213,7 @@
   </aside>
   <script src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
+  <script type="text/javascript" src="../include/js/critique.js"></script>
   <div class="clear"></div>
 	</div>
 	<script>

@@ -29,5 +29,20 @@ public interface CritiqueService {
 	
 	public List<Critique> getCritiquesByType(String type, Integer page,
 			Integer pageSize);
+	/**
+	 * @param type 留言类型
+	 * @param page 当前页
+	 * @param pageSize 总页数
+	 * @return 
+	 */
+	public List<Critique> getCritiquesForMain(String type, Integer page,
+			Integer pageSize);
+	
+	/**
+	 * 子查询
+	 * @param id 
+	 * @return
+	 */
+	public List<Critique> getCritiquesByParentId(Integer id);
 
 }

@@ -8,7 +8,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="select">
+        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="join" lazy="false">
             <column name="critique_id" />
         </many-to-one>
         <property name="articleId" type="java.lang.Integer">

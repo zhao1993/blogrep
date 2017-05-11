@@ -3,7 +3,7 @@ var DEBUG = true;// 开启打印信息
 (function($) {
 	$.fn.comment = function(){
 		var mt = 'CommentsPlugin';
-	}
+	},
 	$.extend({
 			LableWaterFall:function(options){
 				options = $.extend({
@@ -32,7 +32,7 @@ var DEBUG = true;// 开启打印信息
 				$(wfDiv).find("div").css({'margin-left':'1em','float':'left'});
 				$(".waterfallviewlink").css({'color':'rgba(216,216,216,1)'});
 				$(".waterfallviewlink").hover(function(){$(this).css('color','rgba(255,255,255,1)');},
-						function(){$(this).css('color','rgba(216,216,216,1)');})
+						function(){$(this).css('color','rgba(216,216,216,1)');});
 			},
 				FilList : function() {
 					var bgColor = 'rgba(195,195,195,.6)';
@@ -68,7 +68,7 @@ var DEBUG = true;// 开启打印信息
 						fTriangle.clone().appendTo(li);
 						fCircle.clone().appendTo(li);
 						fHorizontal.clone().appendTo(li);
-						$.println("填充完成",2)
+						$.println("填充完成",2);
 					}
 					/* 样式填充 */
 					$(".zqlist").css({
@@ -131,7 +131,7 @@ var DEBUG = true;// 开启打印信息
 							$(this).parent().find(".zqfHorizontal").animate({'width':'150px','height':min_H/2+'px','font-size':'15px'},100);
 						},
 						function(){
-							$(this).css({'background-color':bgColor})
+							$(this).css({'background-color':bgColor});
 							$(this).parent().find(".zqfTriangle").css({'border-left':'50px solid '+bgColor});
 							$(this).parent().find(".zqfCircle").css({'font-size':'0px','background-color':bgColor,'transform':'rotate(0deg)'});
 							$(this).parent().find(".zqfHorizontal").animate({'width':'30px','height':'30px','font-size':'0px'},100);
@@ -149,8 +149,8 @@ var DEBUG = true;// 开启打印信息
 						$.println("confirmbtn（function）:确定按钮执行的函数",1);
 						$.println("canclebtn（function）:取消按钮执行的函数",1);
 						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]",1);
-						$.println("可以通过 '$.inputval' 获取输入框的值 ",1)
-						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})",1)
+						$.println("可以通过 '$.inputval' 获取输入框的值 ",1);
+						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})",1);
 						return false;
 					}
 					params = $.extend({
@@ -164,6 +164,12 @@ var DEBUG = true;// 开启打印信息
 						canmove : false
 					},params);
 					this.show = function() {
+						//屏蔽回车按钮效果
+						/*$(document).keyup(function(event){
+							if('Enter'==event.key){
+								return false;
+							}
+						});*/
 						$.println("参数列表:\n标题:" + params.title + "\n内容:" + params.content +"\n上下文菜单禁用："+params.contextmenu+"\n是否定制文档:"+(null!=params.custom)
 								+ "\n输入框使用:" + (params.inputb == true)
 								+ "\n可移动(测试功能不建议开启):" + params.canmove + "\n左按钮:"
@@ -262,13 +268,13 @@ var DEBUG = true;// 开启打印信息
 																			$(
 																					document)
 																					.off(
-																							'mousemove')
+																							'mousemove');
 																		}
 																	});
 												},
 												'mouseup' : function() {
 													$(document)
-															.off('mousemove')
+															.off('mousemove');
 												}
 											});
 						}
@@ -339,7 +345,7 @@ var DEBUG = true;// 开启打印信息
 										'height' : $(document.body).outerHeight(true),
 										'width' : $(window).width()+ document.body.scrollLeft
 									});
-								})
+								});
 						// 弹框无敌
 						$(document)
 								.keydown(
@@ -429,35 +435,35 @@ var DEBUG = true;// 开启打印信息
 						$('.zqalert-footer_cancle').css('background-color',
 								'rgba(166,166,166,1)');
 						$(inputs).hover(function() {
-							$(inputs).css('box-shadow', '0px 0px 6px #033')
+							$(inputs).css('box-shadow', '0px 0px 6px #033');
 						}, function() {
-							$(inputs).css('box-shadow', '0px 0px 0px #000')
+							$(inputs).css('box-shadow', '0px 0px 0px #000');
 						});
 						$(times).hover(function() {
 							$(times).css({
 								'cursor' : 'pointer',
 								'color' : 'rgba(255,255,255,1)'
-							})
+							});
 						}, function() {
-							$(times).css('color', 'rgba(235,235,235,1)')
+							$(times).css('color', 'rgba(235,235,235,1)');
 						});
 						$('.zqalert-footer_confirm').hover(
 								function() {
 									$(this).css('background-color',
-											'rgba(186,106,196,.6)')
+											'rgba(186,106,196,.6)');
 								},
 								function() {
 									$(this).css('background-color',
-											'rgba(186,106,196,1)')
+											'rgba(186,106,196,1)');
 								});
 						$('.zqalert-footer_cancle').hover(
 								function() {
 									$(this).css('background-color',
-											'rgba(166,166,166,.6)')
+											'rgba(166,166,166,.6)');
 								},
 								function() {
 									$(this).css('background-color',
-											'rgba(166,166,166,1)')
+											'rgba(166,166,166,1)');
 								});
 					};
 					//弹框的绝对居中

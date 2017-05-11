@@ -18,7 +18,7 @@ function dolinks(id){
 					$('.linkDescription').val(connect.title);
 					$('.linkId').val(connect.id);
 				}
-			)
+			);
 		};
 		// 删除
 		function linkdelete() {
@@ -36,7 +36,7 @@ function dolinks(id){
 				},
 				canclebtn : function() {
 				}
-			})
+			});
 		}
 		// 跳转
 		function linkgoto() {
@@ -74,9 +74,9 @@ $(function(){
 					$('.baseTitle').val(base.title);
 					$('.baseSTitle').val(base.stitle);
 				}
-			)
+			);
 		});
-})
+});
 		
 		
 		

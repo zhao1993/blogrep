@@ -11,9 +11,19 @@
 		<action name="article" class="messageShowAction">
 			<result name="success">/WEB-INF/jsp/critique.jsp</result>
 		</action>
-		
 		<action name="critique_add" class="critiqueAddAction">
+		<param name="critique.type">LAM</param>
 			<result name="success" type="chain">critique</result>
+		</action>
+		<action name="critiqueTestJson" class="messageShowAction" method="critiqueForJson">
+			<result name="success" type="json">
+				<param name="root">critiques</param>
+				</result>
+		</action>
+		<action name="critiqueForChildJson" class="messageShowAction" method="critiqueForChildJson">
+			<result name="success" type="json">
+				<param name="root">critiques</param>
+				</result>
 		</action>
 	</package>
 

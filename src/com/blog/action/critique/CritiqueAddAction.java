@@ -13,11 +13,10 @@ import com.blog.util.TimeUtil;
 public class CritiqueAddAction {
 	@Resource CritiqueService critiqueServiceImpl;
 	private Critique critique;
-	
 	public String execute(){
 		critique.setTime(TimeUtil.getNowTime());
-		critique.setType(CritiqueType.LAM.name());
 		critiqueServiceImpl.save(critique);
+		System.out.println("CritiqueAddAction.execute()--->CritiqueType="+critique.getType());
 		critique = null;
 		return "success";
 	}

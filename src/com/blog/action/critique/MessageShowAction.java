@@ -14,6 +14,7 @@ import com.blog.service.CritiqueService;
 public class MessageShowAction {
 	@Resource CritiqueService critiqueServiceImpl;
 	private List<Critique> critiques;
+	private int parentId;
 	private int totalPage;
 	private int page=1;
 	private int pageSize; 
@@ -26,6 +27,18 @@ public class MessageShowAction {
 		return "success";
 	}
 
+	public String critiqueForJson(){
+		size = critiqueServiceImpl.getSize(CritiqueType.LAM.name());
+		totalPage = size%pageSize==0?size/pageSize:size/pageSize+1;
+		critiques = critiqueServiceImpl.getCritiquesForMain(CritiqueType.LAM.name(), (page-1)*pageSize, pageSize);
+		return "success";
+	}
+	
+	public String critiqueForChildJson(){
+		critiques = critiqueServiceImpl.getCritiquesByParentId(parentId);
+		return "success";
+	}
+	
 	public List<Critique> getCritiques() {
 		return critiques;
 	}
@@ -65,6 +78,14 @@ public class MessageShowAction {
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
+	public int getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
+	}
+
+
 
 }
