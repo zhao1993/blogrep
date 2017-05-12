@@ -10,9 +10,6 @@
  Set critiques = new HashSet(0);*/
 //load critiques by Ajax
 var width = 700;
-var hideSize = 8;
-var hideIndex = 0;
-var k =0;
 $(document).ready(function(){
 	$.post(
 	'critique/critiqueTestJson?pageSize=100',
@@ -31,23 +28,15 @@ function doRecursionCritique(critiques,poids){
 		var critiqueElement = $('<dl></dl>');
 		critiqueElement.append($('<dt><img src="'+(c.photo==null?"../include/images/s8.jpg":c.photo)+'"/></dt>'));
 		critiqueElement.append($('<dd><a href="#">'+c.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
-		critiqueElement.append($('<a href="#" style="float:right">回复</a>'));
 		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});
-		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'2px','border-top-color':'black'});
+		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'1px','border-top-color':'black'});
 		if(poids==-1){
 			$('#critiqueList').append(critiqueElement);
 		}else{
 			$('.critique_class'+c.critique.id).after(critiqueElement);
 		}
-		$('dl[aria-val!="null"]').css({'margin-left':'50px','width':'650px','border-top-style':'dotted','border-top-width':'1px'});
-		if($(critiqueElement).attr('aria-val')==null){
-			hideIndex = 0;
-		}else if($(critiqueElement).attr('aria-val')!=null){
-			hideIndex +=1;
-			if(hideIndex >= hideSize){
-				$(critiqueElement).hide();
-			}
-		}
+		$('dl[aria-val!="null"]').css({'margin-left':'50px','width':'650px'});
+		console.info(critiqueElement.attr('aria-val'));
 		if(null!=c.critiques && c.critiques.length>0){
 			$.post(
 					'critique/critiqueForChildJson?parentId='+c.id,
