@@ -31,16 +31,15 @@
       <h3>
         <p><span>最新留言</span></p>
       </h3>
-      <ul id="critiqueList" class="pl_n">
-      
-      
+      <ul class="pl_n" id="critiqueList">
+     
       </ul>
        <%-- <ul class="pl_n">
        <s:iterator value="critiques" var="critique">
        <s:if test="#critique.critique == null">
         <dl style="border-top-style:double;border-bottom-style: dotted;border-width: 2px;">
         <dt>
-         <s:if test="photo != null">
+         <s:if test= "photo != null">
           <img src="<s:property value="#critique.photo"/>"/> 
           </s:if>
           <s:if test="photo == null">

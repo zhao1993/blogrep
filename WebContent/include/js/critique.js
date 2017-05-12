@@ -9,6 +9,7 @@
  String notice;
  Set critiques = new HashSet(0);*/
 //load critiques by Ajax
+var width = 700;
 $(document).ready(function(){
 	$.post(
 	'critique/critiqueTestJson?pageSize=100',
@@ -19,18 +20,23 @@ $(document).ready(function(){
 		}
 	);
 });
+
 function doRecursionCritique(critiques,poids){
 	for(var i=0;i<critiques.length;i+=1){
 		var c = critiques[i];
 		//document
-		var critiqueElement = $('<li>'+"loop"+i+"count，contentID:"+c.id+"critiqueArthor:"+c.name+"ctitiqueTo"+(c.critique!=null?c.critique.id:'null')+'</li>');
-		critiqueElement.attr('class','critique_class'+c.id);
-		critiqueElement.css({'margin-left':'30px'});
+		var critiqueElement = $('<dl></dl>');
+		critiqueElement.append($('<dt><img src="'+(c.photo==null?"../include/images/s8.jpg":c.photo)+'"/></dt>'));
+		critiqueElement.append($('<dd><a href="#">'+c.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
+		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});
+		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'1px','border-top-color':'black'});
 		if(poids==-1){
-			$("body").append(critiqueElement);
-			}else{
-			$('.critique_class'+c.critique.id).append(critiqueElement);
+			$('#critiqueList').append(critiqueElement);
+		}else{
+			$('.critique_class'+c.critique.id).after(critiqueElement);
 		}
+		$('dl[aria-val!="null"]').css({'margin-left':'50px','width':'650px'});
+		console.info(critiqueElement.attr('aria-val'));
 		if(null!=c.critiques && c.critiques.length>0){
 			$.post(
 					'critique/critiqueForChildJson?parentId='+c.id,
