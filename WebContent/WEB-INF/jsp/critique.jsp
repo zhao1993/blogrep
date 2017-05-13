@@ -32,7 +32,6 @@
         <p><span>最新留言</span></p>
       </h3>
       <ul class="pl_n" id="critiqueList">
-     
       </ul>
        <%-- <ul class="pl_n">
        <s:iterator value="critiques" var="critique">

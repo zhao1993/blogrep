@@ -10,12 +10,10 @@
  Set critiques = new HashSet(0);*/
 //load critiques by Ajax
 var width = 700;
-var hideSize = 8;
-var hideIndex = 0;
-var k =0;
+var hideSize = 3;
 $(document).ready(function(){
 	$.post(
-	'critique/critiqueTestJson?pageSize=100',
+	'critique/critiqueTestJson?pageSize=120',
 	function(critiques){
 			console.info("critique's count："+critiques.length);
 			//doRecursion
@@ -23,7 +21,10 @@ $(document).ready(function(){
 		}
 	);
 });
-
+function openMore(clas){
+	$('dl[aria-pclass='+clas+']').toggle();
+	$('dl[class='+clas+']').find('open-more:first').find('a:first').text($('dl[aria-pclass='+clas+']').is(':visible')?'收起更多回复<<<':'展开更多回复>>>');
+}
 function doRecursionCritique(critiques,poids){
 	for(var i=0;i<critiques.length;i+=1){
 		var c = critiques[i];
@@ -31,28 +32,40 @@ function doRecursionCritique(critiques,poids){
 		var critiqueElement = $('<dl></dl>');
 		critiqueElement.append($('<dt><img src="'+(c.photo==null?"../include/images/s8.jpg":c.photo)+'"/></dt>'));
 		critiqueElement.append($('<dd><a href="#">'+c.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
-		critiqueElement.append($('<a href="#" style="float:right">回复</a>'));
+		critiqueElement.append($('<open-more></open-more><a href="#" style="float:right">回复</a>'));
 		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});
 		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'2px','border-top-color':'black'});
 		if(poids==-1){
+			//主循环
 			$('#critiqueList').append(critiqueElement);
+		}else if(poids==0){
+			//次循环添加到子元素
+			$('.critique_class'+c.critique.id).append(critiqueElement);
 		}else{
+			//子元素的兄弟元素
 			$('.critique_class'+c.critique.id).after(critiqueElement);
 		}
 		$('dl[aria-val!="null"]').css({'margin-left':'50px','width':'650px','border-top-style':'dotted','border-top-width':'1px'});
-		if($(critiqueElement).attr('aria-val')==null){
-			hideIndex = 0;
-		}else if($(critiqueElement).attr('aria-val')!=null){
-			hideIndex +=1;
-			if(hideIndex >= hideSize){
-				$(critiqueElement).hide();
-			}
-		}
+		//子元素下的兄弟元素超过指定隐藏设定就隐藏
+		$('dl[aria-val="null"]').each(
+				function(){
+					var child_dls  = $(this).find('dl:gt('+(hideSize-1)+')');
+					$(child_dls).attr('aria-pclass',$(this).attr('class'));
+					if($(this).find('dl[aria-pclass!=null]')){
+						
+					}
+					if(child_dls.length > hideSize){
+						//console.info($(this).find('a:first').text());
+						$(this).find('open-more:first').html('<a href="javascript:;" onclick=openMore("'+$(this).attr('class')+'") >展开更多>></a>');
+					}
+					//$('dl[aria-pclass='+$(this).attr('class')+']').hide();
+				}
+			);
 		if(null!=c.critiques && c.critiques.length>0){
 			$.post(
 					'critique/critiqueForChildJson?parentId='+c.id,
 					function(_critiques){
-						doRecursionCritique(_critiques,0);
+						doRecursionCritique(_critiques,poids+1);
 				}
 			);
 		}
