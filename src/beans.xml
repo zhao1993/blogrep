@@ -22,14 +22,14 @@
       <property name="acquireIncrement"><value>5</value></property>
       <property name="maxIdleTime"><value>10</value></property>
       <property name="maxStatements"><value>0</value></property>
-      <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->    
+      <!--每30秒检查所有连接池中的空闲连接。Default: 0 -->    
         <property name="idleConnectionTestPeriod">    
             <value>30</value>    
         </property>    
      
  <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->    
         <property name="acquireRetryAttempts">    
-            <value>30</value>    
+            <value>10</value>    
         </property> 
     </bean>
 	  

@@ -73,9 +73,10 @@
     </div> 
    <%@ include file="../copyright.jsp" %> 
   </aside>
+  <div class="clear"></div>
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
-  <div class="clear"></div>
+  
 </div>
 </body>
 </html>

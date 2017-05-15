@@ -9,6 +9,7 @@
 		<title>博客-管理留言板</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
+		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
@@ -49,28 +50,8 @@
         </s:iterator>
       </ul>
       
-    <div class="page">
-      	<s:if test="page==1">
-      		<a href="#">&lt;</a>
-      	</s:if>
-      	<s:else>
-      		<a href="critique?page=<s:property value="page-1"/>">&lt;</a>
-      	</s:else>
-          <s:iterator begin="1" end="totalPage" var="p">
-          	<s:if test="#p==page">
-          		<b><s:property/></b>
-          	</s:if>
-          	<s:else>
-          		<a href="critique?page=<s:property/>"><s:property/></a>
-          	</s:else>
-          </s:iterator>
-          <s:if test="page==totalPage">
-          	<a href="#">&gt;</a>
-          </s:if>
-          <s:else>
-          	<a href="critique?page=<s:property value="page+1"/>">&gt;</a>
-          </s:else>
-      </div> 
+   <kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
+		<div id="kkpager"></div>     
 <%--   		<h3>
         <p><span>随便说说</span></p>
         <a href="#" target="_blank" class="more"></a>
@@ -113,9 +94,30 @@
       	</s:iterator>
       </ul>
     <%@ include file="../copyright.jsp" %> 
+    </div>
   </aside>
-  <script src="../include/js/silder.js"></script>
   <div class="clear"></div>
 </div>
+  <script src="../include/js/silder.js"></script>
+    <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+<script type="text/javascript">
+//init
+$(document).ready(function(){
+	//生成分页
+	kkpager.generPageHtml({
+		pno : $('kkpager').attr('aria-page'),
+		//总页码
+		total : $('kkpager').attr('aria-all'),
+		//总数据条数
+		totalRecords : $('kkpager').attr('aria-data'),
+		//链接前部
+		hrefFormer : 'critique',
+		hrefLatter : '',
+		getLink : function(n){
+			return this.hrefFormer + this.hrefLatter + "?page="+n;
+		}
+	});
+});
+</script>
 </body>
 </html>
