@@ -9,7 +9,7 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-	 <context:annotation-config/>
+	 <context:annotation-config />
 	 <context:component-scan  base-package="com.blog"/>
 	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
       <property name="driverClass" value="org.gjt.mm.mysql.Driver"/>
@@ -46,7 +46,7 @@
 		      <value>com/blog/entity/Base.hbm.xml</value>
 		      <value>com/blog/entity/Album.hbm.xml</value>
 		      <value>com/blog/entity/Manager.hbm.xml</value>
-		     		    </list>
+		    </list>
 		 </property>
 	     <property name="hibernateProperties">
 		    <value>

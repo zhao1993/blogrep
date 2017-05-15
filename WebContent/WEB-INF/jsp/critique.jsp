@@ -32,100 +32,10 @@
       <h3>
         <p><span>最新留言</span></p>
       </h3>
+      <!-- 回复内容容器 -->
       <ul class="pl_n" id="critiqueList">
       </ul>
-       <%-- <ul class="pl_n">
-       <s:iterator value="critiques" var="critique">
-       <s:if test="#critique.critique == null">
-        <dl style="border-top-style:double;border-bottom-style: dotted;border-width: 2px;">
-        <dt>
-         <s:if test= "photo != null">
-          <img src="<s:property value="#critique.photo"/>"/> 
-          </s:if>
-          <s:if test="photo == null">
-          <img src="../include/images/s8.jpg"/>
-          </s:if>
-          </dt>
-          <dt> </dt>
-          <dd><s:property value="#critique.name"/>
-            <time><s:property value="#critique.time"/></time>&nbsp;&nbsp;&nbsp;<span>联系方式:<span id="contact"><s:property value="#critique.notice"/></span></span>
-          </dd>
-          <dd><s:property value="#critique.content" escape="false"/>
-          <ul>
- <s:iterator value="#critique.critiques" >
-        <dl style="background-color: red ;width:90% ;float:right;margin-right:5em" >
-        <dt>
-         <s:if test="photo != null">
-          <img src="<s:property value="photo"/>"/> 
-          </s:if>
-          <s:if test="photo == null">
-          <img src="../include/images/s8.jpg"/>
-          </s:if>
-          </dt>
-          <dt> </dt>
-          <dd><s:property value="name"/>
-            <time><s:property value="time"/></time>&nbsp;&nbsp;&nbsp;<span>联系方式:<span id="contact"><s:property value="notice"/></span></span>
-          </dd>
-          <dd><s:property value="content" escape="false"/></dd>
-        </dl>
-        </s:iterator>          
-          
-          </ul>
-          </dd>
-        </dl>
-     
-        </s:if>
-        </s:iterator>
-        <s:debug/>
-      </ul>  --%>
-     <%--  <!-- 测试 -->
-       <s:iterator value="critiques" >
-       <div class="critiuqeDiv pl_n">
-       			<div>
-      				 <s:if test="photo != null">
-         			 <img src="<s:property value="photo"/>"/> 
-         		 </s:if>
-        		  <s:if test="photo == null">
-         				 <img src="../include/images/s8.jpg"/>
-       		 		  </s:if>
-      			 	</div>
-       <div><s:property value="name"/></div>
-       <div><time><s:property value="time"/></time></div>
-       <div><s:property value="content" escape="false"/></div>
-       </div>
-       </s:iterator> --%>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-   <!-- 分页按钮参数 -->
+        <!-- 分页按钮参数 -->
 		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
 		<div id="kkpager"></div>
   		<h3>
@@ -133,6 +43,7 @@
         <a href="#" target="_blank" class="more"></a>
       </h3>
        <form action="../critique/critique_add" method="post" >
+       <s:token/>
       		<table>
       			<tr>
       				<td><span>您的姓名:</span></td><td>
@@ -191,7 +102,10 @@
       </ul>
     <%@ include file="copyright.jsp" %> 
   </aside>
-  
+  <!-- 添加和编辑弹框 -->
+  <div class="zqmodal linkform">
+  	<textarea class="critiquecontent" rows="5" ></textarea>
+  </div>
   <div class="clear"></div>
 	</div>
 	<script src="../include/js/silder.js"></script>

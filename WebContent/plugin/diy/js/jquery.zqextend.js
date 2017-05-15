@@ -1,4 +1,3 @@
-
 var DEBUG = true;// 开启打印信息
 (function($) {
 	$.fn.comment = function(){

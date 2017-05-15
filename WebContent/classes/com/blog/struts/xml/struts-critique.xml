@@ -14,6 +14,9 @@
 		<action name="critique_add" class="critiqueAddAction">
 		<param name="critique.type">LAM</param>
 			<result name="success" type="chain">critique</result>
+			<result name="invalid.token" type="chain">critique</result>
+			<interceptor-ref name="token"/>  
+            <interceptor-ref name="defaultStack"/>  
 		</action>
 		<action name="critiqueTestJson" class="messageShowAction" method="critiqueForJson">
 			<result name="success" type="json">
