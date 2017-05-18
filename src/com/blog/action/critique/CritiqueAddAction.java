@@ -2,9 +2,7 @@ package com.blog.action.critique;
 
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
-
 import com.blog.entity.Critique;
 import com.blog.service.CritiqueService;
 import com.blog.util.TimeUtil;
@@ -20,7 +18,6 @@ public class CritiqueAddAction extends ActionSupport{
 		Critique critique001 = critiqueServiceImpl.query(parentId);
 		critique.setCritique(critique001);
 		critiqueServiceImpl.save(critique);
-		System.out.println("CritiqueAddAction.execute()--->CritiqueType="+critique.getType());
 		critique = null;
 		return "success";
 	}

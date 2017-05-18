@@ -72,15 +72,9 @@ function doRecursionCritique(critiques,poids){
 				function(){
 					var child_dls  = $(this).find('dl:gt('+(hideSize-1)+')');
 					$(child_dls).attr('aria-pclass',$(this).attr('class'));
-					
-					
-					
-					if(child_dls.length > hideSize){
+					if(child_dls.length > 0){
 						$(this).find('open-more:first').html('<a href="javascript:;" onclick=openMore("'+$(this).attr('class')+'") >'+onMsg+'</a>');
 					}
-					
-					
-					
 					$('dl[aria-pclass='+$(this).attr('class')+']').hide();
 				}
 			);

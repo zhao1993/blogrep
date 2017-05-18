@@ -102,10 +102,6 @@
       </ul>
     <%@ include file="copyright.jsp" %> 
   </aside>
-  <!-- 添加和编辑弹框 -->
-  <div class="zqmodal linkform">
-  	<textarea class="critiquecontent" rows="5" ></textarea>
-  </div>
   <div class="clear"></div>
 	</div>
 	<script src="../include/js/silder.js"></script>
