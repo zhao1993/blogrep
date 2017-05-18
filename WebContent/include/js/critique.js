@@ -25,8 +25,7 @@ function gotoAnchor(name,id){
 	//检测登录状态
 	//checkLoginUp();
 	document.getElementById("critique_reply").scrollIntoView();
-	var action = $('#critique_reply').attr('action');
-	$('#critique_reply').attr('action',action+"?parentId="+id);
+	$('#critique_reply').attr('action',"../critique/critique_add?page="+$('kkpager').attr('aria-page')+"&parentId="+id);
 }
 function critiqueAlert(name,id){
 	//检测登录状态

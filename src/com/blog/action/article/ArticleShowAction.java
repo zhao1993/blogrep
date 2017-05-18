@@ -9,7 +9,8 @@ import com.blog.entity.Article;
 import com.blog.service.ArticleService;
 
 
-@Controller@Scope("prototype")
+@Controller
+@Scope("prototype")
 public class ArticleShowAction {
 	@Resource ArticleService articleServiceImpl;
 	private List<Article> articles;
