@@ -8,9 +8,10 @@ import org.springframework.stereotype.Controller;
 import com.blog.entity.Critique;
 import com.blog.service.CritiqueService;
 import com.blog.util.TimeUtil;
+import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
-public class CritiqueAddAction {
+public class CritiqueAddAction extends ActionSupport{
 	@Resource CritiqueService critiqueServiceImpl;
 	private Critique critique;
 	private Integer parentId;

@@ -101,9 +101,16 @@ public class CritiqueServiceImpl implements CritiqueService {
 	}
 	@Override
 	public List<Critique> getCritiquesByParentId(Integer id) {
-		String hql = "from Critique as critique where critique.critique=:id" ;
+		String hql = "from Critique as critique where critique.critique=:id";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("id", id);
 		return query.list();
+	}
+
+	@Override
+	public Integer getNotParentSize() {
+		String hql = "select count(*) from Critique as critique where critique.critique=null";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return new Integer(query.uniqueResult().toString());
 	}
 }

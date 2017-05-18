@@ -42,7 +42,7 @@
         <p><span>到此一游</span></p>
         <a href="#" target="_blank" class="more"></a>
       </h3>
-       <form action="../critique/critique_add" method="post" >
+       <form action="../critique/critique_add" method="post" id="critique_reply">
        <s:token/>
       		<table>
       			<tr>
@@ -109,7 +109,6 @@
   <div class="clear"></div>
 	</div>
 	<script src="../include/js/silder.js"></script>
-  <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
   <script type="text/javascript" src="../include/js/critique.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
 <script type="text/javascript">
@@ -131,40 +130,5 @@ $(document).ready(function(){
 	});
 });
 </script>
-	<script type="text/javascript">
-		$('input[name="critique.name"],textarea[name="critique.content"]')
-				.bind({
-					blur : function() {
-						if (!$(this).val()) {
-							$(this).next().text("×请输入内容！").css("color", "red");
-						}
-					},
-					focus : function() {
-						$(this).next().text("");
-					}
-				});
-		$('input[name="critique.notice"]').next().fadeOut("fast");
-		$('input[name="critique.notice"]').on("keyup",function(){
-			if (!$(this).val()) {
-				$(this).next().fadeOut();
-			}else{
-				$(this).next().fadeIn();
-			}
-		});
-		function critiqueValidate() {
-			var name = $('input[name="critique.name"]').val();
-			var content = $('textarea[name="critique.content"]').val();
-			if (name && content) {
-			var contact = $('input[name="critique.notice"]'); 
-			if(contact.val()){
-				contact.val(contact.val()+$("select[name='ispublic']").val());
-			}
-				return true;
-			} else {
-				$.Alert({title:"提示",content:"存在不能为空的选项",confirmbtn:function(){}})
-				return false;
-			}
-		}
-	</script>
 </body>
 </html>

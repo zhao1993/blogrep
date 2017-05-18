@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 
 import com.blog.entity.Critique;
 import com.blog.service.CritiqueService;
+import com.opensymphony.xwork2.ActionSupport;
 
-@Controller@Scope("prototype")
-public class MessageShowAction {
+@Controller
+@Scope("prototype")
+public class MessageShowAction extends ActionSupport{
 	@Resource CritiqueService critiqueServiceImpl;
 	private List<Critique> critiques;
 	private int parentId;
@@ -19,21 +21,19 @@ public class MessageShowAction {
 	private int page=1;
 	private int pageSize; 
 	private int size;
-	
 	public String execute(){
-		size = critiqueServiceImpl.getSize(CritiqueType.LAM.name());
+		size = critiqueServiceImpl.getNotParentSize();
+		//size = critiqueServiceImpl.getSize(CritiqueType.LAM.name());
 		totalPage = size%pageSize==0?size/pageSize:size/pageSize+1;
 		critiques = critiqueServiceImpl.getCritiquesByType(CritiqueType.LAM.name(), (page-1)*pageSize, pageSize);
 		return "success";
 	}
-
 	public String critiqueForJson(){
 		size = critiqueServiceImpl.getSize(CritiqueType.LAM.name());
 		totalPage = size%pageSize==0?size/pageSize:size/pageSize+1;
 		critiques = critiqueServiceImpl.getCritiquesForMain(CritiqueType.LAM.name(), (page-1)*pageSize, pageSize);
 		return "success";
 	}
-	
 	public String critiqueForChildJson(){
 		critiques = critiqueServiceImpl.getCritiquesByParentId(parentId);
 		return "success";

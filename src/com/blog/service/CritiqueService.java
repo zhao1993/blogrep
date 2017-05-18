@@ -18,6 +18,8 @@ public interface CritiqueService {
 	
 	public Integer getSize(String type);
 	
+	public Integer getNotParentSize();
+	
 	public Integer getSize();
 	
 	public List<Critique> getCritiques(Integer articleId, Integer page,
