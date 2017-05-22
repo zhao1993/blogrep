@@ -4,12 +4,16 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
 	<package name="index" namespace="/index" extends="json-default">
-		<action name="index" class="articleShowAction">
+		<!-- <action name="index" class="articleShowAction">
 			<param name="pageSize">5</param>
 			<result name="success" type="chain">critique</result>
 		</action>
 		<action name="critique" class="critiqueShowAction">
 			<result name="success">/WEB-INF/jsp/index.jsp</result>
+		</action>  -->
+		<action name="register" class="articleShowAction">
+			<param name="pageSize">5</param>
+			<result name="success">/WEB-INF/jsp/register.jsp</result>
 		</action>
 		<action name="index" class="critiqueShowAction">
 			<param name="pageSize">5</param>

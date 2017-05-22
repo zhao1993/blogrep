@@ -7,7 +7,6 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,text/html; charset=utf-8"/> 
         <link rel="shortcut icon" href="../favicon.ico"/> 
 		<title>留言板</title>
-		
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>

@@ -21,7 +21,7 @@
 		<header>
 		<h1>&nbsp;</h1><h2>&nbsp;</h2>
 		<div class="logo">
-		<button type="button" class="btn" onclick="editMode()"> 编辑模式</button>
+		<button type="button" class="btn" onclick="editMode()"> 进入管理员模式  </button>
 			<a href="#"></a>
 		</div>
 		<%@ include file="nav.jsp"%> </header>

@@ -1,5 +1,5 @@
 package com.blog.entity;
-// Generated 2017-5-6 14:44:03 by Hibernate Tools 4.0.0.Final
+// Generated 2017-5-18 16:53:21 by Hibernate Tools 3.5.0.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,9 +11,9 @@ public class Critique implements java.io.Serializable {
 
 	private Integer id;
 	private Critique critique;
+	private User user;
 	private Integer articleId;
 	private String content;
-	private String name;
 	private String time;
 	private String photo;
 	private String type;
@@ -21,15 +21,18 @@ public class Critique implements java.io.Serializable {
 	private Set critiques = new HashSet(0);
 
 	public Critique() {
-		
 	}
 
-	public Critique(Critique critique, Integer articleId, String content, String name, String time, String photo,
+	public Critique(User user) {
+		this.user = user;
+	}
+
+	public Critique(Critique critique, User user, Integer articleId, String content, String time, String photo,
 			String type, String notice, Set critiques) {
 		this.critique = critique;
+		this.user = user;
 		this.articleId = articleId;
 		this.content = content;
-		this.name = name;
 		this.time = time;
 		this.photo = photo;
 		this.type = type;
@@ -53,6 +56,14 @@ public class Critique implements java.io.Serializable {
 		this.critique = critique;
 	}
 
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Integer getArticleId() {
 		return this.articleId;
 	}
@@ -67,14 +78,6 @@ public class Critique implements java.io.Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getTime() {

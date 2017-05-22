@@ -38,6 +38,7 @@
 		 <property name="mappingResources">
 		    <list>
 		     <value>com/blog/entity/Article.hbm.xml</value>
+		      <value>com/blog/entity/User.hbm.xml</value>
 		      <value>com/blog/entity/Critique.hbm.xml</value>
 		      <value>com/blog/entity/Photo.hbm.xml</value>
 		      <value>com/blog/entity/Daily.hbm.xml</value>

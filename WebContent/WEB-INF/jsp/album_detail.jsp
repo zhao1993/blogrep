@@ -44,7 +44,7 @@
 	<div id="index_pic" class="index_pic">
 	<ul>
 	<s:iterator value="photos" >
-	<li><img class="small_pic_unique" src="<s:property value="image" />" text="http://sc.chinaz.com/|_self"/></li>
+	<li><img class="small_pic_unique" src="<s:property value="image" />" /></li>
 	</s:iterator>
  	</ul>
 		<div id="back"><img width="580px" height="300px" src="" /></div>
@@ -105,6 +105,7 @@
       	</s:iterator>
       </ul>
    <%@ include file="copyright.jsp" %> 
+   </div>
   </aside>
   <div class="clear"></div>
 </div>

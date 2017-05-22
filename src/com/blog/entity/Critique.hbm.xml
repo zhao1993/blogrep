@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-5-6 14:44:04 by Hibernate Tools 4.0.0.Final -->
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-18 16:53:21 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.blog.entity.Critique" table="critique" catalog="blog">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="join" lazy="false">
+        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="select">
             <column name="critique_id" />
+        </many-to-one>
+        <many-to-one name="user" class="com.blog.entity.User" fetch="select">
+            <column name="user" not-null="true" />
         </many-to-one>
         <property name="articleId" type="java.lang.Integer">
             <column name="article_id" />
         </property>
         <property name="content" type="string">
             <column name="content" length="2000" />
-        </property>
-        <property name="name" type="string">
-            <column name="name" />
         </property>
         <property name="time" type="string">
             <column name="time" />
@@ -32,7 +32,7 @@
         <property name="notice" type="string">
             <column name="notice" />
         </property>
-        <set name="critiques" table="critique" inverse="true" lazy="false" fetch="select">
+        <set name="critiques" table="critique" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="critique_id" />
             </key>

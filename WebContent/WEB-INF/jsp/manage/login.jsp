@@ -55,7 +55,7 @@
       		</table>
       </form>
       </div>
-      
+      </div>
   </article>
   <aside>
     <%@ include file="../rnav.jsp" %> 
@@ -81,6 +81,7 @@
         	<li><a href="../article/article_detail?id=<s:property value="id"/>"><s:property value="title"/></a></li>
       	</s:iterator>
       </ul>
+      </div>
     <%@ include file="../copyright.jsp" %> 
   </aside>
   <script src="../include/js/jquery.min.js"></script>

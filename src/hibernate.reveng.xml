@@ -3,4 +3,5 @@
 
 <hibernate-reverse-engineering>
   <table-filter match-catalog="blog" match-name="critique"/>
+  <table-filter match-catalog="blog" match-name="user"/>
 </hibernate-reverse-engineering>

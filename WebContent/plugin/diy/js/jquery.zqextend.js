@@ -518,15 +518,14 @@ var DEBUG = true;// 开启打印信息
 														: module != null ? "[来自'"+module+"':]"
 												: "[来自Unknow]";
 						if (window.console) {
-							console.info("%c" + time + "%c" + module + '提示:'
+							console.log("%c" + time + "%c" + module + '提示:'
 									+ msg, "color:blue", "color:red");
 						}
 					} catch (e) {
 						alert(e);
 					}
 				},
-				/**未考虑的BUG 如果例外的数字刚好是随机数的数字如随机产生1-10 而例外也是1-10 则会陷入死循环
-				 * 参数类型不符合等
+				/**
 				 * 一个参数 返回0-min（不含min）之间的 整数
 				 * 两个参数 返回min-max之间（包含max）的随机整数。
 				 * 三个参数 返回min-max之间（包含max）的随机整数 但不包含excepts内(可以是数字和数字数组)的数字
