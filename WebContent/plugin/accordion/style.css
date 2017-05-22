@@ -6,16 +6,16 @@
   border-radius: 5px;
 }
 
-.container > p {
+.container  p {
   margin-bottom: 10px;
 }
 
 
-.container > .hide {
+.container .hide {
   display: none;
 }
 
-.container > dt {
+.container dt {
   width:-moz-max-content;
   font-size: 19px;
   color: #666666;
@@ -25,7 +25,7 @@
 }
 
 /* Triangle list item */
-.container > dt:before {
+.container dt:before {
   content: "";
   border-color: transparent #ccc;
   border-style: solid;
@@ -38,7 +38,7 @@
   position: relative;
 }
 
-.container > dd {
+.container dd {
   padding: 20px;
   background: #FDFCFA;
   border-radius: 5px;
@@ -47,7 +47,7 @@
   position: relative;
 }
 
-.container > dd:after,.container  > dd:before {
+.container dd:after,.container dd:before {
   bottom: 100%;
   left: 6%;
   border: solid transparent;
@@ -58,7 +58,7 @@
   pointer-events: none;
 }
 
-.container > dd:after {
+.container dd:after {
   border-color: rgba(136, 183, 213, 0);
   border-color: transparent;
   border-bottom-color: #FDFCFA;
@@ -66,7 +66,7 @@
   margin-left: -15px;
 }
 
-.container > dd:before {
+ .container dd:before {
   border-color: rgba(194, 225, 245, 0);
   border-color: transparent;
   border-bottom-color: #F2EEE6;

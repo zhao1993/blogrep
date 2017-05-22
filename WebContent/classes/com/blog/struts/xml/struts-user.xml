@@ -4,16 +4,21 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
 	<package name="user" namespace="/user" extends="json-default">
-		<action name="register" class="userAction" method="register">
-			<result name="success">/WEB-INF/jsp/about.jsp</result>
+		<action name="register" class="userAction" method="Register">
+			<result name="success" type="chain">login</result>
 		</action>
-		<action name="namevalidate" class="userAction" method="namevalidate">
-			<result name="success" type="root">
+		<action name="namevalidate" class="userAction" method="NameValidate">
+			<result name="success" type="json">
 			<param name="root">repetition</param>
 			</result>
 		</action>
-		<action name="login" class="userAction" method="login">
-			<result name="success" type="root">
+		<action name="login" class="userAction" method="Login">
+			<result name="success" type="json">
+			<param name="root">user</param>
+		</result>
+		</action>
+		<action name="loginOut" class="userAction" method="LoginOut">
+			<result name="success" type="json">
 			<param name="root">user</param>
 		</result>
 		</action>
