@@ -5,7 +5,7 @@
 <struts>
 	<package name="user" namespace="/user" extends="json-default">
 		<action name="register" class="userAction" method="Register">
-			<result name="success" type="chain">login</result>
+			<result name="success" type="chain">reglogin</result>
 		</action>
 		<action name="namevalidate" class="userAction" method="NameValidate">
 			<result name="success" type="json">
@@ -17,9 +17,19 @@
 			<param name="root">user</param>
 		</result>
 		</action>
-		<action name="loginOut" class="userAction" method="LoginOut">
+		<action name="userMsg" class="userAction" method="userMsg">
 			<result name="success" type="json">
 			<param name="root">user</param>
+		</result>
+		</action>
+		<action name="reglogin" class="userAction" method="Login">
+			<result name="success" type="redirectAction">
+			<param name="namespace">/index</param>
+			<param name="actionName">index</param>
+			</result>
+		</action>
+		<action name="loginOut" class="userAction" method="LoginOut">
+			<result name="success" type="json">
 		</result>
 		</action>
 </package>

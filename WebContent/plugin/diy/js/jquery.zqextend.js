@@ -153,6 +153,7 @@ var DEBUG = true;// 开启打印信息
 						return false;
 					}
 					params = $.extend({
+						attr:{width:'360px'},
 						title :"zqalert-提示:",
 						content : null,
 						custom : null,
@@ -160,7 +161,9 @@ var DEBUG = true;// 开启打印信息
 						confirmbtn : null,
 						canclebtn : null,
 						contextmenu:true,
-						canmove : false
+						canmove : false,
+						canclemsg :"取消",
+						confirmmsg : "确定"
 					},params);
 					this.show = function() {
 						//屏蔽回车按钮效果
@@ -191,8 +194,8 @@ var DEBUG = true;// 开启打印信息
 						// 底部按钮div
 						var footer = $("<div class='zqdbyc zqalert-bgdiv-footer'></div>");
 						// 确定与取消按钮
-						var footer_confirm = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_confirm'>确定</div>");
-						var footer_cancle = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_cancle'>取消</div>");
+						var footer_confirm = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_confirm'>"+params.confirmmsg+"</div>");
+						var footer_cancle = $("<div class='zqdbyc zqalert-footer_btn zqalert-footer_cancle'>"+params.canclemsg+"</div>");
 						header_title.appendTo(header);
 						header_title.text(params.title);
 						// 添加右上角的关闭按钮
@@ -380,7 +383,7 @@ var DEBUG = true;// 开启打印信息
 						$(bg).css({
 							'font-size' : '17px',
 							'z-index' : '99999',
-							'width' : '360px',
+							'width' : params.attr.width,
 							'background-color' : 'rgba(122,122,122,1)',
 							'box-shadow' : '0px 0px 8px #033',
 							'position' : 'absolute',

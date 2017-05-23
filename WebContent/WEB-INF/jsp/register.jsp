@@ -1,6 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,10 +31,7 @@
 		<div class="logo">
 			<a href="#"></a>
 		</div>
-		<span>
-		<c:if test="${empty loginUser}"><a href="">登录</a><a href="">注册</a></c:if>
- <c:if test="${not empty loginUser}"><span>用户：</span><a href="">${loginUser.name}</a></c:if>
- </span>
+		
 		<%@ include file="nav.jsp"%> </header>
 		<article>
 		<div class="registerDiv">
@@ -128,7 +125,7 @@
 		<%@ include file="copyright.jsp"%> 
 		</aside>
 		<div class="clear"></div>
-		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../include/js/jquery.min.js"></script> 
 		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 		<script type="text/javascript" src="../plugin/jquery-ui/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../include/js/register.js"></script>
@@ -140,8 +137,11 @@
 			  	$('dd').filter(':nth-child(n+4)').addClass('hide');
 				  $('dl').on('click', 'dt', function() {
 		 		 $(this).next().slideToggle(300);
+			});
+	 })(); 
+	 $(function(){
+			alert('1112');
 		});
-	 })();
 </script>
 	</div>
 </body>

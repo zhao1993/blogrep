@@ -4,12 +4,15 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.blog.entity.User;
 import com.blog.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 
 @Controller
+@Scope("prototype")
 public class UserAction {
 	@Resource
 	private UserService userServiceImpl; 
@@ -20,6 +23,10 @@ public class UserAction {
 		user.setCreatedate(new Date(new java.util.Date().getTime()));
 		user.setContact(contactway+":"+user.getContact());
 		userServiceImpl.save(user);
+		return "success";
+	}
+	public String userMsg () throws Exception{
+		user = userServiceImpl.query(user.getId());
 		return "success";
 	}
 	public String NameValidate() throws Exception{
