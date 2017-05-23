@@ -32,7 +32,7 @@
         <property name="other1" type="string">
             <column name="other1" />
         </property>
-        <set name="critiques" table="critique" inverse="true" lazy="true" fetch="select">
+        <set name="critiques" table="critique" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="user" not-null="true" />
             </key>

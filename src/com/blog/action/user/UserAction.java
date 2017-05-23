@@ -27,6 +27,7 @@ public class UserAction {
 	}
 	public String userMsg () throws Exception{
 		user = userServiceImpl.query(user.getId());
+		user.setCritiques(null);
 		return "success";
 	}
 	public String NameValidate() throws Exception{

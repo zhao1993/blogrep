@@ -125,8 +125,6 @@
 		<%@ include file="copyright.jsp"%> 
 		</aside>
 		<div class="clear"></div>
-	<script type="text/javascript" src="../include/js/jquery.min.js"></script> 
-		<script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 		<script type="text/javascript" src="../plugin/jquery-ui/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../include/js/register.js"></script>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
