@@ -38,8 +38,7 @@
   <aside>
    <%@ include file="info.jsp" %>
   </aside>
-  <script src="../include/js/jquery.min.js"></script>
-  <script src="../include/js/silder.js"></script>
+  <script type="text/javascript" src="../include/js/silder.js"></script>
   <div class="clear"></div>
 </div>
 </body>

@@ -105,8 +105,7 @@
   </aside>
   <div class="clear"></div>
 </div>
-  <script type="text/javascript" src="../include/js/jquery.min.js"></script>
-  <script src="../include/js/silder.js"></script>
+<script type="text/javascript" src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
 <script type="text/javascript">
 //init

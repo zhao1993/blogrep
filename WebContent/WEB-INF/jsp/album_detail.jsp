@@ -109,8 +109,7 @@
   </aside>
   <div class="clear"></div>
 </div>
-  <script src="../include/js/silder.js"></script>
-  <script type="text/javascript" src="../include/js/zzsc.js"></script>
+<script type="text/javascript" src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
 <script type="text/javascript">
 //init

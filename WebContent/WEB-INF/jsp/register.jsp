@@ -125,9 +125,9 @@
 		<%@ include file="copyright.jsp"%> 
 		</aside>
 		<div class="clear"></div>
+		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript" src="../plugin/jquery-ui/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../include/js/register.js"></script>
-		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript">
 			function change(img){img.src = "imageCode.action?date="+new Date().getTime();}
 			(function(){
@@ -137,9 +137,6 @@
 		 		 $(this).next().slideToggle(300);
 			});
 	 })(); 
-	 $(function(){
-			alert('1112');
-		});
 </script>
 	</div>
 </body>
