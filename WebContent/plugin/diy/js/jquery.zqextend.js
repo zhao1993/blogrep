@@ -154,7 +154,7 @@ var DEBUG = true;// 开启打印信息
 					}
 					params = $.extend({
 						mlcw:false,//鼠标离开弹框则关闭弹框（mouseleaveclosewindow）
-						attr:{width:'360px'},//弹框的宽度（最小宽度）
+						attr:null,
 						title :"zqalert-提示:",//标题
 						content : null,//内容
 						custom : null,//自定义html内容
@@ -166,6 +166,9 @@ var DEBUG = true;// 开启打印信息
 						canclemsg :"取消",//改变按钮文本
 						confirmmsg : "确定"//同上
 					},params);
+					params.attr = $.extend({width:'360px',mX:0,mY:0},params.attr);
+					//弹框的宽度（最小宽度）初始坐标x,y 默认0居,其他值代表自定义的位置
+					//只有当mxmy为0弹框才会对应居中且变化居中 
 					this.show = function() {
 						//屏蔽回车按钮效果
 						/*$(document).keyup(function(event){
@@ -398,8 +401,35 @@ var DEBUG = true;// 开启打印信息
 							'position' : 'absolute',
 							'margin-left' : '-180px',
 							'margin-top' : '-90px',
-							'top' : '50%',
-							'left' : '50%',
+							/*'top' : '50%',
+							'left' : '50%',*/
+							'top' : function(event){
+								if($.isNumeric(params.attr.mY)){
+								if(params.attr.mY==0){
+									return '50%';
+								}
+								else{
+									$.println('params.attr.mY:'+params.attr.mY,1);
+									return params.attr.mY+'px'
+									}
+								}else{
+									$.println('params.attr.mY不是合法数字采用默认设定',1);
+									return '50%';
+								}
+							},
+							'left' : function(event){
+								if($.isNumeric(params.attr.mX)){
+								if(params.attr.mX==0){
+									return '50%';
+									}else{
+									$.println('params.attr.mX:'+params.attr.mX,1);
+									return params.attr.mX+'px'
+								}
+								}else{
+									$.println('params.attr.mX不是合法数字采用默认设定',1);
+									return '50%';
+								}
+							},
 							'cursor' : 'default',
 							'-moz-user-select' : 'none',
 							'-webkit-user-select' : 'none',
@@ -483,8 +513,12 @@ var DEBUG = true;// 开启打印信息
 			                var w = $(window).width();
 			                var st = $(window).scrollTop();
 			                var sl = $(window).scrollLeft();  
-			                $(".zqalert-bgdiv").css("top", ((h- $(".zqalert-bgdiv").height())/2)+st);  
-			                $(".zqalert-bgdiv").css("left", w/2+sl);  
+			                if(!$.isNumeric(params.attr.mY) || params.attr.mY==0){
+			                	$(".zqalert-bgdiv").css("top", ((h- $(".zqalert-bgdiv").height())/2)+st);  
+			                }
+			                if(!$.isNumeric(params.attr.mX) || params.attr.mX==0){
+			                	$(".zqalert-bgdiv").css("left", w/2+sl); 
+			                }
 					}
 					//阴影完全覆盖
 					function shadowfull(){
@@ -504,7 +538,7 @@ var DEBUG = true;// 开启打印信息
 					center();
 					 //滚动条滚动  
                     $(window).scroll(  
-                        function(){  
+                        function(){
                         	center();  
                         }  
                     );  

@@ -85,5 +85,14 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 			}
 			return false;
 		});
+		$('img[name="headpic"]').mouseenter(function(event){
+			//console.info(event.pageY+"-->"+event.pageX);
+			$.Alert({
+				mlcw:true,
+				title:'选择一个中意的头像吧',
+				custom:$(""),
+				attr:{mY:event.pageY,mX:event.pageX}
+			});
+		});
 	})
 	

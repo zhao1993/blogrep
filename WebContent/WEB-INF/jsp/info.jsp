@@ -23,5 +23,5 @@
 <script type="text/javascript">
 var jiathis_config = {data_track_clickback:'true',url:'this is share URL ',title:'分享标题写在这里',summary:'分享内容'};
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2132502" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2132502" charset="utf-8"></script> -->
 </div>

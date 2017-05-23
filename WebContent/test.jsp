@@ -9,52 +9,21 @@
 </head>
 <body>
 <!-- UY BEGIN -->
+<input type="text" name="picname"/>
 <script type="text/javascript" src="include/js/jquery.min.js"></script>
-<script type="text/javascript" src="include/js/critique.js"></script>
-<!-- UY END --></body>
+<!-- UY END -->
+<script type="text/javascript">
+$(function(){
+	$('input[name="picname"]').change(function(){
+		$.post('include/headpic/'+$(this).val()+'.jpg',function(data,ts,xhr){
+			if(data){
+				alert('存在'+ts+'..'+xhr);
+			}else{
+				alert('不存在'+ts+'..'+xhr);
+			}
+		});
+	});
+});
 
-
-
-
-
-
-
-<li class='1'>   </li>
-<li class='1'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='1'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='1'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='2'>   </li>
-<li class='1'>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-<li>   </li>
-
-
-
-
-
-
-
-
-
-
-
-</html>
+</script>
+</body>

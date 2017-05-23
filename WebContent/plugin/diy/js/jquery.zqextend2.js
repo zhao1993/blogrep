@@ -153,17 +153,18 @@ var DEBUG = true;// 开启打印信息
 						return false;
 					}
 					params = $.extend({
-						attr:{width:'360px'},
-						title :"zqalert-提示:",
-						content : null,
-						custom : null,
-						inputb : false,
-						confirmbtn : null,
-						canclebtn : null,
-						contextmenu:true,
-						canmove : false,
-						canclemsg :"取消",
-						confirmmsg : "确定"
+						mlcw:false,//鼠标离开弹框则关闭弹框（mouseleaveclosewindow）
+						attr:{width:'360px'},//弹框的宽度（最小宽度）
+						title :"zqalert-提示:",//标题
+						content : null,//内容
+						custom : null,//自定义html内容
+						inputb : false,//输入框
+						confirmbtn : null,//显示确定按钮（function时执行内部代码但是有bug）
+						canclebtn : null,//同上
+						contextmenu:true,//关闭鼠标右键显示网页菜单
+						canmove : false,//弹框可以拖动
+						canclemsg :"取消",//改变按钮文本
+						confirmmsg : "确定"//同上
 					},params);
 					this.show = function() {
 						//屏蔽回车按钮效果
@@ -357,6 +358,7 @@ var DEBUG = true;// 开启打印信息
 												return false;
 											}
 										});
+						//右键菜单显示
 						$(document).bind("contextmenu", function(e) {
 							if(params.contextmenu){
 								$.println("右键菜单已经被禁用",1);
@@ -364,6 +366,13 @@ var DEBUG = true;// 开启打印信息
 							}
 							return true;
 						});
+						//鼠标移开关闭窗口
+						if(params.mlcw){
+							$(bg).mouseleave(function(){
+								$(this).hide(200);
+								destroy();
+							});
+						}
 						/** *************************样式文件合并************************************* */
 						$(shadow).css({
 							'padding' : '0px',
