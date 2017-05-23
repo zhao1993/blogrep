@@ -40,8 +40,9 @@
 						return ;
 					}
 					$.Alert({
+						attr:{width:'260px'},
 						title:'用户登录信息',
-						custom:$('<div><span>用户名：</span>'+user.name+'<span><br/>账号：</span>'+user.account+'</div>'),
+						custom:$('<div><span>用户名：</span>'+user.name+'<span><br/>账&nbsp;号：</span>'+user.account+'</div>'),
 						confirmbtn:true,
 						canclemsg:'退出登录',
 						canclebtn:function(){
