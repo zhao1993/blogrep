@@ -85,14 +85,46 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 			}
 			return false;
 		});
+		
 		$('img[name="headpic"]').mouseenter(function(event){
 			//console.info(event.pageY+"-->"+event.pageX);
 			$.Alert({
-				mlcw:true,
+				canmove:true,
+				/*mlcw:true,*/
 				title:'选择一个中意的头像吧',
-				custom:$(""),
-				attr:{mY:event.pageY,mX:event.pageX}
+				custom:$("<div><div>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/1.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/11.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/10.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/12.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/1.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/11.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/2.jpg'></dt>" +
+						"<dt><img class='selectHeadPic' src='../include/headpic/12.jpg'></dt>" +
+						"</div></div>"),
+				attr:{mY:event.pageY,mX:event.pageX+200}
+			});
+			$('.selectHeadPic').css({
+				'width': '50px',
+				'height': '50px', 
+				'margin-right': '10px',
+				'border-radius': '50%', 
+				'border-color':'red',
+				'border-style':'solid',
+				'box-shadow': '#999 1px 1px 3px',
+				'transition': 'all 1s'
+			});
+			$('.selectHeadPic').mouseenter(function(){
+				$(this).css({
+					'border-width':'1px',
+				});
+			});
+			$('.selectHeadPic').mouseleave(function(){
+				$(this).css({
+					'border-width':'0px',
+				});
 			});
 		});
+				
 	})
 	

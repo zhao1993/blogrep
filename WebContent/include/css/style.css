@@ -42,7 +42,11 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .pl_n dt { float: left; }
 .pl_n dt img { width: 50px; height: 50px; margin-right: 10px; border-radius: 50%; transition: all 1s }
 .pl_n dt img:hover { -webkit-transform: rotate(360deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -o-transform: rotate(30deg); transform: rotate(30deg); }
-.index_about { margin: 20px }
+
+/* .selectHeadPic { width: 50px; height: 50px; margin-right: 10px; border-radius: 50%; transition: all 1s }
+.selectHeadPic:hover { -webkit-transform: rotate(360deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -o-transform: rotate(30deg); transform: rotate(30deg); }
+ */
+ .index_about { margin: 20px }
 .c_titile { font-size: 22px; margin: 20px 0; text-align: center; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; }
 .box_c { color: #999; text-align: center }
 .box_c span { margin: 0 10px; }
