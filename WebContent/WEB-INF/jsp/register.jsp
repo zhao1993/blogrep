@@ -39,7 +39,9 @@
       		<table style="margin:100px 20px;">
       		<tr>
       				<td>头&nbsp;&nbsp;像:</td>
-      				<td class="pl_n"><dt><img name="headpic" src="../image_upload/001.jpg"/></dt></td>
+      				<td class="pl_n"><dt><img name="headpic" src="../image_upload/001.jpg"/>
+      				<input type="hidden" name="user.headpic" value="../image_upload/001.jpg"/> 
+      				</dt></td>
       				<td><span></span><span></span></td>
       			</tr>
       			<tr>

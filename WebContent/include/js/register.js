@@ -17,6 +17,11 @@
 			}
 		});
 	})(jQuery)
+	function _changeHead(img){
+				$('img[name="headpic"]').attr('src',$(img).attr('src'));
+				$('input[name="user.headpic"]').val($(img).attr('src'));
+				$.Alert();
+			};
 /**注册界面的JS验证*/
 var usernameRule = /^[\u4e00-\u9fa5A-Za-z0-9-_]{2,8}$/;  //只能中英文,数字,下划线,减号
 var accountRule = /^[a-zA-Z]\w{5,11}$/; //以字母开头，长度在6-12位之间，只能包含字符、数字和下划线。 
@@ -85,46 +90,25 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 			}
 			return false;
 		});
-		
 		$('img[name="headpic"]').mouseenter(function(event){
-			//console.info(event.pageY+"-->"+event.pageX);
 			$.Alert({
-				canmove:true,
-				/*mlcw:true,*/
+				mlcw:true,
 				title:'选择一个中意的头像吧',
-				custom:$("<div><div>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/1.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/11.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/10.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/12.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/1.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/11.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/2.jpg'></dt>" +
-						"<dt><img class='selectHeadPic' src='../include/headpic/12.jpg'></dt>" +
+				custom:$("<div><div id='headpicList'>" +
 						"</div></div>"),
-				attr:{mY:event.pageY,mX:event.pageX+200}
+				attr:{mY:event.pageY,mX:event.pageX+150}
 			});
-			$('.selectHeadPic').css({
-				'width': '50px',
-				'height': '50px', 
-				'margin-right': '10px',
-				'border-radius': '50%', 
-				'border-color':'red',
-				'border-style':'solid',
-				'box-shadow': '#999 1px 1px 3px',
-				'transition': 'all 1s'
-			});
-			$('.selectHeadPic').mouseenter(function(){
-				$(this).css({
-					'border-width':'1px',
-				});
-			});
-			$('.selectHeadPic').mouseleave(function(){
-				$(this).css({
-					'border-width':'0px',
-				});
-			});
+			/**无法读取文件列表如果添加新的头像
+			 * 则需要需改文件名和下面的ij值为 
+			 * 当前图片的最大序号值且中间不可以有断点不然会出现丢失的图片列表
+			 * （待后期优化）*/
+			var ij=10;
+			var autohead= setInterval(function(){
+				$('#headpicList').append($("<img class='selectheadPic' onclick=_changeHead(this) src='../include/headpic/"+(ij--)+".jpg'>"));
+				if(ij<=0){
+					clearInterval(autohead);
+				}
+			},30);
 		});
-				
 	})
 	

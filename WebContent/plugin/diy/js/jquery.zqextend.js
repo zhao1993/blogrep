@@ -150,6 +150,7 @@ var DEBUG = true;// 开启打印信息
 						$.println("canmove（boolean）:弹框是否可以被移动[测试功能]",1);
 						$.println("可以通过 '$.inputval' 获取输入框的值 ",1);
 						$.println("简单示例 $.Alert({'title':'提示','confirmbtn':function(){alert($.inputval);}})",1);
+						destroy();
 						return false;
 					}
 					params = $.extend({
