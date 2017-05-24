@@ -3,7 +3,7 @@
 <script type="text/javascript" src="../include/js/jquery.min.js"></script>
 <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 <span style="font-size:16px ;float:right;border-top-left-radius: 2em;background-color: #7A7A7A;position: relative;top: -2em;padding: 1em;">
-	<c:if test="${empty loginUser}"><a id="loginAtag" href="javascript:;">登录</a>&nbsp;&nbsp;<a href="../index/register">注册</a></c:if>
+	<c:if test="${empty loginUser}"><a onclick="loginAtag_u()" href="javascript:;">登录</a>&nbsp;&nbsp;<a href="../index/register">注册</a></c:if>
  <c:if test="${not empty loginUser}"><a class="pl_n" onclick="userAtag(${loginUser.id})" href="javascript:;" ><dt><img src="${loginUser.headpic}" title="${loginUser.name}"/></dt></a></c:if>
  </span>
 <nav id="topnav">
@@ -17,7 +17,7 @@
  	<input name="search_box"  placeholder="搜索文章" title="回车搜索" style="height:25px;margin:5px;"/>
 </nav>
 <script type="text/javascript">
-		$('#loginAtag').click(function(){
+		function loginAtag_u(){
 			$.Alert({
 				attr:{width:'240px'},
 				title:'用户登录',
@@ -31,7 +31,7 @@
 				confirmmsg:'登录',
 				canclebtn:true
 			});
-		});
+		};
 			function userAtag(id){
 				$.post('../user/userMsg?user.id='+id,
 				function(user){

@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.blog.entity.Critique;
+import com.blog.entity.User;
 import com.blog.service.CritiqueService;
+import com.blog.service.UserService;
 import com.blog.util.TimeUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Scope("prototype")
 public class CritiqueAddAction extends ActionSupport{
 	@Resource CritiqueService critiqueServiceImpl;
+	@Resource UserService userServiceImpl;
 	private Critique critique;
 	private Integer parentId;
 	public String execute(){
@@ -23,13 +26,19 @@ public class CritiqueAddAction extends ActionSupport{
 		Critique critique001 = critiqueServiceImpl.query(parentId);
 		critique.setCritique(critique001);
 		}
+		//这里的id并非评论ID而是用户ID获取用户后需要删除id、否则报错
+		//org.hibernate.PersistentObjectException: detached entity passed to persist
+		if(null!=critique.getId()){
+			User user = userServiceImpl.query(critique.getId());
+			critique.setUser(user);
+			critique.setId(null);
+		}
 		critiqueServiceImpl.save(critique);
 		critique = null;
 		return "success";
 	}
 	@Override
 	public void validate() {
-		// TODO Auto-generated method stub
 		super.validate();
 		clearFieldErrors();
 	}

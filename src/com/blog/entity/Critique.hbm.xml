@@ -8,10 +8,10 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="critique" class="com.blog.entity.Critique" fetch="select">
+        <many-to-one name="critique" class="com.blog.entity.Critique" lazy="false" fetch="select">
             <column name="critique_id" />
         </many-to-one>
-        <many-to-one name="user" class="com.blog.entity.User" fetch="select">
+        <many-to-one name="user" class="com.blog.entity.User" lazy="false" fetch="select">
             <column name="user" not-null="true" />
         </many-to-one>
         <property name="articleId" type="java.lang.Integer">
@@ -32,7 +32,7 @@
         <property name="notice" type="string">
             <column name="notice" />
         </property>
-        <set name="critiques" table="critique" inverse="true" lazy="true" fetch="select">
+        <set name="critiques" table="critique" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="critique_id" />
             </key>

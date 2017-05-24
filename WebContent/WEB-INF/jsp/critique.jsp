@@ -45,7 +45,7 @@
        <form action="../critique/critique_add" method="post" id="critique_reply">
        <s:token/>
       		<table>
-      			<tr>
+      			<%-- <tr>
       				<td><span>您的姓名:</span></td><td>
       				<input name="critique.name"/><span></span></td>
       			</tr>
@@ -58,7 +58,12 @@
       				<option value='Y'>是</option>
       				</select>
       				</span></td>
-      			</tr>
+      			</tr> --%>
+      			<c:if test="${empty loginUser}">
+      			<tr><span>请先<a onclick="loginAtag_u()" href="javascript:;">登录</a>或<a href="../index/register">注册</a></span></tr>
+      			</c:if>
+      			<c:if test="${not empty loginUser}">
+      			<input type="hidden" name='critique.id' value="${loginUser.id}"/>
       			<tr>
 	    			<td><div style="width:70px;padding-bottom: 189px;">
 	    			<span>留言内容:</span></div></td>
@@ -70,6 +75,7 @@
 	    			<td><button  type="submit" onclick="return critiqueValidate()" >提交</button>
 	    			</td>
     			</tr>
+    			</c:if>
       		</table>
       </form>
      </div>
@@ -106,6 +112,7 @@
 	</div>
 	<script type="text/javascript" src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+  <script type="text/javascript" src="../include/js/critique.js"></script>
 <script type="text/javascript">
 //init
 $(document).ready(function(){

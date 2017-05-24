@@ -36,9 +36,9 @@
       <ul class="pl_n">
        <s:iterator value="critiques" >
         <dl>
-          <dt><img src="../include/images/s8.jpg"> </dt>
+          <dt><img src="../include/images/s8.jpg"/> </dt>
           <dt> </dt>
-          <dd><s:property value="name"/>
+          <dd><s:property value="user.name"/>
             <time><s:property value="time"/></time>
           </dd>
           <dd><a href="#"><s:property value="content" escape="false"/></a></dd>

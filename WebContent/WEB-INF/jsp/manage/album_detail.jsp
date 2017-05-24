@@ -44,7 +44,7 @@
         <dl>
           <dt><img src="../include/images/s8.jpg"/> </dt>
           <dt> </dt>
-          <dd><s:property value="name"/>
+          <dd><s:property value="user.name"/>
             <time><s:property value="time"/></time>
           </dd>
           <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
@@ -54,7 +54,8 @@
       
    <!-- 分页按钮参数 -->
 		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
-		<div id="kkpager"></div>             
+		<div id="kkpager"></div> 
+		</div>            
    </article>
   <aside>
     <%@ include file="../rnav.jsp" %> 
@@ -81,6 +82,7 @@
       	</s:iterator>
       </ul>
     <%@ include file="../copyright.jsp" %> 
+    </div>
   </aside>
 </div>
   <div class="clear"></div>

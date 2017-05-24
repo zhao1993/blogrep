@@ -38,7 +38,7 @@
         <dl>
           <dt><img src="../include/images/s8.jpg"/> </dt>
           <dt> </dt>
-          <dd><s:property value="name"/>
+          <dd><s:property value="user.name"/>
             <s:property value="time"/>
             &nbsp;&nbsp;
             <span> 联系方式: <s:property value="notice"/></span>

@@ -6,11 +6,15 @@ var onMsg = '展开更多回复>>';
 var offMsg = '收起更多回复<<';
 var width = 700;
 var hideSize = 2;
+var pageSize = 5;
 $(document).ready(function(){
 	$.post(
-	'critique/critiqueTestJson?pageSize=5&page='+$('kkpager').attr('aria-page'),
+	'critique/critiqueTestJson?pageSize='+pageSize+'&page='+$('kkpager').attr('aria-page'),
 	function(critiques){
-			console.info("critique's count："+critiques.length);
+			if(critiques.length>pageSize){
+				console.info('获取评论列表失败！');
+				return false;
+			}
 			//doRecursion
 			doRecursionCritique(critiques,-1);
 		}
@@ -55,8 +59,8 @@ function doRecursionCritique(critiques,poids){
 		//document
 		var critiqueElement = $('<dl></dl>');
 		critiqueElement.append($('<dt><img src="'+(c.photo==null?"../include/images/s8.jpg":c.photo)+'"/></dt>'));
-		critiqueElement.append($('<dd><a href="#">'+c.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
-		critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=gotoAnchor("'+c.name+'",'+c.id+') style="float:right">回复</a>'));
+		critiqueElement.append($('<dd><a href="#">'+c.user.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.user.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
+		critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=gotoAnchor("'+c.user.name+'",'+c.id+') style="float:right">回复</a>'));
 		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});
 		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'2px','border-top-color':'black'});
 		if(poids==-1){
@@ -107,16 +111,10 @@ $(this).next().fadeIn();
 }
 });
 function critiqueValidate() {
-var name = $('input[name="critique.name"]').val();
-var content = $('textarea[name="critique.content"]').val();
-if (name && content) {
-var contact = $('input[name="critique.notice"]'); 
-if(contact.val()){
-contact.val(contact.val()+$("select[name='ispublic']").val());
-}
-return true;
+	if($('textarea[name="critique.content"]').val()){
+	return true;
 } else {
-$.Alert({title:"提示",content:"存在不能为空的选项",confirmbtn:function(){}});
+$.Alert({title:"提示",content:"回复内容不能是空或者低于15字",confirmbtn:function(){}});
 return false;
 }
 }
