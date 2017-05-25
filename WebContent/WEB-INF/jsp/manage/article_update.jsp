@@ -5,10 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>文章管理——更新文章</title>
+		<title>文章管理—修改文章</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<style type="text/css">
@@ -28,7 +27,7 @@
    <%@ include file="../manage_nav.jsp" %>
     </header>
   <article>
-    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">文章更新</a></h2>
+    <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">修改文章</a></h2>
     <div class="index_about">
     <form action="../manage/article_update" method="post" theme="xhtml" enctype="multipart/form-data">
     	<table>
@@ -100,7 +99,14 @@
       <ul class="pl_n">
         <s:iterator value="critiques" >
         <dl>
-          <dt><img src="../include/images/s8.jpg"> </dt>
+          <dt>
+        <s:if test="user.headpic != null">
+          <img src="<s:property value="user.headpic"/>"/> 
+          </s:if>
+          <s:if test="user.headpic == null">
+          <img src="../include/images/s8.jpg"/>
+          </s:if> 
+          </dt>
           <dt> </dt>
           <dd><s:property value="name"/>
             <time><s:property value="time"/></time>
@@ -113,6 +119,7 @@
     </div>
     <%@ include file="../copyright.jsp" %> 
   </aside>
+    <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
   <div class="clear"></div>
   <!-- 清除浮动 --> 
