@@ -57,8 +57,13 @@ function dolinks(id){
 		}
 		function deleteArticle(title,id){
 		 	 $.Alert({'title':'提示','content':'是否删除文章:'+title+'?','confirmbtn':function(){
-		 		 window.location='../manage/article_delete?id='+id;
-		 	 },'canclebtn':function(){return false;}});
+		 		 $.post('../manage/article_delete?id='+id,function(){
+		 			 window.location.reload();
+		 		 });
+		 	 },'canclebtn':function(){
+		 		 return false;
+		 		 }
+		 	 });
 		  }
 $(function(){
 	$(".ibody > header > h1,.ibody > header > h2").click(function(){

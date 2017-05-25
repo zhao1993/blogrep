@@ -29,12 +29,14 @@
 		</action>
 		
 		<action name="article_delete" class="articleDeleteAction">
-			<result name="success" type="chain">article</result>
+			<result name="success" type="json">
+		</result>
 		</action>
 		
 		<action name="to_article_update" class="articleDetailAction">
 			<result name="success" type="chain">article1</result>
 		</action>
+		
 		<action name="article1" class="articleShowAction">
 		<param name="pageSize">5</param>
 			<result name="success" type="chain">critique1</result>
