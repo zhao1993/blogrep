@@ -35,7 +35,7 @@ public class CritiqueServiceImpl implements CritiqueService {
 	}
 	
 	public Integer getSize(Integer articleId) {
-		String hql = "select count(*) from Critique as critique where critique.articleId=:articleId";
+		String hql = "select count(*) from Critique as critique where critique.articleId=:articleId and critique.critique=null";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("articleId", articleId);
 		return new Integer(query.uniqueResult().toString());
@@ -73,7 +73,7 @@ public class CritiqueServiceImpl implements CritiqueService {
 	}
 
 	public Integer getSize(String type) {
-		String hql = "select count(*) from Critique as critique where critique.type=:type";
+		String hql = "select count(*) from Critique as critique where critique.type=:type and critique.critique=null";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setString("type", type);
 		return new Integer(query.uniqueResult().toString());
@@ -99,6 +99,18 @@ public class CritiqueServiceImpl implements CritiqueService {
 		query.setMaxResults(pageSize);
 		return query.list();
 	}
+	
+	
+	@Override
+	public List<Critique> getCritiquesForArticle(Integer articleId, Integer page, Integer pageSize) {
+			String hql = "from Critique as critique where critique.articleId=:articleID and critique.critique=null order by critique.id desc" ;
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			query.setInteger("articleID", articleId);
+			query.setFirstResult(page);
+			query.setMaxResults(pageSize);
+			return query.list();
+	}
+
 	@Override
 	public List<Critique> getCritiquesByParentId(Integer id) {
 		String hql = "from Critique as critique where critique.critique=:id";

@@ -34,30 +34,16 @@
       <ul class="pl_n" id="critiqueList">
       </ul>
         <!-- 分页按钮参数 -->
-		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
+		<kkpager aria-page='${page}' aria-all='' aria-data=''></kkpager>
 		<div id="kkpager"></div>
   		<h3>
         <p><span>到此一游</span></p>
         <a href="#" target="_blank" class="more"></a>
       </h3>
-       <form action="../critique/critique_add" method="post" id="critique_reply">
+       <form action="" method="post" id="critique_reply">
       	<input type="hidden" name= 'critique.type' value="LAM"/>
        <s:token/>
       		<table>
-      			<%-- <tr>
-      				<td><span>您的姓名:</span></td><td>
-      				<input name="critique.name"/><span></span></td>
-      			</tr>
-      			<tr>
-      				<td><span>您的联系方式:</span></td>
-      				<td>
-      				<input name="critique.notice"  title='需要得到反馈时请留下联系方式'/> 
-      				<span > 是否公开： <select name='ispublic'  title='公开即所有人可见反之仅作者可见'>
-      				<option value='N'>否</option>
-      				<option value='Y'>是</option>
-      				</select>
-      				</span></td>
-      			</tr> --%>
       			<c:if test="${empty loginUser}">
       			<tr><span>请先<a onclick="loginAtag_u()" href="javascript:;">登录</a>或<a href="../index/register">注册</a></span></tr>
       			</c:if>
@@ -71,7 +57,7 @@
     			</tr>
     			<tr>
 	    			<td></td>
-	    			<td><button  type="submit" onclick="return critiqueValidate()" >提交</button>
+	    			<td><button  type="button" onclick="critiqueValidate()" >提交</button>
 	    			</td>
     			</tr>
     			</c:if>
@@ -113,22 +99,26 @@
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
   <script type="text/javascript" src="../include/js/critique.js"></script>
 <script type="text/javascript">
-//init
 $(document).ready(function(){
-	//生成分页
-	kkpager.generPageHtml({
-		pno : $('kkpager').attr('aria-page'),
-		//总页码
-		total : $('kkpager').attr('aria-all'),
-		//总数据条数
-		totalRecords : $('kkpager').attr('aria-data'),
-		//链接前部
-		hrefFormer : 'critique',
-		hrefLatter : '',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?page="+n;
+	var ready = setInterval(function(){
+		if($.isNumeric($('kkpager').attr('aria-all'))){
+			clearInterval(ready);
+			//生成分页
+			kkpager.generPageHtml({
+				pno : $('kkpager').attr('aria-page'),
+				//总页码
+				total : $('kkpager').attr('aria-all'),
+				//总数据条数
+				totalRecords : $('kkpager').attr('aria-data'),
+				//链接前部
+				hrefFormer : 'critique',
+				hrefLatter : '',
+				getLink : function(n){
+					return this.hrefFormer + this.hrefLatter + "?page="+n;
+				}
+			});
 		}
-	});
+	},10);
 });
 </script>
 </body>

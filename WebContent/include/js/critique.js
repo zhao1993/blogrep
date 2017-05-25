@@ -7,19 +7,32 @@ var offMsg = '收起更多回复<<';
 var width = 700;
 var hideSize = 2;
 var pageSize = 5;
+var parentId = null;
 $(document).ready(function(){
 	$.post(
-	'../critique/critiqueTestJson?critique.type='++'?pageSize='+pageSize+'&page='+$('kkpager').attr('aria-page'),
-	function(critiques){
-			if(critiques.length>pageSize){
+	'../critique/critiqueTestJson',
+	{
+		'pageSize':pageSize,
+		'page':$('kkpager').attr('aria-page'),
+		'critique.type':$('input[name="critique.type"]').val(),
+		'critique.articleId':$('input[name="critique.articleId"]').val()
+	},
+	function(data){
+		$('kkpager').attr({
+			'aria-page':data.page,
+				'aria-all':data.totalPage,
+					'aria-data':data.size
+		});
+			if(data.critiques.length>pageSize){
 				console.info('获取评论列表失败！');
 				return false;
 			}
 			//doRecursion
-			doRecursionCritique(critiques,-1);
+			doRecursionCritique(data.critiques,-1);
 		}
 	);
 });
+
 function openMore(clas){
 	$('dl[aria-pclass='+clas+']').toggle();
 	$('dl[class='+clas+']').find('open-more:first').find('a:first').text($('dl[aria-pclass='+clas+']').is(':visible')?offMsg:onMsg);
@@ -29,7 +42,7 @@ function gotoAnchor(name,id){
 	//检测登录状态
 	//checkLoginUp();
 	document.getElementById("critique_reply").scrollIntoView();
-	$('#critique_reply').attr('action',"../critique/critique_add?page="+$('kkpager').attr('aria-page')+"&parentId="+id);
+	parentId = id;
 }
 function critiqueAlert(name,id){
 	//检测登录状态
@@ -112,9 +125,19 @@ $(this).next().fadeIn();
 });
 function critiqueValidate() {
 	if($('textarea[name="critique.content"]').val()){
-	return true;
-} else {
-$.Alert({title:"提示",content:"回复内容不能是空或者低于15字",confirmbtn:function(){}});
-return false;
-}
+		$.post("../critique/critique_add",
+			{
+			'critique.content':$('textarea[name="critique.content"]').val(),
+			'critique.id':$('input[name="critique.id"]').val(),
+			'critique.type':$('input[name="critique.type"]').val(),
+			'critique.articleId':$('input[name="critique.articleId"]').val(),
+			'parentId':parentId
+			},
+		function(){
+				window.location.reload();
+			});
+	} else {
+		$.Alert({title:"提示",content:"回复内容不能是空或者低于15字",confirmbtn:function(){}});
+		return false;
+	}
 }

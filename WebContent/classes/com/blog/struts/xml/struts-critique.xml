@@ -12,14 +12,11 @@
 			<result name="success">/WEB-INF/jsp/critique.jsp</result>
 		</action>
 		<action name="critique_add" class="critiqueAddAction">
-			<result name="success" type="chain">critique</result>
-			<result name="invalid.token" type="chain">critique</result>
-			<interceptor-ref name="token"/>  
-            <interceptor-ref name="defaultStack"/>  
+			<result name="success" type="json">
+			</result>
 		</action>
 		<action name="critiqueTestJson" class="messageShowAction" method="critiqueForJson">
 			<result name="success" type="json">
-				<param name="root">critiques</param>
 				</result>
 		</action>
 		<action name="critiqueForChildJson" class="messageShowAction" method="critiqueForChildJson">

@@ -39,6 +39,8 @@ public interface CritiqueService {
 	 */
 	public List<Critique> getCritiquesForMain(String type, Integer page,
 			Integer pageSize);
+	public List<Critique> getCritiquesForArticle(Integer articleId, Integer page,
+			Integer pageSize);
 	
 	/**
 	 * 子查询
