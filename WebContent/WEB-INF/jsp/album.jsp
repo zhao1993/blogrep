@@ -31,20 +31,16 @@
       </s:iterator>
       </ul>
      <h3>
-        <p><span>最新评论</span></p>
+        <p><span>相册留言</span></p>
       </h3>
       <ul class="pl_n">
-       
-       
-       
        <s:iterator value="critiques" >
         <dl>
-      			<!-- 小头像 -->  
         <dt>
-         <s:if test="photo != null">
-          <img src="<s:property value="photo"/>"/> 
+         <s:if test="user.headpic != null">
+          <img src="<s:property value="user.headpic"/>"/> 
           </s:if>
-          <s:if test="photo == null">
+          <s:if test="user.headpic == null">
           <img src="../include/images/s8.jpg"/>
           </s:if>
           </dt>
