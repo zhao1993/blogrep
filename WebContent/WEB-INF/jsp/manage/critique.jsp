@@ -1,6 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s" %>
-<%@ taglib uri="http://ckeditor.com" prefix="ckeditor" %> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -13,7 +13,6 @@
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
-		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>
@@ -28,46 +27,16 @@
     </header>
   <article>
     <h2 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="#">管理留言板</a></h2>
-    <div class="template">
-      
+ <div class="template">
       <h3>
-        <p><span>留言管理</span></p>
+        <p><span>最新留言</span></p>
       </h3>
-      <ul class="pl_n">
-       <s:iterator value="critiques" >
-        <dl>
-          <dt><img src="../include/images/s8.jpg"/> </dt>
-          <dt> </dt>
-          <dd><s:property value="user.name"/>
-            <s:property value="time"/>
-            &nbsp;&nbsp;
-            <span> 联系方式: <s:property value="notice"/></span>
-            <a href="critique_delete?id=<s:property value="id" />" class="dellink">
-            <span style="color:red;">删除</span></a>
-          </dd>
-          <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
-        </dl>
-        </s:iterator>
+      <ul class="pl_n" id="critiqueList">
       </ul>
-      
-   <kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
-		<div id="kkpager"></div>     
-<%--   		<h3>
-        <p><span>随便说说</span></p>
-        <a href="#" target="_blank" class="more"></a>
-      </h3>
-       <form action="../manage/critique_add" method="post" >
-      		<table>
-      			<tr>
-      				<td><span>您的姓名:</span><input name="critique.name"/></td>
-      			</tr>
-      			<tr>
-	    			<td><textarea name="critique.content" >留言内容</textarea></td>
-	    			<ckeditor:replace  replace="critique.content" basePath="../ckeditor/" />
-    			</tr>
-      		</table>
-      </form> --%>
-    </div>
+		<kkpager aria-page='${page}' aria-all='' aria-data=''></kkpager>
+		<div id="kkpager"></div>
+      	<input type="hidden" name= 'critique.type' value="LAM"/>
+      	</div>
   </article>
   <aside>
     <%@ include file="../rnav.jsp" %> 
@@ -99,24 +68,29 @@
   <div class="clear"></div>
 </div>
   <script src="../include/js/silder.js"></script>
-    <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+  <script type="text/javascript" src="../include/js/critique.js"></script>
 <script type="text/javascript">
-//init
 $(document).ready(function(){
-	//生成分页
-	kkpager.generPageHtml({
-		pno : $('kkpager').attr('aria-page'),
-		//总页码
-		total : $('kkpager').attr('aria-all'),
-		//总数据条数
-		totalRecords : $('kkpager').attr('aria-data'),
-		//链接前部
-		hrefFormer : 'critique',
-		hrefLatter : '',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?page="+n;
+	var ready = setInterval(function(){
+		if($.isNumeric($('kkpager').attr('aria-all'))){
+			clearInterval(ready);
+			//生成分页
+			kkpager.generPageHtml({
+				pno : $('kkpager').attr('aria-page'),
+				//总页码
+				total : $('kkpager').attr('aria-all'),
+				//总数据条数
+				totalRecords : $('kkpager').attr('aria-data'),
+				//链接前部
+				hrefFormer : 'critique',
+				hrefLatter : '',
+				getLink : function(n){
+					return this.hrefFormer + this.hrefLatter + "?page="+n;
+				}
+			});
 		}
-	});
+	},10);
 });
 </script>
 </body>
