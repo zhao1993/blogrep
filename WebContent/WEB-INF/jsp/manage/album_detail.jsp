@@ -36,26 +36,6 @@
         <li><img src="<s:property value="image" />"/></a><span><s:property value="note"/><a href="../manage/album_photo_delete?id=<s:property value="id" />">删除</a></span></li>
       </s:iterator>
       </ul>
-      <h3>
-        <p><span>最新评论</span></p>
-      </h3>
-      <ul class="pl_n">
-       <s:iterator value="critiques" >
-        <dl>
-          <dt><img src="../include/images/s8.jpg"/> </dt>
-          <dt> </dt>
-          <dd><s:property value="user.name"/>
-            <time><s:property value="time"/></time>
-          </dd>
-          <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
-        </dl>
-        </s:iterator>
-      </ul>
-      
-   <!-- 分页按钮参数 -->
-		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
-		<div id="kkpager"></div> 
-		</div>            
    </article>
   <aside>
     <%@ include file="../rnav.jsp" %> 
@@ -87,25 +67,5 @@
 </div>
   <div class="clear"></div>
   <script src="../include/js/silder.js"></script>
-  <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
-<script type="text/javascript">
-//init
-$(document).ready(function(){
-	//生成分页
-	kkpager.generPageHtml({
-		pno : $('kkpager').attr('aria-page'),
-		//总页码
-		total : $('kkpager').attr('aria-all'),
-		//总数据条数
-		totalRecords : $('kkpager').attr('aria-data'),
-		//链接前部
-		hrefFormer : 'album_detail',
-		hrefLatter : '',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?page="+n;
-		}
-	});
-});
-</script>
 </body>
 </html>
