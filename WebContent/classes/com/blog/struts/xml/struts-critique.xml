@@ -12,7 +12,6 @@
 			<result name="success">/WEB-INF/jsp/critique.jsp</result>
 		</action>
 		<action name="critique_add" class="critiqueAddAction">
-		<param name="critique.type">LAM</param>
 			<result name="success" type="chain">critique</result>
 			<result name="invalid.token" type="chain">critique</result>
 			<interceptor-ref name="token"/>  

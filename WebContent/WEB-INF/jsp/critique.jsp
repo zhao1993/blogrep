@@ -7,10 +7,8 @@
     	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,text/html; charset=utf-8"/> 
         <link rel="shortcut icon" href="../favicon.ico"/> 
 		<title>留言板</title>
-		
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
@@ -43,6 +41,7 @@
         <a href="#" target="_blank" class="more"></a>
       </h3>
        <form action="../critique/critique_add" method="post" id="critique_reply">
+      	<input type="hidden" name= 'critique.type' value="LAM"/>
        <s:token/>
       		<table>
       			<%-- <tr>
@@ -110,7 +109,7 @@
   </aside>
   <div class="clear"></div>
 	</div>
-	<script type="text/javascript" src="../include/js/silder.js"></script>
+<script type="text/javascript" src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
   <script type="text/javascript" src="../include/js/critique.js"></script>
 <script type="text/javascript">

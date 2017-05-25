@@ -7,7 +7,6 @@
 		<title>文章阅读</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../include/css/media.css" rel="stylesheet"/>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -17,8 +16,7 @@
 <body>
 <div class="ibody">
   <header>
-    <h1>扯你妈的蛋</h1>
-    <h2>这世界唯一不变的就是变化...</h2>
+  <h1>&nbsp;</h1><h2>&nbsp;</h2>
     <div class="logo"><a href="../index/index"></a></div>
 	 <%@ include file="nav.jsp" %> 
    </header>
@@ -41,7 +39,8 @@
         <p>下一篇：<a href="../article/article_detail?id=<s:property value="id+1"/>"><s:property value="articleAfter.title"/></a></p>
       </s:if>
       </div>
-    </div>
+      <!-- 评论区 -->
+      <%--☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆--%>
      <div class="template">
       <h3>
         <p><span>最新留言</span></p>
@@ -57,7 +56,6 @@
         <a href="#" target="_blank" class="more"></a>
       </h3>
        <form action="../critique/critique_add" method="post" id="critique_reply">
-      	<input type="hidden" name= 'critique.type' value="ARITCLE"/>
       	<input type="hidden" name= 'critique.type' value="LAM"/>
        <s:token/>
       		<table>
@@ -81,8 +79,9 @@
       		</table>
       </form>
      </div>
-    
-    
+     <%--☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆--%>
+      </div>
+    </div>
   </article>
   <aside>
     	 <%@ include file="rnav.jsp" %> 
@@ -108,7 +107,7 @@
         <li><a href="../article/article_detail?id=<s:property value="id"/>"><s:property value="title"/></a></li>
       </s:iterator>
       </ul>
-      <h2>
+       <h2>
         <p>最新评论</p>
       </h2>
       <ul class="pl_n">
@@ -123,7 +122,6 @@
           <img src="../include/images/s8.jpg"/>
           </s:if>
           </dt>
-          <dt>
           <dt> </dt>
           <dd><s:property value="user.name"/>
             <time><s:property value="time"/></time>

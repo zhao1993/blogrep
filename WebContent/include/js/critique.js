@@ -9,7 +9,7 @@ var hideSize = 2;
 var pageSize = 5;
 $(document).ready(function(){
 	$.post(
-	'critique/critiqueTestJson?pageSize='+pageSize+'&page='+$('kkpager').attr('aria-page'),
+	'../critique/critiqueTestJson?critique.type='++'?pageSize='+pageSize+'&page='+$('kkpager').attr('aria-page'),
 	function(critiques){
 			if(critiques.length>pageSize){
 				console.info('获取评论列表失败！');
@@ -83,7 +83,7 @@ function doRecursionCritique(critiques,poids){
 			);
 		if(null!=c.critiques && c.critiques.length>0){
 			$.post(
-					'critique/critiqueForChildJson?parentId='+c.id,
+					'../critique/critiqueForChildJson?parentId='+c.id,
 					function(_critiques){
 						doRecursionCritique(_critiques,poids+1);
 				}

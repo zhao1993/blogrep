@@ -9,7 +9,6 @@
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
-		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -52,7 +51,8 @@
         <h3>
         <p><span>图片评论</span></p>
       </h3>
-      <ul class="pl_n">
+      <jsp:include page="reply.jsp" />
+      <%-- <ul class="pl_n">
        <s:iterator value="critiques" >
         <dl>
          		<!-- 小头像 -->  
@@ -71,7 +71,7 @@
           <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
         </dl>
         </s:iterator>
-      </ul>
+      </ul> --%>
       
     <!-- 分页按钮参数 -->
 		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
