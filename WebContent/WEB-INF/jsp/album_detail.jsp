@@ -8,7 +8,6 @@
 		<title>相册列表</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
-		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -43,39 +42,11 @@
 	<div id="index_pic" class="index_pic">
 	<ul>
 	<s:iterator value="photos" >
-	<li><img class="small_pic_unique" src="<s:property value="image" />" /></li>
+	<li><img class="small_pic_unique" src="<s:property value="image" />" text="http://sc.chinaz.com/|_self"/></li>
 	</s:iterator>
  	</ul>
 		<div id="back"><img width="580px" height="300px" src="" /></div>
 	</div><!--index_pic end-->         
-        <h3>
-        <p><span>图片评论</span></p>
-      </h3>
-      <jsp:include page="reply.jsp" />
-      <%-- <ul class="pl_n">
-       <s:iterator value="critiques" >
-        <dl>
-         		<!-- 小头像 -->  
-        <dt>
-         <s:if test="photo != null">
-          <img src="<s:property value="photo"/>"/> 
-          </s:if>
-          <s:if test="photo == null">
-          <img src="../include/images/s8.jpg"/>
-          </s:if>
-          </dt>
-          <dt> </dt>
-          <dd><s:property value="name"/>
-            <time><s:property value="time"/></time>
-          </dd>
-          <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
-        </dl>
-        </s:iterator>
-      </ul> --%>
-      
-    <!-- 分页按钮参数 -->
-		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
-		<div id="kkpager"></div>
            </div>        
     </article>
   <aside>
@@ -107,28 +78,9 @@
    <%@ include file="copyright.jsp" %> 
    </div>
   </aside>
+  <script src="../include/js/silder.js"></script>
+  <script type="text/javascript" src="../include/js/zzsc.js"></script>
   <div class="clear"></div>
 </div>
-<script type="text/javascript" src="../include/js/silder.js"></script>
-  <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
-<script type="text/javascript">
-//init
-$(document).ready(function(){
-	//生成分页
-	kkpager.generPageHtml({
-		pno : $('kkpager').attr('aria-page'),
-		//总页码
-		total : $('kkpager').attr('aria-all'),
-		//总数据条数
-		totalRecords : $('kkpager').attr('aria-data'),
-		//链接前部
-		hrefFormer : 'album_detail',
-		hrefLatter : '',
-		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?page="+n;
-		}
-	});
-});
-</script>
 </body>
 </html>
