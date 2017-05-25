@@ -71,7 +71,7 @@ function doRecursionCritique(critiques,poids){
 		var c = critiques[i];
 		//document
 		var critiqueElement = $('<dl></dl>');
-		critiqueElement.append($('<dt><img src="'+(c.photo==null?"../include/images/s8.jpg":c.photo)+'"/></dt>'));
+		critiqueElement.append($('<dt><img src="'+(c.user.headpic==null?"../include/images/s8.jpg":c.user.headpic)+'"/></dt>'));
 		critiqueElement.append($('<dd><a href="#">'+c.user.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.user.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
 		critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=gotoAnchor("'+c.user.name+'",'+c.id+') style="float:right">回复</a>'));
 		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});

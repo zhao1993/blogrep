@@ -90,7 +90,14 @@
       <ul class="pl_n">
       <s:iterator value="critiques" >
         <dl>
-          <dt><img src="../include/images/s8.jpg"/> </dt>
+          <dt> 
+          <s:if test="user.headpic != null">
+          <img src="<s:property value="user.headpic"/>"/> 
+          </s:if>
+          <s:if test="user.headpic == null">
+          <img src="../include/images/s8.jpg"/>
+          </s:if> 
+          </dt>
           <dt> </dt>
           <dd><s:property value="user.name"/>
             <time><s:property value="time"/></time>
