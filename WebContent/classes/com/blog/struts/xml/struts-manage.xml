@@ -39,7 +39,7 @@
 		
 		<action name="article1" class="articleShowAction">
 		<param name="pageSize">5</param>
-			<result name="success" type="chain">critique1</result>
+			<result name="success" type="chain">e1</result>
 		</action>
 		<action name="critique1" class="critiqueShowAction">
 			<param name="pageSize">5</param>
@@ -180,7 +180,7 @@
 			<result name="success">/WEB-INF/jsp/manage/critique.jsp</result>
 		</action>
 		<action name="critique_delete" class="critiqueDeleteAction">
-			<result name="success" type="chain">critique</result>
+			<result name="success" type="json"></result>
 		</action>
 		<action name="critique_add" class="critiqueAddAction">
 			<result name="success" type="chain">critique</result>

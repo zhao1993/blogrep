@@ -44,6 +44,22 @@ function gotoAnchor(name,id){
 	document.getElementById("critique_reply").scrollIntoView();
 	parentId = id;
 }
+//删除留言
+function deleteCritique(id){
+	$.Alert({
+		attr:{width:'240px'},
+		title:'警告',
+		content:'评论留言删除后无法恢复是否继续?',
+		confirmmsg:'删除',
+		confirmbtn:function(){
+			$.post('../manage/critique_delete?id='+id,function(){
+				window.location.reload();
+			});
+		},
+		canclemsg:'取消',
+		canclebtn:true
+	});
+}
 function critiqueAlert(name,id){
 	//检测登录状态
 	//checkLoginUp();
@@ -73,7 +89,12 @@ function doRecursionCritique(critiques,poids){
 		var critiqueElement = $('<dl></dl>');
 		critiqueElement.append($('<dt><img src="'+(c.user.headpic==null?"../include/images/s8.jpg":c.user.headpic)+'"/></dt>'));
 		critiqueElement.append($('<dd><a href="#">'+c.user.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.user.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
-		critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=gotoAnchor("'+c.user.name+'",'+c.id+') style="float:right">回复</a>'));
+		if($('input[name="blog_manager"]').val()){
+			critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=deleteCritique('+c.id+') style="float:right">删除</a>'));
+		}else{
+			critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=gotoAnchor("'+c.user.name+'",'+c.id+') style="float:right">回复</a>'));
+		}
+		
 		critiqueElement.attr({'class':'critique_class'+c.id,'aria-val':(c.critique!=null?c.critique.id:'null')});
 		critiqueElement.css({'width':width+'px','border-top-style':'dotted','border-top-width':'2px','border-top-color':'black'});
 		if(poids==-1){

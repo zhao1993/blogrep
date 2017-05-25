@@ -11,7 +11,6 @@
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<script type="text/javascript" src="../include/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../include/js/jquery.gallery.js"></script>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -36,6 +35,7 @@
 		<kkpager aria-page='${page}' aria-all='' aria-data=''></kkpager>
 		<div id="kkpager"></div>
       	<input type="hidden" name= 'critique.type' value="LAM"/>
+      	<input type="hidden" name='blog_manager' value="${manager}"/>
       	</div>
   </article>
   <aside>
@@ -68,6 +68,7 @@
   <div class="clear"></div>
 </div>
   <script src="../include/js/silder.js"></script>
+  <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
    <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
   <script type="text/javascript" src="../include/js/critique.js"></script>
 <script type="text/javascript">
@@ -93,5 +94,6 @@ $(document).ready(function(){
 	},10);
 });
 </script>
+<s:debug/>
 </body>
 </html>
