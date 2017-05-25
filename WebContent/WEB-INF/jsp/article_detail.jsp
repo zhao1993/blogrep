@@ -80,8 +80,6 @@
       		</table>
       </form>
      </div>
-    
-    
   </article>
   <aside>
     	 <%@ include file="rnav.jsp" %> 

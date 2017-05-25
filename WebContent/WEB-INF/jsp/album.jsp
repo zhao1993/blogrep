@@ -7,6 +7,7 @@
 		<title>个人相册</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
+				<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
 		<script src="js/modernizr.js"></script>
@@ -30,29 +31,46 @@
         <li><a href="album_detail?id=<s:property value="id"/>" ><img src="<s:property value="image" />"/></a><span><s:property value="title" /></span></li>
       </s:iterator>
       </ul>
-     <h3>
-        <p><span>相册留言</span></p>
+      
+     <div class="template">
+      <h3>
+        <p><span>相册评论</span></p>
       </h3>
-      <ul class="pl_n">
-       <s:iterator value="critiques" >
-        <dl>
-        <dt>
-         <s:if test="user.headpic != null">
-          <img src="<s:property value="user.headpic"/>"/> 
-          </s:if>
-          <s:if test="user.headpic == null">
-          <img src="../include/images/s8.jpg"/>
-          </s:if>
-          </dt>
-          <dt> </dt>
-          <dd><s:property value="user.name"/>
-            <time><s:property value="time"/></time>
-          </dd>
-          <dd><a href="#"><s:property value="content" escape="false"/></a></dd>
-        </dl>
-        </s:iterator>
+      <!-- 回复内容容器 -->
+      <ul class="pl_n" id="critiqueList">
       </ul>
-      </div>
+        <!-- 分页按钮参数 -->
+		<kkpager aria-page='${page}' aria-all='' aria-data=''></kkpager>
+		<div id="kkpager"></div>
+  		<h3>
+        <p><span>我来评价</span></p>
+        <a href="#" target="_blank" class="more"></a>
+      </h3>
+       <form action="" method="post" id="critique_reply">
+      	<input type="hidden" name= 'critique.type' value="ALBUM"/>
+       <s:token/>
+      		<table>
+      			<c:if test="${empty loginUser}">
+      			<tr><span>请先<a onclick="loginAtag_u()" href="javascript:;">登录</a>或<a href="../index/register">注册</a></span></tr>
+      			</c:if>
+      			<c:if test="${not empty loginUser}">
+      			<input type="hidden" name='critique.id' value="${loginUser.id}"/>
+      			<tr>
+	    			<td><div style="width:70px;padding-bottom: 189px;">
+	    			<span>留言内容:</span></div></td>
+	    			<td><textarea name="critique.content" style ="height:200px; width:530px;" ></textarea>
+	    			<span></span></td>
+    			</tr>
+    			<tr>
+	    			<td></td>
+	    			<td><button  type="button" onclick="critiqueValidate()" >提交</button>
+	    			</td>
+    			</tr>
+    			</c:if>
+      		</table>
+      </form>
+     </div>
+     </div>
   </article>
   <aside>
     <div class="rnav">
@@ -83,8 +101,34 @@
     </div> 
     <%@ include file="copyright.jsp" %> 
   </aside>
-  <script type="text/javascript" src="../include/js/silder.js"></script>
   <div class="clear"></div>
 </div>
+  <script type="text/javascript" src="../include/js/silder.js"></script>
+    <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+  <script type="text/javascript" src="../include/js/critique.js"></script>
+<script type="text/javascript">
+//init
+$(document).ready(function(){
+	var ready = setInterval(function(){
+		if($.isNumeric($('kkpager').attr('aria-all'))){
+			clearInterval(ready);
+			//生成分页
+			kkpager.generPageHtml({
+				pno : $('kkpager').attr('aria-page'),
+				//总页码
+				total : $('kkpager').attr('aria-all'),
+				//总数据条数
+				totalRecords : $('kkpager').attr('aria-data'),
+				//链接前部
+				hrefFormer : 'album',
+				hrefLatter : '',
+				getLink : function(n){
+					return this.hrefFormer + this.hrefLatter + "?page="+n;
+				}
+			});
+		}
+	},10);
+});
+</script> 
 </body>
 </html>
