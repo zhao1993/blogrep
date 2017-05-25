@@ -51,6 +51,7 @@
         </dl>
         </s:iterator>
       </ul>
+      </div>
   </article>
   <aside>
    <%@ include file="../rnav.jsp" %> 
