@@ -4,10 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>我的日志</title>
+		<title>管理-日志管理</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
-		<link href="../include/css/style.css" rel="stylesheet"/>
 		<link href="../include/css/index.css" rel="stylesheet" />
+		<link href="../include/css/style.css" rel="stylesheet"/>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
 		<!--[if lt IE 9]>
@@ -23,18 +23,18 @@
    </header>
   <article>
     <h3 class="about_h">您现在的位置是：<a href="../manage/article">首页</a>><a href="../daily/daily">日志管理</a>><a class ="editem" style="float:right" href="../manage/toDailyAdd"><strong>发表日志</strong></a></h3>
-    <div class="dailylist" style="margin-left:50px">
+        <div class="dailylist" style="margin-left:50px">
     <ol class="zqlist">
     	<s:iterator value="dailys">
     	<li><time><s:property value="time"/></time><s:property value="content"/></li>
     	</s:iterator>
     </ol>
     </div>
-     <kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
-		<div id="kkpager"></div> 
+     <!-- 分页按钮参数 -->
+		<kkpager aria-page='${page}' aria-all='${totalPage}' aria-data='${size}'></kkpager>
+		<div id="kkpager"></div>   
   </article>
       		<aside> 
-		<%@ include file="../info.jsp"%>
 		<div class="tj_news">
 			<h2>
 				<p class="tj_t1">最新文章</p>
@@ -57,14 +57,13 @@
 				</s:iterator>
 			</ul>
 		</div>
+</aside>
   <div class="clear"></div>
 </div>
-		
-		<%@ include file="../copyright.jsp"%> </aside>
-  	<script src="../include/js/jquery.min.js"></script>
-  <script src="../include/js/silder.js"></script>
-  <script src="../plugin/diy/js/jquery.zqextend.js"></script>
+<script src="../include/js/jquery.min.js"></script>
+<script type="text/javascript" src="../include/js/silder.js"></script>
   <script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+  <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 <script type="text/javascript">
 //init
 $(document).ready(function(){
