@@ -31,10 +31,20 @@ var phoneRule = /^0?(13[0-9]|15[0-9]|18[0-9]|14[57])[0-9]{8}$/;  //电话
 var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 	$(function(){
 		var form = $('#registerForm');
+		/*//ajax 验证
+		$("input[name='user.name'],input[name='user.account']").bind("blur",function(){
+			var doc = $(this);
+			$.post('../user/validate?'+$(this).attr("name")+"="+$(this).val(),
+			function(exist){
+				$.doRule(doc,false,exist==1?"用户名已经存在！换一个专属的吧":exist==2?"存在相同的用户名,请更改！":"",null);
+			});
+		});*/
 		//表单事件绑定（编辑时触发验证）
-		$(form).find('input').bind('keyup blur',function(){
+		$(form).find('input').bind('blur',function(){
 			formCheck($(this));
 		});
+		var accExist = false;
+		var nameExist = false;
 		//事件抽取 （对验证事件进行提取）
 		function formCheck(doc){
 			var name = $(doc).attr('name');
@@ -55,6 +65,26 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 					'aria-err':'请输入正确的电话号码!'
 				});
 			}
+			if($(doc).attr('name')=='user.account'){
+				 $.post('../user/validate?user.account='+$(doc).val(),function(mExist){
+					 if(mExist==1){
+					 accExist = false;	
+					 $.doRule(doc,false,"账号已经存在！请修改！",null);
+					 }else{
+						 accExist =true;
+					 }
+				});
+			}
+			if($(doc).attr('name')=='user.name'){
+				$.post('../user/validate?user.name='+$(doc).val(),function(mExist){
+					if(mExist==2){
+						nameExist = false;
+						$.doRule(doc,false,"用户名已经存在！请更换！",null);
+					}else{
+						nameExist = true;
+					}
+				});
+			}
 			return $.doRule($(doc),new RegExp($(doc).attr('aria-rule')).test($(doc).val()),$(doc).attr('aria-err'),null);
 		}
 		
@@ -65,10 +95,9 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; //1-9开头 5-11位数字组合
 		$(form).submit(function(){
 			var flag = 0;
 			$(this).find('input').filter('.contactInput , :lt(3)').each(function(){
-				if(!formCheck($(this))){
+				if(!formCheck($(this)) || !nameExist || !accExist){
 					flag += 1;
 				};
-				console.info(formCheck($(this))+"-->"+Math.random()+'-->'+$(this).attr('name'));
 			});
 			if(flag==0){
 				return true;

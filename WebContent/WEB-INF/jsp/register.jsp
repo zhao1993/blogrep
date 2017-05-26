@@ -74,7 +74,7 @@
       			</tr>
       			<tr>
       				<td>验证码:</td>
-                    <td style="width:70px"><input name="imageCode" type="text"  class="loginInput"  style="width:98px;"/><img src="/manage/imageCode.action" onclick="change(this)" alt="验证码" title="点击更换" style="float:right;"/></td>
+                    <td style="width:70px"><input name="imageCode" type="text"  class="loginInput"  style="width:98px;"/><img src="../manage/imageCode.action" onclick="change(this)" alt="验证码" title="点击更换" style="float:right;"/></td>
       				<td><span><s:property value="errorMsg"/></span></td> 
       			</tr>
       			<tr>
@@ -131,7 +131,7 @@
 		<script type="text/javascript" src="../plugin/jquery-ui/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../include/js/register.js"></script>
 		<script type="text/javascript">
-			function change(img){img.src = "imageCode.action?date="+new Date().getTime();}
+			function change(img){img.src = "../manage/imageCode.action?date="+new Date().getTime();}
 			(function(){
 			 	$("register_form > input").tooltip(); 
 			  	$('dd').filter(':nth-child(n+4)').addClass('hide');

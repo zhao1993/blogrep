@@ -6,10 +6,14 @@
 	<package name="user" namespace="/user" extends="json-default">
 		<action name="register" class="userAction" method="Register">
 			<result name="success" type="chain">reglogin</result>
+			<result name="fail" type="chain">
+			<param name="namespace">/index</param>
+			<param name="actionName">register</param>
+			</result>
 		</action>
-		<action name="namevalidate" class="userAction" method="NameValidate">
+		<action name="validate" class="userAction" method="userValidate">
 			<result name="success" type="json">
-			<param name="root">repetition</param>
+			<param name="root">exist</param>
 			</result>
 		</action>
 		<action name="login" class="userAction" method="Login">

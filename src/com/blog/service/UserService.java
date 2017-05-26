@@ -17,4 +17,8 @@ public interface UserService {
 	public User query(Integer id);
 	
 	public List<User> getUsers();
+	
+	public boolean nameExist(String userName);
+	
+	public boolean accExist(String userAcc);
 }

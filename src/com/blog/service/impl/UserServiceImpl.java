@@ -81,6 +81,30 @@ public class UserServiceImpl implements UserService {
 		return query.list();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.blog.service.UserService#nameExist(java.lang.String)
+	 */
+	@Override
+	public boolean nameExist(String userName) {
+		// TODO Auto-generated method stub
+		String hql = "from User as user where user.name=:userName";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("userName",userName);
+		return query.list().size()>0;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.blog.service.UserService#accExist(java.lang.String)
+	 */
+	@Override
+	public boolean accExist(String userAcc) {
+		// TODO Auto-generated method stub
+		String hql = "from User as user where user.account=:userAcc";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("userAcc",userAcc);
+		 return query.list().size()>0;
+	}
+
 	
 
 }
