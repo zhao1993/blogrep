@@ -31,5 +31,7 @@ public interface ArticleService {
 	public Integer getSize(String type);
 
 	public List<Article> getArticles(String type, Integer page, Integer pageSize);
+	
+	public Integer changeReply(Integer articleId); 
 
 }

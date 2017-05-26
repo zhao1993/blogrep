@@ -38,6 +38,13 @@ function dolinks(id){
 				}
 			});
 		}
+		//验证
+		function validate(){
+			if($('.linkName').val() && new RegExp('/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/').test($('.linkAddress').val())){
+				return false;
+			}
+			return true;
+		}
 		// 跳转
 		function linkgoto() {
 			$.post('../con/updateBefore', {

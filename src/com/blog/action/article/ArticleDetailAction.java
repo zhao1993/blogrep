@@ -22,12 +22,11 @@ public class ArticleDetailAction {
 		articleBefore = articleServiceImpl.queryBefore(id);
 		articleAfter = articleServiceImpl.queryAfter(id);
 		article = articleServiceImpl.query(id);
+		Integer count1 = articleServiceImpl.changeReply(id);
 		Integer count = article.getCount();
-		if(count==null){
-			count=0;
-		}
+		article.setCount(count==null?0:count);
+		article.setCount1(count1==null?0:count1);
 		count++;
-		article.setCount(count);
 		articleServiceImpl.update(article);
 		return "success";
 	}

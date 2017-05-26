@@ -35,6 +35,7 @@
 		<div id="kkpager"></div>   
   </article>
       		<aside> 
+      		<%@ include file="../rnav.jsp" %> 
 		<div class="tj_news">
 			<h2>
 				<p class="tj_t1">最新文章</p>

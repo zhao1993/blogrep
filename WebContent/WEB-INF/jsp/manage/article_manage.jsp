@@ -137,7 +137,7 @@
   站&nbsp;&nbsp;名:<input class="linkName zqalert-bgdiv-body-input" name="connect.name" value=""/><br />
   地&nbsp;&nbsp;址:<input class="linkAddress zqalert-bgdiv-body-input" name="connect.target" value=""/><br />
   备&nbsp;&nbsp;注:<input class="linkDescription zqalert-bgdiv-body-input" name="connect.title" value=""/><br /><br />
-  <input type="submit" class="formsubmit zqalert-footer_btn zqalert-footer_cancle" value="提交"/>
+  <input type="submit" class="formsubmit zqalert-footer_btn zqalert-footer_cancle" onclick="validate()" value="提交"/>
   <s:token/>
   </form>
   </div>
