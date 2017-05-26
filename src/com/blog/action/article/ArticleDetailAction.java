@@ -24,9 +24,8 @@ public class ArticleDetailAction {
 		article = articleServiceImpl.query(id);
 		Integer count1 = articleServiceImpl.changeReply(id);
 		Integer count = article.getCount();
-		article.setCount(count==null?0:count);
+		article.setCount(count==null?0:++count);
 		article.setCount1(count1==null?0:count1);
-		count++;
 		articleServiceImpl.update(article);
 		return "success";
 	}
