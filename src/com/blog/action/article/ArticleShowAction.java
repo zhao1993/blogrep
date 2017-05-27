@@ -31,6 +31,11 @@ public class ArticleShowAction {
 			size = articleServiceImpl.getSizeBySearch(search);
 			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
 			articles = articleServiceImpl.getArticlesBySearch(search,(page-1)*pageSize, pageSize);
+			if(size==0){
+				size = articleServiceImpl.getSize();
+				totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+				articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
+			}
 		}else{
 			size = articleServiceImpl.getSize();
 			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
