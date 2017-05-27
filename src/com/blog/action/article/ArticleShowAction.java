@@ -26,18 +26,16 @@ public class ArticleShowAction {
 	private Integer albumId;
 	
 	public String execute() throws UnsupportedEncodingException{
-		if(null !=search)
-		size = articleServiceImpl.getSizeBySearch(new String(search.getBytes("ISO-8859-1"),"UTF-8"));
-		else
-		size = articleServiceImpl.getSize();
-		totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
-		if(null != search){
-			articles = articleServiceImpl.getArticlesBySearch(new String(search.getBytes("ISO-8859-1"),"UTF-8"),(page-1)*pageSize, pageSize);
-			
+		if(null !=search){
+			search = new String(search.getBytes("ISO-8859-1"),"UTF-8");
+			size = articleServiceImpl.getSizeBySearch(search);
+			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+			articles = articleServiceImpl.getArticlesBySearch(search,(page-1)*pageSize, pageSize);
+		}else{
+			size = articleServiceImpl.getSize();
+			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+			articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
 		}
-		else
-		articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
-		search = null;
 		hotArticles = articleServiceImpl.getHotArticles();
 		newArticles = articleServiceImpl.getNewArticles();
 		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");

@@ -54,7 +54,7 @@
 		        hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 		        hibernate.hbm2ddl.auto=update
 		        hibernate.show_sql=true
-		        hibernate.format_sql=true
+		        hibernate.format_sql=false
 		        hibernate.cache.use_second_level_cache=false
        	        hibernate.cache.use_query_cache=true
         	    hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider

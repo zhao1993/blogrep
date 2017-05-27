@@ -121,7 +121,7 @@ $(document).ready(function(){
 		hrefFormer : 'article',
 		hrefLatter : '',
 		getLink : function(n){
-			return this.hrefFormer + this.hrefLatter + "?page="+n;
+			return this.hrefFormer + this.hrefLatter + "?page="+n+($('#hiddenSearch').val()!=""?"&search="+$('#hiddenSearch').val():"");
 		}
 	});
 });

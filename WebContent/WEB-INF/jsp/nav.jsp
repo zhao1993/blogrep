@@ -14,7 +14,8 @@
 	<a href="../critique/critique">留言板</a>
 	<a href="../about/about">关于</a>
 	<!-- <a href="../index/register">注册测试</a> -->
- 	<input name="search_box"  placeholder="搜索文章" title="回车搜索" style="height:25px;margin:5px;"/>
+ 	<input name="search_box"  placeholder="搜索文章" title="回车搜索" value="${search}" style="height:25px;margin:5px;"/>
+ 	<input id="hiddenSearch" value="${search}" type="hidden"/>
 </nav>
 <script type="text/javascript">
 		function loginAtag_u(){
