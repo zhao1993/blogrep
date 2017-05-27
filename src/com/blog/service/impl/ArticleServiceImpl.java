@@ -121,5 +121,29 @@ public class ArticleServiceImpl implements ArticleService {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("aritcleId",articleId);
 		return new Integer(query.uniqueResult().toString());
+	}
+	/* (non-Javadoc)
+	 * @see com.blog.service.ArticleService#getArticlesBySearch(java.lang.String)
+	 */
+	@Override
+	public List<Article> getArticlesBySearch(String search,int page,int pageSize) {
+		// TODO Auto-generated method stub
+		String hql = "from Article as article where article.title like :search";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("search", "%"+search+"%");
+		query.setFirstResult(page);
+		query.setMaxResults(pageSize);
+		return query.list();
+	}
+	/* (non-Javadoc)
+	 * @see com.blog.service.ArticleService#getSizeBySearch(java.lang.String)
+	 */
+	@Override
+	public int getSizeBySearch(String search) {
+		String hql = "select count(article.id) from Article as article where article.title like :search";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("search", "%"+search+"%");
+		return new Integer(query.uniqueResult().toString());
 	}	
+	
 }

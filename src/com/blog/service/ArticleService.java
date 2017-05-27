@@ -32,6 +32,10 @@ public interface ArticleService {
 
 	public List<Article> getArticles(String type, Integer page, Integer pageSize);
 	
-	public Integer changeReply(Integer articleId); 
+	public Integer changeReply(Integer articleId);
+
+	public List<Article> getArticlesBySearch(String search, int i, int pageSize);
+
+	public int getSizeBySearch(String search); 
 
 }

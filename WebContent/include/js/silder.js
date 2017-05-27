@@ -28,8 +28,9 @@ $(function(){
 	$("input[name='search_box']").keyup(function(event){
 		if('Enter'==event.key){
 			//失去焦点避免因重复回车而多次触发自定义弹框
+			//回车搜索内容根据文章标题搜索
 			$(this).blur();
-			$.Alert({title:'搜索提示',content:'您输入的内容:'+$(this).val()+'但是搜索功能正在建设。暂时无法使用',confirmbtn:function(){}});
+			window.location="../article/article?search="+$(this).val();
 		}
 	});
 });

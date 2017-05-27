@@ -1,5 +1,6 @@
 package com.blog.action.article;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import com.blog.service.ArticleService;
 @Scope("prototype")
 public class ArticleShowAction {
 	@Resource ArticleService articleServiceImpl;
+	private String search;
 	private List<Article> articles;
 	private List<Article> hotArticles;
 	private List<Article> newArticles;
@@ -23,10 +25,19 @@ public class ArticleShowAction {
 	private int size;
 	private Integer albumId;
 	
-	public String execute(){
+	public String execute() throws UnsupportedEncodingException{
+		if(null !=search)
+		size = articleServiceImpl.getSizeBySearch(new String(search.getBytes("ISO-8859-1"),"UTF-8"));
+		else
 		size = articleServiceImpl.getSize();
 		totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+		if(null != search){
+			articles = articleServiceImpl.getArticlesBySearch(new String(search.getBytes("ISO-8859-1"),"UTF-8"),(page-1)*pageSize, pageSize);
+			
+		}
+		else
 		articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
+		search = null;
 		hotArticles = articleServiceImpl.getHotArticles();
 		newArticles = articleServiceImpl.getNewArticles();
 		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");
@@ -113,6 +124,20 @@ public class ArticleShowAction {
 
 	public void setAlbumId(Integer albumId) {
 		this.albumId = albumId;
+	}
+
+	/**
+	 * @return the search
+	 */
+	public String getSearch() {
+		return search;
+	}
+
+	/**
+	 * @param search the search to set
+	 */
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
 	

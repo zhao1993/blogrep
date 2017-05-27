@@ -44,7 +44,6 @@
 		<action name="critique" class="articleShowAction">
 			<result name="success">/WEB-INF/jsp/article.jsp</result>
 		</action>
-		
 	</package>
 
 </struts>

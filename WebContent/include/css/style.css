@@ -7,10 +7,10 @@
 .newblog h3 { font-size: 14px; font-weight: bold; margin-bottom: 10px }
 .newblog h3 a { color: #181818; }
 .newblog h3 a:hover { text-decoration: underline }
-.newblog ul { float: left; line-height: 20px; width: 72%; color: #474645; }
+.newblog ul { float: left; line-height: 20px; min-width:510px; width: 72%; color: #474645; }
 .dateview { position: absolute; left: -125px; top: 0px; z-index: 1; color: #F5F5F5; }
-.newblog figure { float: right; width: 25%; overflow: hidden; }
-.newblog figure img {min-width:170px; width: 100%; margin: auto; -moz-transition: all 0.5s; -webkit-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
+.newblog figure { float: right;min-width:180px; width: 25%; overflow: hidden; }
+.newblog figure img { width: 100%; margin: auto; -moz-transition: all 0.5s; -webkit-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
 .newblog figure:hover img { -moz-transform: scale(1.1); -webkit-transform: scale(1.1); -o-transform: scale(1.1); -ms-transform: scale(1.1); }
 a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; margin: 20px 0 0 0 }
 .autor { color: #8c8d8d; line-height: 26px; padding-left: 15px }	
