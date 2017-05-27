@@ -33,6 +33,10 @@ $(function(){
 			window.location="../article/article?search="+$(this).val();
 		}
 	});
+	$("#searchImgButton").click(function(){
+		$(this).blur();
+		window.location="../article/article?search="+$(this).val();
+	});
 });
 function editMode(){
 			$.Alert({

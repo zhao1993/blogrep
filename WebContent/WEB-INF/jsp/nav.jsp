@@ -15,6 +15,7 @@
 	<a href="../about/about">关于</a>
 	<!-- <a href="../index/register">注册测试</a> -->
  	<input name="search_box"  placeholder="搜索文章" title="回车搜索" value="${search}" style="height:25px;margin:5px;"/>
+ 	<img id="searchImgButton" style="cursor:pointer;position: relative;left: 640px;top: -39px;" alt="搜索" src="../include/images/search.png"/>
  	<input id="hiddenSearch" value="${search}" type="hidden"/>
 </nav>
 <script type="text/javascript">

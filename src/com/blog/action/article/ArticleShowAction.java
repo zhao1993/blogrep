@@ -31,22 +31,20 @@ public class ArticleShowAction {
 			size = articleServiceImpl.getSizeBySearch(search);
 			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
 			articles = articleServiceImpl.getArticlesBySearch(search,(page-1)*pageSize, pageSize);
-			if(size==0){
-				size = articleServiceImpl.getSize();
-				totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
-				articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
-			}
-		}else{
-			size = articleServiceImpl.getSize();
-			totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
-			articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
-		}
+			if(size==0) doArticles();
+		}else
+			doArticles();
 		hotArticles = articleServiceImpl.getHotArticles();
 		newArticles = articleServiceImpl.getNewArticles();
 		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");
 		return "success";
 	}
-	
+	private void doArticles(){
+		search = null;
+		size = articleServiceImpl.getSize();
+		totalPage=size%pageSize==0?size/pageSize:size/pageSize+1;
+		articles = articleServiceImpl.getArticles((page-1)*pageSize, pageSize);
+	}
 	public String byType(){
 		Article article = articleServiceImpl.query(size);
 		size = articleServiceImpl.getSize(article.getType());
