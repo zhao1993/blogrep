@@ -8,6 +8,11 @@
  --><title>JavaScript Test</title>
 </head>
 <body>
+<p style="text-align:justify; text-justify:inter-ideograph;width:200px">阿达</p>
+<p style="text-align:justify; text-justify:inter-ideograph;">内是容</p>
+<p style="text-align:justify; text-justify:inter-ideograph;">内范德萨容</p>
+<p style="text-align:justify; text-justify:inter-ideograph;">内大洒店容</p>
+<p style="text-align:justify; text-justify:inter-ideograph;">阿萨德撒</p>
 <!-- UY BEGIN -->
 <input type="text" name="picname"/>
 <script type="text/javascript" src="include/js/jquery.min.js"></script>

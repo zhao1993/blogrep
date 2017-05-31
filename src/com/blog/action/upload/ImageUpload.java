@@ -16,7 +16,7 @@ public class ImageUpload extends BaseAction{
 	private String someContentType;
 	private String imagePath;
 	public String execute() throws Exception{
-		if(some.getTotalSpace()==0||some==null){
+		if(some==null || some.getTotalSpace()==0){
 			return "success";
 		}
 		String imageName = "file_"+System.currentTimeMillis()+someFileName.substring(someFileName.lastIndexOf("."));
