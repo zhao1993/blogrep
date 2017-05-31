@@ -19,6 +19,7 @@ public class ArticleShowAction {
 	private List<Article> hotArticles;
 	private List<Article> newArticles;
 	private List<Article> recommendArticles;
+	private List<String> types;
 	private int totalPage;
 	private int page=1;
 	private int pageSize;
@@ -34,6 +35,7 @@ public class ArticleShowAction {
 			if(size==0) doArticles();
 		}else
 			doArticles();
+		setTypes(articleServiceImpl.getHasArticleType());
 		hotArticles = articleServiceImpl.getHotArticles();
 		newArticles = articleServiceImpl.getNewArticles();
 		recommendArticles = articleServiceImpl.getArticlesByNotice("recommendArticles");
@@ -139,6 +141,12 @@ public class ArticleShowAction {
 	 */
 	public void setSearch(String search) {
 		this.search = search;
+	}
+	public List<String> getTypes() {
+		return types;
+	}
+	public void setTypes(List<String> types) {
+		this.types = types;
 	}
 	
 	

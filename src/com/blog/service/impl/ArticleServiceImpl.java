@@ -144,6 +144,15 @@ public class ArticleServiceImpl implements ArticleService {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setString("search", "%"+search+"%");
 		return new Integer(query.uniqueResult().toString());
+	}
+	/* (non-Javadoc)
+	 * @see com.blog.service.ArticleService#getHasArticleType()
+	 */
+	@Override
+	public List<String> getHasArticleType() {
+		String hql = "select article.type from Article as article group by article.type";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
 	}	
 	
 }

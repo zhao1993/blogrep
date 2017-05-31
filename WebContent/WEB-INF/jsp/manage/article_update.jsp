@@ -52,7 +52,19 @@
     		<tr>
 	    		<td>
 	    			<span>关键词:</span><input name="article.keywords" value="<s:property value="article.keywords"/>"style="width:90px"/>
-	    			<span>分类:</span><input name="article.type" value="<s:property value="article.type"/>"style="width:90px"/>
+	    			
+	    			<span>分类:</span>
+	    			<select name="article.type"  style="width:90px" id="atype">
+	    				<s:iterator value="types" var="type">
+	    				<s:if test="article.type==#type">
+	    				<option value="${type}" selected="selected">${type}</option>
+	    				</s:if>
+	    				<s:else>
+	    				<option value="<s:property/>"><s:property/></option>
+	    				</s:else>
+	    				</s:iterator>
+	    				</select>
+	    				<span>自定义分类:</span><input name="undefined"  style="width:90px" id="btype"/>
 	    			<span>设为推荐:</span>
 	    			<s:if test="#article.notice=='recommendArticles'">
 		    			<input name="article.notice" type="radio" value="1" checked/>是
@@ -121,6 +133,17 @@
   </aside>
     <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
+  <script type="text/javascript">
+  $('#btype').blur(function(){
+		 if( $(this).val()!="") {
+			 $(this).attr('name','article.type');
+			 $('#atype').attr('name','undefined');
+		 }else{
+			 $(this).attr('name','undefined');
+			 $('#atype').attr('name','article.type');
+		 }
+	  });
+  </script>
   <div class="clear"></div>
   <!-- 清除浮动 --> 
 </div>

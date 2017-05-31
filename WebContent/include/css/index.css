@@ -24,7 +24,7 @@
 .blogs figure:hover img { -moz-transform: scale(1.1); -webkit-transform: scale(1.1); -o-transform: scale(1.1); -ms-transform: scale(1.1); }
 .blogs ul { float: right; line-height: 20px; width: 72%; color: #474645; }
 .blogs ul:hover { cursor: pointer; }
-.autor { overflow: hidden; clear: both; margin: 10px 0 0 0; display: inline-block; line-height: 26px; height: 26px; color: #838383; background: #f6f6f6; width: 100% }
+.autor { overflow: hidden; clear: both; margin: 10px 0 0 0; display: inline-block; line-height: 26px; height: 26px; color: #838383; background: #f6f6f6; width: 95% }
 .autor span { margin: 0 10px; }
 .autor span a { color: #759b08; }
  a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; margin: 20px 0 0 0 }

@@ -46,7 +46,13 @@
 	    		<td>
     				<span>作者:</span><input name="article.editer"  style="width:90px"/>
 	    			<span>关键词:</span><input name="article.keywords"  style="width:90px"/>
-	    			<span>分类:</span><input name="article.type"  style="width:90px"/>
+	    			<span>分类:</span>
+	    				<select name="article.type"  style="width:90px" id="atype">
+	    				<s:iterator value="types">
+	    				<option value="<s:property/>"><s:property/></option>
+	    				</s:iterator>
+	    				</select>
+	    			<span>自定义分类:</span><input name="undefined"  style="width:90px" id="btype"/>
 	    			<span>设为推荐:</span>
 	    				<input name="article.notice" type="radio" value="1" />是
 		 				<input name="article.notice" type="radio" value="2" checked/>否
@@ -101,6 +107,17 @@
   </aside>
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
+  <script type="text/javascript">
+  $('#btype').blur(function(){
+	 if( $(this).val()!="") {
+		 $(this).attr('name','article.type');
+		 $('#atype').attr('name','undefined');
+	 }else{
+		 $(this).attr('name','undefined');
+		 $('#atype').attr('name','article.type');
+	 }
+  });
+  </script>
   <div class="clear"></div>
 </div>
 </body>

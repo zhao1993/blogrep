@@ -37,5 +37,7 @@ public interface ArticleService {
 	public List<Article> getArticlesBySearch(String search, int i, int pageSize);
 
 	public int getSizeBySearch(String search); 
+	
+	public List<String> getHasArticleType();
 
 }
