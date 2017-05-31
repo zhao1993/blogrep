@@ -15,9 +15,9 @@
 		<script type="text/javascript" >alert('aaaaaa');</script>
 		<script src="../include/js/modernizr.js"></script>
 		<![endif]-->
-</head>
-<body>
-	<div class="ibody">
+</head><%@ include file="openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
+	<div class="ibody" >
 		<header>
 		<h1>&nbsp;</h1><h2>&nbsp;</h2>
 		<div class="logo">

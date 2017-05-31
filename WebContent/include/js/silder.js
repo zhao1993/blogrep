@@ -1,3 +1,4 @@
+document.getElementById('MAIN_BODY').style.visibility = 'visible';
 var obj=null;
 var As=document.getElementById('topnav').getElementsByTagName('a');
 obj = As[0];

@@ -17,8 +17,8 @@
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>
 		<![endif]-->
-	</head>
-<body>
+	</head><%@ include file="../openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody">
   <header>
   <h1>&nbsp;</h1><h2>&nbsp;</h2>
@@ -108,6 +108,7 @@
   <script src="../include/js/jquery.min.js"></script>
   <script src="../include/js/silder.js"></script>
   <script type="text/javascript">
+  $.post('')
   $('#btype').blur(function(){
 	 if( $(this).val()!="") {
 		 $(this).attr('name','article.type');

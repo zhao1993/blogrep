@@ -12,9 +12,9 @@
 		<!--[if lt IE 9]>
 		<script src="js/modernizr.js"></script>
 		<![endif]-->
-	</head>
-<body>
-<div class="ibody">
+	</head><%@ include file="openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
+<div class="ibody" >
   <header>
   <h1>&nbsp;</h1><h2>&nbsp;</h2>
     <div class="logo"><a href="../index/index"></a></div>

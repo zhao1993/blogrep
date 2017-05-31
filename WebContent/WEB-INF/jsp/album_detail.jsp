@@ -25,8 +25,8 @@
 			#back{width:990px;height:300px;overflow:hidden;}
 			#back .gray{filter:Gray();}
 </style>
-	</head>
-<body>
+	</head><%@ include file="openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody">
   <header>
    <h1>&nbsp;</h1><h2>&nbsp;</h2>

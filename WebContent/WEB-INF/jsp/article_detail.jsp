@@ -12,9 +12,9 @@
 		<!--[if lt IE 9]>
 		<script src="../include/js/modernizr.js"></script>
 		<![endif]-->
-	</head>
-<body>
-<div class="ibody">
+	</head><%@ include file="openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
+<div class="ibody" >
   <header>
     <h1>扯你妈的蛋</h1>
     <h2>这世界唯一不变的就是变化...</h2>

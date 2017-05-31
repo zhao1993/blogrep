@@ -23,8 +23,8 @@
 		width:700px;
 		}
 		</style>
-</head>
-<body>
+</head><%@ include file="openjs.jsp" %>
+<body id="MAIN_BODY" style="visibility:hidden">
 	<div class="ibody">
 		<header>
 		<h1>&nbsp;</h1><h2>&nbsp;</h2>
