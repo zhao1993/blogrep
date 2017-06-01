@@ -38,30 +38,11 @@
 		<div id="kkpager"></div>
   		<h3>
         <p><span>到此一游</span></p>
-        <a href="#" target="_blank" class="more"></a>
       </h3>
        <form action="" method="post" id="critique_reply">
       	<input type="hidden" name= 'critique.type' value="LAM"/>
        <s:token/>
-      		<table>
-      			<c:if test="${empty loginUser}">
-      			<tr><span>请先<a onclick="loginAtag_u()" href="javascript:;">登录</a>或<a href="../index/register">注册</a></span></tr>
-      			</c:if>
-      			<c:if test="${not empty loginUser}">
-      			<input type="hidden" name='critique.id' value="${loginUser.id}"/>
-      			<tr>
-	    			<td><div style="width:70px;padding-bottom: 189px;">
-	    			<span>留言内容:</span></div></td>
-	    			<td><textarea name="critique.content" style ="height:200px; width:530px;" ></textarea>
-	    			<span></span></td>
-    			</tr>
-    			<tr>
-	    			<td></td>
-	    			<td><button  type="button" onclick="critiqueValidate()" >提交</button>
-	    			</td>
-    			</tr>
-    			</c:if>
-      		</table>
+         <%@ include file="reply.jsp" %> 
       </form>
      </div>
   </article>

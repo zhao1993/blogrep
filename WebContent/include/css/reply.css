@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+p,ul,li{margin: 0; padding: 0; list-style: none;}
+/* 评论框 */
+.comment{width: 100%;height: auto;margin-left: 30px;}
+.comment .head-face{width: 10%; height: 120px; float: left;}
+.comment .head-face img{width: 50px; height: 50px; border-radius: 50%;}
+.comment .head-face p{font-size: 12px; font-family: "微软雅黑";}
+.comment .content{width: 90%; height: 120px; float: right;}
+.cont-box{ width: 90%; height: 80px; border: 1px solid #999; border-top-left-radius: 5px;  border-top-right-radius: 5px; float: left;}
+.cont-box .text{ width: 96.5%; height: 86.9%; border-radius: 5px;   padding: 5px 10px; color: #999; font-family: "微软雅黑"; font-size: 12px; resize:none; border: none;  outline: none; float: left;}
+.tools-box{ width: 90%; height: 30px; border: 1px solid #999;  border-bottom-left-radius: 5px;  border-bottom-right-radius: 5px; float: left;border-top-width: 0px;}
+.tools-box .operator-box-btn{ width: 85%; height: 30px; float: left;  }
+.tools-box .operator-box-btn .face-icon{display: block; float: left; margin-top:-1px; margin-left: 10px; font-family: "微软雅黑"; font-size: 22px; color: #999;  cursor: pointer;}
+.tools-box .operator-box-btn .img-icon{display: block; float: left; margin-top:-11px; margin-left: 10px; font-family: "微软雅黑"; font-size: 33px; font-weight: lighter; color: #999; cursor: pointer;}
+.tools-box .submit-btn{ width: 15%; height: 30px; float: right; }
+.tools-box .submit-btn input{ width: 100%; height: 100%; font-family: "微软雅黑"; font-size: 14px; color: #fff; cursor: pointer; border: none; outline: none; background-color: #999;}
+/* 回复信息 */
+#info-show{float: left;  width: 100%; margin-top: 20px;}
+#info-show li{ width: 100%; height: auto; padding: 10px 0 20px 0; border-bottom: 1px dashed #c0c0c0; float: left;}
+#info-show .head-face{width: 10%;  float: left; text-align: center;}
+#info-show .head-face img{width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 0 8px #c0c0c0;}
+#info-show .reply-cont{ width: 89%; padding-right: 1%; float: right;}
+#info-show .reply-cont  p{ min-height: 20px; line-height: 20px;  font-family: "微软雅黑"; font-size: 14px;}
+#info-show .reply-cont .username{ color: #99cc66; margin-bottom: 5px;}
+#info-show .reply-cont .comment-body{ color: #999; max-height: auto;}
+#info-show .reply-cont .comment-footer{font-size: 12px; color: #c0c0c0; margin-top: 10px;}
+/**/
+.text { width: 99%; height: 60px; border: 1px solid #ccc }
+.com_form p { height: 28px; line-height: 28px; position: relative; margin-top: 10px; }
+span.emotion { width: 42px; height: 20px; padding-left: 20px; cursor: pointer }
+span.emotion:hover { background-position: 2px -28px }
+.qqFace { margin-top: 4px; background: #e3dadacc; padding: 2px; border: 1px #dfe6f6 solid; }
+.qqFace table td { padding: 0px; }
+.qqFace table td img { cursor: pointer; border: 1px #e3dadacc solid; }
+.qqFace table td img:hover {  border: 1px #080e0e80 solid;background-color: #fefefee6;}
+#show { width: 770px; margin: 20px auto; background: #fff; padding: 5px; border: 1px solid #DDD; vertical-align: top; }
+vertical-align: baseline; margin: 0 2px; outline: none; cursor: pointer; text-align: center; font: 14px/100% Arial, Helvetica, sans-serif; padding: .5em 2em .55em; text-shadow: 0 1px 1px rgba(0,0,0,.6); -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); box-shadow: 0 1px 2px rgba(0,0,0,.2); color: #e8f0de; border: solid 1px #538312; background: #64991e; background: -webkit-gradient(linear, left top, left bottom, from(#7db72f), to(#4e7d0e)); background: -moz-linear-gradient(top, #7db72f, #4e7d0e);  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+}
+}

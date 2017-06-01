@@ -88,7 +88,7 @@ function doRecursionCritique(critiques,poids){
 		//document
 		var critiqueElement = $('<dl></dl>');
 		critiqueElement.append($('<dt><img src="'+(c.user.headpic==null?"../include/images/s8.jpg":c.user.headpic)+'"/></dt>'));
-		critiqueElement.append($('<dd><a href="#">'+c.user.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.user.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+c.content+'</dd>'));
+		critiqueElement.append($('<dd><a href="#">'+c.user.name+'</a><time>'+(c.critique!=null?"回复 <a href='#'>"+c.critique.user.name+"</a>":'')+'&nbsp'+c.time+'</time></dd><dd>'+replace_em(c.content)+'</dd>'));
 		if($('input[name="blog_manager"]').val()){
 			critiqueElement.append($('<open-more></open-more><a href="javascript:;" onclick=deleteCritique('+c.id+') style="float:right">删除</a>'));
 		}else{
@@ -125,25 +125,6 @@ function doRecursionCritique(critiques,poids){
 		}
 	}
 }
-$('input[name="critique.name"],textarea[name="critique.content"]')
-.bind({
-	blur : function() {
-		if (!$(this).val()) {
-			$(this).next().text("×请输入内容！").css("color", "red");
-		}
-	},
-	focus : function() {
-		$(this).next().text("");
-	}
-});
-$('input[name="critique.notice"]').next().fadeOut("fast");
-$('input[name="critique.notice"]').on("keyup",function(){
-if (!$(this).val()) {
-$(this).next().fadeOut();
-}else{
-$(this).next().fadeIn();
-}
-});
 function critiqueValidate() {
 	if($('textarea[name="critique.content"]').val()){
 		$.post("../critique/critique_add",
@@ -154,11 +135,19 @@ function critiqueValidate() {
 			'critique.articleId':$('input[name="critique.articleId"]').val(),
 			'parentId':parentId
 			},
-		function(){
+			function(){
+				$('textarea[name="critique.content"]').val("");
 				window.location.reload();
 			});
 	} else {
 		$.Alert({title:"提示",content:"回复内容不能是空或者低于15字",confirmbtn:function(){}});
 		return false;
 	}
+}
+function replace_em(str){
+	str = str.replace(/\</g,'&lt;');
+	str = str.replace(/\>/g,'&gt;');
+	str = str.replace(/\n/g,'<br/>');
+	str = str.replace(/\[em_([0-9]*)\]/g,'<img style="display:inline;" src="../plugin/reply/arclist/$1.gif" border="0" />');
+	return str;
 }
