@@ -129,6 +129,7 @@ $(document).ready(function(){
 		}
 	});
 });
+$('header>h1:first').neonText(null);
 </script>
 		
 	</div>

@@ -1,8 +1,5 @@
-var DEBUG = true;// 开启打印信息
+var DEBUG = true;//开启打印信息
 (function($) {
-	$.fn.comment = function(){
-		var mt = 'CommentsPlugin';
-	},
 	$.extend({
 			LableWaterFall:function(options){
 				options = $.extend({
