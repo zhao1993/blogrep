@@ -101,21 +101,6 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; 								//1-9开头 5-11位数字组合
 			});
 			if(flag==0){
 				return true;
-				/* $.Alert({
-					title:'注册信息',
-					content:'您的注册信息如下请确认:',
-					contextmenu:false,
-					custom:$("<div><span class='pl_n'>使用头像：<dt><img src='"+$('img[name="headpic"]').attr('src')+
-							"' /></dt></br></br></span></br>" +
-							"<span>账号："+$('input[name="account"]').val()+
-							"</span></br><span>密码："+$('input[name="password"]').val()+
-							"</span></br><span>用户组名："+$('input[name="name"]').val()+
-							"</span></br><span>联系方式："+$('select[name="contactway"]').val()+"-->"+$('input[name="contact"]').val()+"</div>"),
-					confirmbtn:function(){
-						$(form).submit();
-					},
-					canclebtn:true
-				});*/
 			}
 			return false;
 		});

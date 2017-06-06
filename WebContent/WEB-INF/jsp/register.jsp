@@ -51,12 +51,12 @@
       			</tr>
       			<tr>
       				<td>账&nbsp;&nbsp;号:</td>
-      				<td ><input name="user.account" class="loginInput" aria-rule="^[a-zA-Z]\w{5,11}$" aria-err="账号以字母开头，长度在6-12位之间，只能包含字符、数字和下划线"/></td>
+      				<td ><input name="user.account" class="loginInput" aria-rule="^[a-zA-Z]\w{5,11}$" aria-err="要求字母开头，6-12位字符、数字和下划线"/></td>
       				<td><span></span><span></span></td>
       			</tr>
       			<tr>
       				<td>密&nbsp;&nbsp;码:</td>
-      				<td ><input name="user.password" class="loginInput" aria-rule="^[a-zA-Z]\w{5,9}$" aria-err="密码以字母开头，长度在6-10位之间，只能包含字符、数字和下划线"/></td>
+      				<td ><input name="user.password" class="loginInput" aria-rule="^[a-zA-Z]\w{5,9}$" aria-err="要求字母开头，6-10位字符、数字和下划线"/></td>
       				<td><span></span><span></span></td>
       			</tr>
       			
