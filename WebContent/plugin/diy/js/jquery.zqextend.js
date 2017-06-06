@@ -1,35 +1,6 @@
 var DEBUG = true;//开启打印信息
 (function($) {
 	$.extend({
-			LableWaterFall:function(options){
-				options = $.extend({
-					"width":"200px",
-					"margin":"10px"
-				},options);
-				var wfDiv = $(".waterfallview");
-				wfDiv.width(options.width);
-				var totalwidth = 0;
-				for(var i = 0;i<wfDiv.length;i+=1){
-					//得到所有的子元素
-					links = $(wfDiv[i]).find("a");
-					var j = 0;
-					for(;j<links.length;){
-						var doc = $(links[j]);
-						//生成新的元素
-						var a = $("<a class='waterfallviewlink "+doc.attr('class')+"' title='"+doc.attr('title')+"' href='"+doc.attr('href')+"'>"+doc.text()+"</a>");
-						//元素追加到指定的Div
-						var aDiv = $("<div></div>");
-						aDiv.append(a);
-						wfDiv.append(aDiv);
-						$.println($(a).width()+1);
-						j+=1;
-					}
-			}
-				$(wfDiv).find("div").css({'margin-left':'1em','float':'left'});
-				$(".waterfallviewlink").css({'color':'rgba(216,216,216,1)'});
-				$(".waterfallviewlink").hover(function(){$(this).css('color','rgba(255,255,255,1)');},
-						function(){$(this).css('color','rgba(216,216,216,1)');});
-			},
 				FilList : function() {
 					var bgColor = 'rgba(195,195,195,.6)';
 					var hoverBgColor = 'rgba(185,185,185,.9)';
