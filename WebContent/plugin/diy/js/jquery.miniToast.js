@@ -35,22 +35,24 @@
             }
             toastBG.css({
                 'user-select': 'none',
+                '-moz-user-select': 'none',
                 'z-index':9999,
                 'font-size':options.fontSize,
+                'text-align':'center',
                 color:options.fColor,
                 background: options.bgColor,
                 'box-shadow':'1px 1px 3px '+options.bgColor,
-                width: '15em',
+                width: '10em',
                 height: 'auto',
                 position: 'absolute',
                 top: '100px',
                 left: '100px',
-                opacity:'0.7',
+                opacity:'0.9',
                 'border-radius':'5px',
                 padding: '1em'
             }).fadeIn(136);
             if(options.displayTime == 'auto'){
-                options.displayTime = parseInt(options.showMsg.length*toastBG.fontSize()/ toastBG.width() *2000);
+                options.displayTime = parseInt(options.showMsg.length*toastBG.fontSize()/ toastBG.width() *1000);
             }
             setTimeout(function(){
                 toastBG.fadeOut(212,function(){

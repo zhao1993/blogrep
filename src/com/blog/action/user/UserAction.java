@@ -1,15 +1,10 @@
 package com.blog.action.user;
 
 import java.sql.Date;
-import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
 import com.blog.BaseAction;
-import com.blog.entity.Manager;
 import com.blog.entity.User;
 import com.blog.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -54,14 +49,17 @@ public class UserAction extends BaseAction{
 	}
 	public String Login() throws Exception{
 		User userl = userServiceImpl.query(user.getAccount());
-		if(userl.getPassword().equals(user.getPassword())){
+		setInformation("false");
+		if(user.getPassword().equals(userl!=null?userl.getPassword():"")){
 			ActionContext.getContext().getSession().put("loginUser", userl);
+			setInformation("true");
 		}
 		return "success";
 	}
 	public String LoginOut() throws Exception{
 		if(null!=ActionContext.getContext().getSession().get("loginUser"))
 			ActionContext.getContext().getSession().remove("loginUser");
+		setInformation("退出登录状态！");
 		return "success";
 	}
 	public User getUser() {

@@ -540,29 +540,6 @@ var DEBUG = true;//开启打印信息
 						alert(e);
 					}
 				},
-				/**
-				 * 一个参数 返回0-min（不含min）之间的 整数
-				 * 两个参数 返回min-max之间（包含max）的随机整数。
-				 * 三个参数 返回min-max之间（包含max）的随机整数 但不包含excepts内(可以是数字和数字数组)的数字
-				 * */
-				Random : function(min,max,excepts){
-					if(typeof max !='number'){
-						return parseInt(Math.random()*min);
-					}
-					if(min>max){var omax = max;max = min;min = omax;}
-					var val = parseInt(Math.random()*(max-min+1))+min;
-					if(typeof excepts == 'number' && excepts==val){
-						return $.Random(min,max,excepts);
-					}
-					if(null!=excepts && excepts.length>0){
-						for(var i=0;i<excepts.length;i+=1){
-							if(excepts[i]==val){
-								return $.Random(min,max,excepts);
-							}
-						}
-					}
-					return val;
-				},
 				inputval : null,
 			});
 })(jQuery);
