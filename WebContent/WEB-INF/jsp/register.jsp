@@ -22,6 +22,17 @@
 		font-size:16pt;
 		width:700px;
 		}
+		.registerDiv{
+		-moz-animation-name:key1;
+		-moz-animation-duration:10s;
+		-moz-animation-iteration-count:infinite;
+		-moz-animation-timing-function:linear;
+		}
+		@-moz-keyframes key1{
+			0%{background:red}
+			50%{background:yellow}
+			100%{background:red}
+		}
 		</style>
 </head><%@ include file="openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
@@ -45,25 +56,25 @@
       				<td><span></span><span></span></td>
       			</tr>
       			<tr>
-      				<td  title="请输入用户名">用 户  名:</td>
+      				<td >用 户  名:</td>
       				<td ><input  name="user.name" class="loginInput" title="请输入用户名" aria-rule="^[\u4e00-\u9fa5A-Za-z0-9-_]{2,8}$" aria-err="用户名只能是2-8位中英文或数字或下划线"/></td>
       				<td><span></span><span></span></td>
       			</tr>
       			<tr>
       				<td>账&nbsp;&nbsp;号:</td>
-      				<td ><input name="user.account" class="loginInput" aria-rule="^[a-zA-Z]\w{5,11}$" aria-err="要求字母开头，6-12位字符、数字和下划线"/></td>
+      				<td ><input name="user.account" class="loginInput" title="请输入账号" aria-rule="^[a-zA-Z]\w{5,11}$" aria-err="要求字母开头，6-12位字符、数字和下划线"/></td>
       				<td><span></span><span></span></td>
       			</tr>
       			<tr>
       				<td>密&nbsp;&nbsp;码:</td>
-      				<td ><input name="user.password" class="loginInput" aria-rule="^[a-zA-Z]\w{5,9}$" aria-err="要求字母开头，6-10位字符、数字和下划线"/></td>
+      				<td ><input name="user.password" class="loginInput" title="请输入密码" aria-rule="^[a-zA-Z]\w{5,9}$" aria-err="要求字母开头，6-10位字符、数字和下划线"/></td>
       				<td><span></span><span></span></td>
       			</tr>
       			
       			<tr>
       				<td>联系途径:</td>
       				<td>
-      				<select name="contactway" >
+      				<select name="contactway" title="请输入联系方式">
       				<option value="QQ">QQ</option>
       				<option value="EMAIL">邮箱</option>
       				<option value="PHONE">电话</option>
@@ -74,7 +85,7 @@
       			</tr>
       			<tr>
       				<td>验证码:</td>
-                    <td style="width:70px"><input name="imageCode" type="text"  class="loginInput"  style="width:98px;"/><img src="../manage/imageCode.action" onclick="change(this)" alt="验证码" title="点击更换" style="float:right;"/></td>
+                    <td style="width:70px"><input name="imageCode" type="text"  title="请输入验证码" class="loginInput"  style="width:98px;"/><img src="../manage/imageCode.action" onclick="change(this)" alt="验证码" title="点击更换" style="float:right;"/></td>
       				<td><span><s:property value="errorMsg"/></span></td> 
       			</tr>
       			<tr>
@@ -133,12 +144,11 @@
 		<script type="text/javascript">
 			function change(img){img.src = "../manage/imageCode.action?date="+new Date().getTime();}
 			(function(){
-			 	$("register_form > input").tooltip(); 
 			  	$('dd').filter(':nth-child(n+4)').addClass('hide');
 				  $('dl').on('click', 'dt', function() {
 		 		 $(this).next().slideToggle(300);
 			});
-	 })(); 
+	 	})(); 
 </script>
 	</div>
 </body>
