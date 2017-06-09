@@ -18,7 +18,7 @@
                 max:5,
                 mode:0
             },args);
-            var id = $(this).attr('id');
+            var contrainer = $(this);
             //获取容器的文本内容并且拆分
             var arr = $(this).mSplit(options.min,options.max);
             //根据基数和偏移量返回一个随机数
@@ -31,7 +31,7 @@
             $(this).html('').css({'opacity':1});
             //普通追加
             $(arr).each(function(index,span){
-                $('#'+id).append(span);
+            	contrainer.append(span);
                 span.css({'opacity':0,'position':'relative'});
             });
             $(arr).each(function(index,span){
@@ -44,7 +44,7 @@
                     case 2:span.css({top: '-'+cRand(1566,56)+'px'}).animate({opacity:1,top:0},index*56); break;
                     //雨水坠落效果3
                     case 3:span.css({top:'-'+cRand(1566,56)+'px'}).animate({opacity:1,top:0},cRand(1200,1800)+index*26); break;
-                    //文字乱入效果4
+                    //文字飞入效果4
                     case 4:span.css({top: mRand(106,186)+'px',left:mRand(186,56)+'px'}).animate({opacity:1,top:0,left:0},cRand(1000,1500));break;
                     //默认0
                     default :span.animate({top:0},index*66,function(){span.css('opacity',1);});

@@ -111,6 +111,7 @@
 		<div class="clear"></div>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript" src="../plugin/kkpager/kkpager.min.js"></script>
+		<script type="text/javascript" src="../plugin/diy/js/jquery.teff.js"></script>
 		<script type="text/javascript">
 //init
 $(document).ready(function(){
@@ -128,6 +129,10 @@ $(document).ready(function(){
 			return this.hrefFormer + this.hrefLatter + "?page="+n;
 		}
 	});
+});
+//为每一个p标签执行文本显示效果
+$('.texts > li > p').each(function(){
+	$(this).dropWord({min:1,max:1,mode:parseInt(Math.random()*5)});	
 });
 </script>
 		
