@@ -42,6 +42,14 @@ var qqnumberRule = /^[1-9]\d{4,10}$/; 								//1-9开头 5-11位数字组合
 		//表单事件绑定（编辑时触发验证）
 		$(form).find('input').bind('blur',function(){
 			formCheck($(this));
+			$(this).parent().next().each(function(){
+				//依赖jquery.teff.js
+				try{
+					$(this).find('span:eq(1)').dropWord({min:1,max:1});					
+				}catch(e){
+					console.err(e);
+				}
+			});
 		});
 		var accExist = false;
 		var nameExist = false;

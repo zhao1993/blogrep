@@ -4,7 +4,7 @@
 <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 <script type="text/javascript" src="../plugin/diy/js/jquery.miniToast.js"></script>
 <span style="font-size:16px ;float:right;border-top-left-radius: 2em;background-color: #7A7A7A;position: relative;top: -2em;padding: 1em;">
-	<c:if test="${empty loginUser}"><a onclick="loginAtag_u()" href="javascript:;">登录</a>&nbsp;&nbsp;<a href="../index/register">注册</a></c:if>
+	<c:if test="${empty loginUser}"><a onclick="loginAtag_u()" href="javascript:;">登录</a>&nbsp;&nbsp;<a onclick="window.location='../index/register'" href="javascript:;">注册</a></c:if>
  <c:if test="${not empty loginUser}"><a class="pl_n" onclick="userAtag(${loginUser.id})" href="javascript:;" ><dt><img src="${loginUser.headpic}" title="${loginUser.name}"/></dt></a></c:if>
  </span>
 <nav id="topnav">
@@ -26,14 +26,19 @@
 				title:'用户登录',
 				custom:$('<div>账号:<input name="u_act" type="text"  /><br/>密码:<input name="u_pwd" type="password"  /></div>'),
 				confirmbtn:function(){
-					$.post('../user/login?user.account='+$('input[name="u_act"]').val()+'&user.password='+$('input[name="u_pwd"]').val(),
-					function(info){
-						if(info=='true'){
-						window.location.reload();							
-						}else{
-							$.Toast({showMsg:'登录验证失败!<br/>请检查用户名或密码!'});
-						}
-					});
+					$.ajax({
+						type:'post',
+						url:'../user/login?user.account='+$('input[name="u_act"]').val()+'&user.password='+$('input[name="u_pwd"]').val(),
+						success:function(info){
+							if(info=='true'){
+							$.Toast({showMsg:'登录成功'});
+							window.location.reload();
+							}else{
+								$.Toast({showMsg:'登录验证失败!<br/>请检查用户名或密码!'});
+							}
+						},
+						async:false
+					})
 				},
 				confirmmsg:'登录',
 				canclebtn:true
@@ -56,7 +61,7 @@
 							$.post('../user/loginOut',
 							function(){
 								$.Toast({showMsg:'退出登录状态!'});
-								setTimeout(function(){window.location.reload();}, 1000) ;
+								setTimeout(function(){window.location.reload();}, 800) ;
 							});
 						}
 					});

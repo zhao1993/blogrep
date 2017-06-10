@@ -19,6 +19,7 @@
                 mode:0
             },args);
             var contrainer = $(this);
+            console.dir(contrainer);
             //获取容器的文本内容并且拆分
             var arr = $(this).mSplit(options.min,options.max);
             //根据基数和偏移量返回一个随机数

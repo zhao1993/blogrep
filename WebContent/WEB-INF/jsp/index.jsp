@@ -135,7 +135,7 @@ $('.texts > li > p').each(function(){
 	$(this).dropWord({min:1,max:1,mode:parseInt(Math.random()*5)});	
 });
 </script>
-		
+		<s:debug/>
 	</div>
 </body>
 </html>

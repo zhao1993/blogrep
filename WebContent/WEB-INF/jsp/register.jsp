@@ -17,21 +17,10 @@
 <!--[if IE 8]>
 		<script src="../include/js/modernizr.js"></script>
 		<![endif]-->
-		<style>
+	<style>
 		.registerDiv{
 		font-size:16pt;
 		width:700px;
-		}
-		.registerDiv{
-		-moz-animation-name:key1;
-		-moz-animation-duration:10s;
-		-moz-animation-iteration-count:infinite;
-		-moz-animation-timing-function:linear;
-		}
-		@-moz-keyframes key1{
-			0%{background:red}
-			50%{background:yellow}
-			100%{background:red}
 		}
 		</style>
 </head><%@ include file="openjs.jsp" %>
@@ -140,6 +129,7 @@
 		<div class="clear"></div>
 		<script type="text/javascript" src="../include/js/silder.js"></script>
 		<script type="text/javascript" src="../plugin/jquery-ui/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../plugin/diy/js/jquery.teff.js"></script>
 		<script type="text/javascript" src="../include/js/register.js"></script>
 		<script type="text/javascript">
 			function change(img){img.src = "../manage/imageCode.action?date="+new Date().getTime();}
