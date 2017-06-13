@@ -12,63 +12,6 @@
 <link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-		<script language="JavaScript" type="text/javascript">
-		var NV = {};  
-		var UA = navigator.userAgent.toLowerCase();  
-		try  
-		{  
-		    NV.name=!-[1,]?'ie':  
-		    (UA.indexOf("firefox")>0)?'firefox':  
-		    (UA.indexOf("chrome")>0)?'chrome':  
-		    window.opera?'opera':  
-		    window.openDatabase?'safari':  
-		    'unkonw';  
-		}catch(e){
-			
-		};  
-		try  
-		{  
-		    NV.version=(NV.name=='ie')?UA.match(/msie ([\d.]+)/)[1]:  
-		    (NV.name=='firefox')?UA.match(/firefox\/([\d.]+)/)[1]:  
-		    (NV.name=='chrome')?UA.match(/chrome\/([\d.]+)/)[1]:  
-		    (NV.name=='opera')?UA.match(/opera.([\d.]+)/)[1]:  
-		    (NV.name=='safari')?UA.match(/version\/([\d.]+)/)[1]:  
-		    '0';  
-		}catch(e){};  
-		try  
-		{  
-		    NV.shell=(UA.indexOf('360ee')>-1)?'360极速浏览器':  
-		    (UA.indexOf('360se')>-1)?'360安全浏览器':  
-		    (UA.indexOf('se')>-1)?'搜狗浏览器':  
-		    (UA.indexOf('aoyou')>-1)?'遨游浏览器':  
-		    (UA.indexOf('theworld')>-1)?'世界之窗浏览器':  
-		    (UA.indexOf('worldchrome')>-1)?'世界之窗极速浏览器':  
-		    (UA.indexOf('greenbrowser')>-1)?'绿色浏览器':  
-		    (UA.indexOf('qqbrowser')>-1)?'QQ浏览器':  
-		    (UA.indexOf('baidu')>-1)?'百度浏览器':  
-		    '未知或无壳';  
-		}catch(e){}  
-		alert('浏览器UA='+UA+  
-		'\n\n浏览器名称='+NV.name+  
-		'\n\n浏览器版本='+parseInt(NV.version)+  
-		'\n\n浏览器外壳='+NV.shell);  
-	  
-		(function(window) {
-		    var theUA = window.navigator.userAgent.toLowerCase();
-		    if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
-		        var ieVersion = theUA.match(/msie\s\d+/)[0].match(/\d+/)[0] || theUA.match(/trident\s?\d+/)[0];
-		        if (ieVersion < 9) {
-		            var str = "你的浏览器版本太low了\n已经和时代脱轨了 :(";
-		            var str2 = "推荐使用:<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:#cc0'>谷歌</a>,"
-		            + "<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:#cc0'>火狐</a>,"
-		            + "<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E7%8C%8E%E8%B1%B9%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:#cc0'>猎豹</a>,其他双核急速模式";
-		            document.writeln("<pre style='text-align:center;color:#fff;background-color:#0cc; height:100%;border:0;position:fixed;top:0;left:0;width:100%;z-index:1234'>" + 
-		            "<h2 style='padding-top:200px;margin:0'><strong>" + str + "<br/></strong></h2><p>" + 
-		            str2 + "</p><h2 style='margin:0'><strong>如果你的使用的是双核浏览器,请切换到极速模式访问<br/></strong></h2></pre>");
-		            document.execCommand("Stop");
-		        };
-		    }
-		})(window);
 </script>
 		
 </head><%@ include file="openjs.jsp" %>

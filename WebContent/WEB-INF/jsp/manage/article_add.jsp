@@ -14,9 +14,7 @@
 			input {border:1px solid;border-color:green;}
 			span {color:#099;}
 		</style>
-		<!--[if lt IE 9]>
-		<script src="../include/js/modernizr.js"></script>
-		<![endif]-->
+		
 	</head><%@ include file="../openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody">

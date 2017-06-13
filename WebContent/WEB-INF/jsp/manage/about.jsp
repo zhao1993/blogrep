@@ -11,9 +11,7 @@
 		
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
-		<!--[if lt IE 9]>
-		<script src="../include/js/modernizr.js"></script>
-		<![endif]-->
+		
 	</head><%@ include file="../openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody" >

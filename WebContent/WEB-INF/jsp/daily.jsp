@@ -10,9 +10,7 @@
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<link href="../plugin/kkpager/kkpager_blue.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
-		<!--[if lt IE 9]>
-		<script src="../include/js/modernizr.js"></script>
-		<![endif]-->
+		
 	</head><%@ include file="openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody" >

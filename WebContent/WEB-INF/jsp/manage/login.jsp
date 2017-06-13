@@ -13,9 +13,6 @@
     			img.src = "imageCode.action?date="+new Date().getTime();
     		}
     	</script>
-		<!--[if lt IE 9]>
-		<script src="js/modernizr.js"></script>
-		<![endif]-->
 	</head><%@ include file="../openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody" >

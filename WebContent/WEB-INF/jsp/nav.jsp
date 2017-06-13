@@ -1,6 +1,5 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script type="text/javascript" src="../include/js/jquery.min.js"></script>
 <script type="text/javascript" src="../plugin/diy/js/jquery.zqextend.js"></script>
 <script type="text/javascript" src="../plugin/diy/js/jquery.miniToast.js"></script>
 <span style="font-size:16px ;float:right;border-top-left-radius: 2em;background-color: #7A7A7A;position: relative;top: -2em;padding: 1em;">

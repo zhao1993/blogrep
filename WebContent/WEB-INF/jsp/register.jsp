@@ -14,9 +14,7 @@
 <link href="../plugin/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<!--[if IE 8]>
-		<script src="../include/js/modernizr.js"></script>
-		<![endif]-->
+
 	<style>
 		.registerDiv{
 		font-size:16pt;

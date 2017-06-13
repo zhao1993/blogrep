@@ -1,4 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
+<script type="text/javascript" src="../include/js/jquery.min.js"></script>
+<!--[if lt IE 9]><script>window.location='../update-browser.html'</script><![endif]-->
 <div id="openYourJs" style="font-size:20px;color:red;visibility:visible">
 <center>
 <p>提示:</p>

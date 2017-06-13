@@ -10,9 +10,6 @@
 		<link href="../include/css/style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../include/js/modernizr.custom.53451.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0"/>
-		<!--[if lt IE 9]>
-		<script src="../include/js/modernizr.js"></script>
-		<![endif]-->
 		<style type="text/css">
 			*{margin:0;padding:0;list-style-type:none;}
 			a,img{border:0;}
