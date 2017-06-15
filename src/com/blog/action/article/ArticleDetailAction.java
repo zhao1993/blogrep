@@ -2,22 +2,20 @@ package com.blog.action.article;
 
 
 import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
 import com.blog.entity.Article;
 import com.blog.service.ArticleService;
 
 
-@Controller@Scope("prototype")
+@Controller
+@Scope("prototype")
 public class ArticleDetailAction {
 	@Resource ArticleService articleServiceImpl;
 	private Integer id;
 	private Article article;
 	private Article articleBefore;
 	private Article articleAfter;
-	
 	public String execute(){
 		articleBefore = articleServiceImpl.queryBefore(id);
 		articleAfter = articleServiceImpl.queryAfter(id);

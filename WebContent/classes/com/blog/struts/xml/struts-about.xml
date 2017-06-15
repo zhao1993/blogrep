@@ -7,5 +7,11 @@
 		<action name="about" class="meShowAction">
 			<result name="success">/WEB-INF/jsp/about.jsp</result>
 		</action>
+		<action name="contact" class="meShowAction">
+			<result name="success">/WEB-INF/jsp/contact.jsp</result>
+		</action>
+		<action name="submitcontact" class="meShowAction" method="suggest">
+			<result name="success" type="redirectAction">contact</result>
+		</action>
 	</package>
 </struts>

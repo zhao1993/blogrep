@@ -17,6 +17,7 @@ public class AlbumDetailAction {
 	private Set<Photo> photos;
 	private Album album;
 	private Integer id;
+	@SuppressWarnings("unchecked")
 	public String execute(){
 		album = albumServiceImpl.query(id);
 		photos = album.getPhotos();

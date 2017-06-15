@@ -1,5 +1,5 @@
 <%@page pageEncoding="UTF-8"%>
-    <div class="avatar"><a href="#"><span>关于我</span></a></div>
+    <div class="avatar"><a href="../about/contact"><span>联系我</span></a></div>
     <div class="topspaceinfo">
       <h1>预留</h1>
       <p>预留</p>

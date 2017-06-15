@@ -17,8 +17,7 @@
      <!-- 默认的视图主题 -->
     <constant name="struts.ui.theme" value="simple" />
     <constant name="struts.objectFactory" value="spring" />
-  
-    <include file="com/blog/struts/xml/struts-article.xml"></include>
+  	<include file="com/blog/struts/xml/struts-article.xml"></include>
     <include file="com/blog/struts/xml/struts-index.xml"></include>
     <include file="com/blog/struts/xml/struts-about.xml"></include>
     <include file="com/blog/struts/xml/struts-album.xml"></include>

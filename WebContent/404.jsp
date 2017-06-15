@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page isErrorPage="true" import="java.io.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +23,7 @@ li:nth-child(1)+li ~ li{position: relative; left: 100px;}
 <li>温馨提示：</li>
 <li>1.请检查您访问的网址是否正确</li>
 <li>2.您还可以直接返回<a href='index/index'>网站首页</a></li>
-<li>3.其他相关问题可以<a href=''>联系作者</a></li>
+<li>3.其他相关问题可以<a href='about/contact'>联系作者</a></li>
 </ol>
 
 </div>

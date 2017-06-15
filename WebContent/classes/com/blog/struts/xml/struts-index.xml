@@ -4,6 +4,12 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
 	<package name="index" namespace="/index" extends="json-default">
+	<!-- <global-results> 
+	<result name="commonErrorPage">/404.jsp</result> 
+	</global-results> 
+	<global-exception-mappings> 
+	<exception-mapping name="commonErrorPage" exception="java.lang.Exception" result="commonErrorPage"/>
+	 </global-exception-mappings>  -->
 		<!-- <action name="index" class="articleShowAction">
 			<param name="pageSize">5</param>
 			<result name="success" type="chain">critique</result>

@@ -163,7 +163,7 @@ var DEBUG = true;//开启打印信息
 						// 提示内容
 						var _body = $("<div class='zqdbyc zqalert-bgdiv-body'></div>");
 						// 提示输入框
-						var inputs = $("<input class='zqdbyc zqalert-bgdiv-body-input'></input>");
+						var inputs = $("<input class='zqdbyc zqalert-bgdiv-body-input' type='text'></input>");
 						// 底部按钮div
 						var footer = $("<div class='zqdbyc zqalert-bgdiv-footer'></div>");
 						// 确定与取消按钮
@@ -428,6 +428,7 @@ var DEBUG = true;//开启打印信息
 							'width' : '320px',
 							'height' : '18px'
 						});
+						$(_body).find('input').css('border','1px solid #985595');
 						$(footer).css({
 							'background-color' : 'rgba(255,255,255,.8)',
 							'height' : '30px'
