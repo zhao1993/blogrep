@@ -1,10 +1,10 @@
 <%@page pageEncoding="UTF-8"%>
 <link href="../include/css/reply.css" rel="stylesheet"/>
 <c:if test="${empty loginUser}">
-<span>发表评论前请先[<a onclick="loginAtag_u()" href="javascript:;">登录</a>]或[<a href="../index/register">注册</a>]</span>
+<span class='reply-span'>发表评论前请先[<a onclick="loginAtag_u()" href="javascript:;">登录</a>]或[<a href="../index/register">注册</a>]</span>
 </c:if>
 <c:if test="${not empty loginUser}">
-<input type="hidden" name='critique.id' value="${loginUser.id}"/>
+<input class='reply-span' type="hidden" name='critique.id' value="${loginUser.id}"/>
 		<div class="comment">
 			<div class="head-face">
 				<img src="${loginUser.headpic}" /><span style="color:yellowgreen">${loginUser.name}</span>
@@ -29,5 +29,6 @@ $(function(){
 		path:'../plugin/reply/arclist/'	//表情存放的路径
 	});
 });
+$('.reply-span').parent().css('margin-bottom','100px');
 </script>
 

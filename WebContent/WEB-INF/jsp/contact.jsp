@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>关于我</title>
+		<title>联系我</title>
 		<link href="../include/css/base.css" rel="stylesheet"/>
 		<link href="../include/css/about.css" rel="stylesheet"/>
 		<link href="../include/css/style.css" rel="stylesheet"/>
@@ -17,7 +17,7 @@
 	</head><%@ include file="openjs.jsp" %>
 <body id="MAIN_BODY" style="visibility:hidden">
 <div class="ibody" >
-  <header>
+  <header> 
    <h1>&nbsp;</h1><h2>&nbsp;</h2>
     <div class="logo"><a href="../index/index"></a></div>
   <%@ include file="nav.jsp" %> 

@@ -28,6 +28,9 @@
 </style>
 <body>
 
+
+<span><input type='text' style='width:200px'/></span>
+<!-- 
 <div class='gearCircle'>
 <span></span>
 <span></span>
@@ -51,6 +54,6 @@
 <span></span>
 <span></span>
 <span></span>
-</div>
+</div> -->
 </body>
 </html>

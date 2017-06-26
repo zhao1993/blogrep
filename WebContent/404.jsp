@@ -19,13 +19,12 @@ li:nth-child(1)+li ~ li{position: relative; left: 100px;}
 <div id='bg'>
 <img src="${pageContext.request.contextPath}/include/images/errImg.jpg" alt='404'/>
 <ol>
-<li>很抱歉，您想访问的页面不存在！</li>
-<li>温馨提示：</li>
-<li>1.请检查您访问的网址是否正确</li>
-<li>2.您还可以直接返回<a href='index/index'>网站首页</a></li>
-<li>3.其他相关问题可以<a href='about/contact'>联系作者</a></li>
+	<li>很抱歉，您想访问的页面不存在！</li>
+	<li>温馨提示：</li>
+	<li>1.请检查您访问的网址是否正确</li>
+	<li>2.您还可以直接返回<a href='index.jsp'>网站首页</a></li>
+	<li>3.其他相关问题可以<a href='../about/contact'>联系作者</a></li>
 </ol>
-
 </div>
 </body>
 </html>

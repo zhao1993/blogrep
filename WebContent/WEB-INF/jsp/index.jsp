@@ -131,7 +131,7 @@ $(document).ready(function(){
 });
 //为每一个p标签执行文本显示效果
 $('.texts > li > p').each(function(){
-	$(this).dropWord({min:1,max:1,mode:parseInt(Math.random()*5)});	
+	$(this).dropWord({min:1,max:1,mode:2});	
 });
 </script>
 		<s:debug/>
